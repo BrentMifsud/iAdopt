@@ -11,4 +11,6 @@ TBD
 
 ## Credits
 
-TBD
+Pet adoption listings are provided by: 
+
+[![Get Your Pet](/iAdopt/Assets.xcassets/GetYourPetLogo.imageset/GetYourPet.png)](https://getyourpet.com)
