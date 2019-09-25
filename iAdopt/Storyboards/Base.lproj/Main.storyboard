@@ -1,24 +1,128 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Home Page View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="BYZ-38-t0r" userLabel="Home Page View Controller" customClass="HomePageViewController" customModule="iAdopt" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cat-and-dog" translatesAutoresizingMaskIntoConstraints="NO" id="dyF-ot-vpB">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
+                            <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KeS-4c-wq3">
+                                <rect key="frame" x="149.66666666666666" y="742" width="114.99999999999997" height="60"/>
+                                <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="115" id="dES-sl-cY7"/>
+                                    <constraint firstAttribute="height" constant="60" id="yH8-dv-0w1"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Begin">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="30"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="beginButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CBB-Jm-fLt"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Are You Ready To Meet Your New Best Friend?" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="W9w-YT-ZlJ">
+                                <rect key="frame" x="20" y="44" width="374" height="74"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                                <size key="shadowOffset" width="2" height="-1"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="dyF-ot-vpB" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="3Lt-vB-x1l"/>
+                            <constraint firstItem="W9w-YT-ZlJ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="8I1-2k-UdC"/>
+                            <constraint firstItem="W9w-YT-ZlJ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="Cjf-x1-QwY"/>
+                            <constraint firstAttribute="trailing" secondItem="dyF-ot-vpB" secondAttribute="trailing" id="G8I-9A-d1z"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="KeS-4c-wq3" secondAttribute="bottom" constant="60" id="Say-1G-ZSh"/>
+                            <constraint firstItem="dyF-ot-vpB" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="TRe-bh-qA5"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="W9w-YT-ZlJ" secondAttribute="trailing" constant="20" id="WAb-YM-2HL"/>
+                            <constraint firstAttribute="bottom" secondItem="dyF-ot-vpB" secondAttribute="bottom" id="wzm-du-7Vx"/>
+                            <constraint firstItem="KeS-4c-wq3" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="yAL-s3-cia"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <segue destination="HWB-oU-Jxy" kind="show" identifier="showSearchView" id="V6b-5F-wcV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="131.8840579710145" y="129.91071428571428"/>
+        </scene>
+        <!--Pet Favorites View Controller-->
+        <scene sceneID="lzc-O2-sLF">
+            <objects>
+                <viewController id="lTj-d7-ZlF" userLabel="Pet Favorites View Controller" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="LPT-6R-VVx">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="LDA-AA-mp4"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Favorites" image="heart" catalog="system" id="2HM-Ev-oyJ"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nb2-3S-dw1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2146" y="441"/>
+        </scene>
+        <!--Pet Search View Controller-->
+        <scene sceneID="SgL-FX-k16">
+            <objects>
+                <viewController id="wm9-LY-dhv" userLabel="Pet Search View Controller" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Eea-Qy-NcO">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="jvp-bd-lta"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" systemItem="search" id="2yu-Xe-yob"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="U2F-43-LKY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2146" y="-208"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="W9q-kI-8dE">
+            <objects>
+                <tabBarController modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" id="HWB-oU-Jxy" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="qJH-6g-7b9"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="gBS-gX-f3J">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="wm9-LY-dhv" kind="relationship" relationship="viewControllers" id="CMK-sW-bqU"/>
+                        <segue destination="lTj-d7-ZlF" kind="relationship" relationship="viewControllers" id="kY2-rp-sT6"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5Ln-gr-tP4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="981" y="130"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="cat-and-dog" width="1280" height="1920"/>
+        <image name="heart" catalog="system" width="64" height="58"/>
+    </resources>
 </document>
