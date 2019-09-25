@@ -7,7 +7,9 @@ This app uses the [getyourpet.com](https://getyourpet.com/api-documentation/) ap
 
 ## Usage
 
-TBD
+This app can work without an API key, however requests are limited to 1 every 15 seconds. Performance will be negatively impacted without one.
+
+To get an API key, please visit the Get Your Pet api [documentation](https://getyourpet.com/api-documentation/).
 
 ## Credits
 
