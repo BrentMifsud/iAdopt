@@ -115,12 +115,20 @@
 			isa = PBXGroup;
 			children = (
 				8439744C233A9D1400D8A1B4 /* HomePageViewController.swift */,
-				8484447C233BED4300F0C3C1 /* PetSearchViewController.swift */,
+				84844486233C215A00F0C3C1 /* Pet Search View Controller */,
 				84844482233BED9C00F0C3C1 /* PetFavoritesViewController.swift */,
 				8484447E233BED6000F0C3C1 /* PetSearchResultsViewController.swift */,
 				84844480233BED8400F0C3C1 /* PetDetailsViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		84844486233C215A00F0C3C1 /* Pet Search View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				8484447C233BED4300F0C3C1 /* PetSearchViewController.swift */,
+			);
+			path = "Pet Search View Controller";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
