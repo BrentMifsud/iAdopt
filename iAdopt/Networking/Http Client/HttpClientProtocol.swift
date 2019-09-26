@@ -20,12 +20,12 @@ protocol HttpClientProtocol {
 	/// 	- headers: HTTP header values.
 	/// 	- completion: code that will be executed after this function is called.
 	/// - Returns: A  URLSessionDataTask that is ready to be run.
-	func createGetRequest<T: Codable>(
+	func createGetRequest(
 		withURL baseUrl: URL,
 		andPath pathComponents: [String]?,
 		queryParms: [String : String]?,
 		headers: [String : String]?,
-		completion: @escaping (T?, Int?, Error?) -> Void
+		completion: @escaping (Data?, Error?) -> Void
 	) -> URLSessionDataTask
 
 	/// Construct a HTTP Post request.
@@ -37,12 +37,12 @@ protocol HttpClientProtocol {
 	/// 	- requestBody: Request object that conforms to the codable protocol.
 	/// 	- completion: code that will be executed after this function is called.
 	/// - Returns: A  URLSessionDataTask that is ready to be run.
-	func createPostRequest<I: Codable, O: Codable>(
+	func createPostRequest<T: Codable>(
 		withURL baseUrl: URL,
 		andPath pathComponents: [String]?,
 		queryParms: [String : String]?,
 		headers: [String : String]?,
-		requestBody: I,
-		completion: @escaping (O?, Int?, Error?) -> Void
+		requestBody: T,
+		completion: @escaping (Data?, Error?) -> Void
 	) -> URLSessionDataTask
 }

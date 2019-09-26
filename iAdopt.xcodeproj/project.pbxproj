@@ -142,10 +142,26 @@
 		84D8DC47233D2FC4007A4451 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				84D8DC4D233D5582007A4451 /* Get Your Pet Client */,
+				84D8DC4C233D5570007A4451 /* Http Client */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		84D8DC4C233D5570007A4451 /* Http Client */ = {
+			isa = PBXGroup;
+			children = (
 				84D8DC48233D3916007A4451 /* HttpClientProtocol.swift */,
 				84D8DC4A233D3E55007A4451 /* HttpClient.swift */,
 			);
-			path = Networking;
+			path = "Http Client";
+			sourceTree = "<group>";
+		};
+		84D8DC4D233D5582007A4451 /* Get Your Pet Client */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Get Your Pet Client";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
