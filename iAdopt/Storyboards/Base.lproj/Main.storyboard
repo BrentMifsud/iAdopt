@@ -314,6 +314,7 @@
                     <connections>
                         <outlet property="distanceLabel" destination="TdQ-cC-TOv" id="rs1-sq-7nX"/>
                         <outlet property="distanceSlider" destination="6ME-Jk-4z1" id="ad0-qr-2Lr"/>
+                        <outlet property="searchButton" destination="z8z-Ot-aNE" id="zRA-FP-YI0"/>
                         <outlet property="speciesSelector" destination="rNO-AW-Aw2" id="ncB-m4-q2j"/>
                         <outlet property="zipCodeTextField" destination="9CI-XA-1sp" id="qRH-j9-9yE"/>
                     </connections>

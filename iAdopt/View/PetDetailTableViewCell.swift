@@ -9,11 +9,9 @@
 import UIKit
 
 class PetDetailTableViewCell: UITableViewCell {
-
 	// MARK: - IBOutlets
 	@IBOutlet weak var petImage: UIImageView!
 	@IBOutlet weak var petName: UILabel!
 	@IBOutlet weak var petBreed: UILabel!
 	@IBOutlet weak var distance: UILabel!
-
 }
