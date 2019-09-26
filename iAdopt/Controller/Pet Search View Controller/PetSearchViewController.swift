@@ -81,6 +81,7 @@ class PetSearchViewController: UIViewController {
 			activityIndicator.center = activityView.center
 			activityIndicator.startAnimating()
 
+			// Set up constraints
 			NSLayoutConstraint.activate([
 				activityView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0),
 				activityView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0),
@@ -89,7 +90,6 @@ class PetSearchViewController: UIViewController {
 				activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0),
 				activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 0)
 			])
-
 		} else {
 			activityView.removeFromSuperview()
 			activityView = nil

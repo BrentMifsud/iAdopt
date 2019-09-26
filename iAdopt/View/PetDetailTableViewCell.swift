@@ -14,4 +14,5 @@ class PetDetailTableViewCell: UITableViewCell {
 	@IBOutlet weak var petName: UILabel!
 	@IBOutlet weak var petBreed: UILabel!
 	@IBOutlet weak var distance: UILabel!
+	@IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 }
