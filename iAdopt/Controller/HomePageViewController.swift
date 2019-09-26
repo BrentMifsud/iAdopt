@@ -10,11 +10,12 @@ import UIKit
 
 class HomePageViewController: UIViewController {
 
+	// MARK: - Class Properties
 	private var skipViewController: Bool {
 		return UserDefaults.standard.bool(forKey: UserDefaultKeys.skipHome)
 	}
 
-	//MARK:- View Lifecycle Methods
+	// MARK: - View Lifecycle Methods
 	override func viewDidLoad() {
 		super.viewDidLoad()
 	}
@@ -28,6 +29,7 @@ class HomePageViewController: UIViewController {
 		}
 	}
 
+	// MARK: - IBActions
 	@IBAction func beginButtonPressed(_ sender: Any) {
 		UserDefaults.standard.set(true, forKey: UserDefaultKeys.skipHome)
 		performSegue(withIdentifier: "showSearchView", sender: self)
