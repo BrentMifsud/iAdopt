@@ -21,6 +21,7 @@
 		84844481233BED8400F0C3C1 /* PetDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84844480233BED8400F0C3C1 /* PetDetailsViewController.swift */; };
 		84844483233BED9C00F0C3C1 /* PetFavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84844482233BED9C00F0C3C1 /* PetFavoritesViewController.swift */; };
 		84844485233BFB5400F0C3C1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84844484233BFB5400F0C3C1 /* Constants.swift */; };
+		84844488233C329900F0C3C1 /* PetDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84844487233C329900F0C3C1 /* PetDetailTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		84844480233BED8400F0C3C1 /* PetDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetDetailsViewController.swift; sourceTree = "<group>"; };
 		84844482233BED9C00F0C3C1 /* PetFavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetFavoritesViewController.swift; sourceTree = "<group>"; };
 		84844484233BFB5400F0C3C1 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		84844487233C329900F0C3C1 /* PetDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetDetailTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				84844484233BFB5400F0C3C1 /* Constants.swift */,
+				84844487233C329900F0C3C1 /* PetDetailTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -204,6 +207,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84844488233C329900F0C3C1 /* PetDetailTableViewCell.swift in Sources */,
 				84397453233A9D1400D8A1B4 /* iAdopt.xcdatamodeld in Sources */,
 				84844481233BED8400F0C3C1 /* PetDetailsViewController.swift in Sources */,
 				8484447D233BED4300F0C3C1 /* PetSearchViewController.swift in Sources */,

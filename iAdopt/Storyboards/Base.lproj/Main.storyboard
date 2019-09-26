@@ -38,9 +38,9 @@
                                     <action selector="beginButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CBB-Jm-fLt"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Are You Ready To Meet Your New Best Friend?" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="W9w-YT-ZlJ">
-                                <rect key="frame" x="20" y="0.0" width="280" height="111"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Are You Ready To Meet Your New Best Friend?" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="15" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="W9w-YT-ZlJ">
+                                <rect key="frame" x="20" y="0.0" width="280" height="108.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
@@ -69,21 +69,113 @@
             </objects>
             <point key="canvasLocation" x="131.8840579710145" y="129.91071428571428"/>
         </scene>
-        <!--Pet Favorites View Controller-->
-        <scene sceneID="lzc-O2-sLF">
+        <!--Favorites-->
+        <scene sceneID="aZd-LX-7IG">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="lTj-d7-ZlF" userLabel="Pet Favorites View Controller" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="LPT-6R-VVx">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
+                <tableViewController id="yfg-zY-fQv" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="7QO-ec-o1l">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="LDA-AA-mp4"/>
-                    </view>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="petDetailCell" rowHeight="90" id="sZj-nq-fvg" customClass="PetDetailTableViewCell" customModule="iAdopt" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="320" height="90"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sZj-nq-fvg" id="ImA-cl-EGw">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="90"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="doge" translatesAutoresizingMaskIntoConstraints="NO" id="nys-dR-KTH">
+                                            <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
+                                        </imageView>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" spacing="23" translatesAutoresizingMaskIntoConstraints="NO" id="FIw-ao-pYx">
+                                            <rect key="frame" x="98" y="19" width="97.5" height="52"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="7cc-83-6zM">
+                                                    <rect key="frame" x="0.0" y="0.0" width="74.5" height="14.5"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e4w-bj-1fI" userLabel="Name Label">
+                                                            <rect key="frame" x="0.0" y="0.0" width="36.5" height="14.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Doge" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jp0-tk-Rki" userLabel="Name Value">
+                                                            <rect key="frame" x="44.5" y="0.0" width="30" height="14.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="g2g-LG-vry">
+                                                    <rect key="frame" x="0.0" y="37.5" width="97.5" height="14.5"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Breed:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lGO-3h-XJg" userLabel="Breed Label">
+                                                            <rect key="frame" x="0.0" y="0.0" width="37" height="14.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shiba Inu" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WtJ-Du-fBj" userLabel="Breed Value">
+                                                            <rect key="frame" x="45" y="0.0" width="52.5" height="14.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                        </stackView>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="bottom" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="xxA-yu-sDN">
+                                            <rect key="frame" x="255.5" y="27" width="56.5" height="36"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Distance" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="28q-HE-1QS" userLabel="Distance Label">
+                                                    <rect key="frame" x="0.0" y="0.0" width="56.5" height="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="500 mi" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nnO-T7-KI3" userLabel="Distance Value">
+                                                    <rect key="frame" x="17" y="19" width="39.5" height="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="nys-dR-KTH" secondAttribute="trailing" constant="230" id="6Zh-Yb-wjZ"/>
+                                        <constraint firstAttribute="bottom" secondItem="nys-dR-KTH" secondAttribute="bottom" id="Dm8-H8-iXq"/>
+                                        <constraint firstItem="nys-dR-KTH" firstAttribute="top" secondItem="ImA-cl-EGw" secondAttribute="top" id="LqH-6x-Cij"/>
+                                        <constraint firstItem="FIw-ao-pYx" firstAttribute="leading" secondItem="nys-dR-KTH" secondAttribute="trailing" constant="8" id="NTD-e5-ibs"/>
+                                        <constraint firstItem="nys-dR-KTH" firstAttribute="leading" secondItem="ImA-cl-EGw" secondAttribute="leading" id="NpF-QO-Oy5"/>
+                                        <constraint firstItem="FIw-ao-pYx" firstAttribute="top" secondItem="ImA-cl-EGw" secondAttribute="topMargin" constant="8" id="Pgn-e9-ME1"/>
+                                        <constraint firstItem="xxA-yu-sDN" firstAttribute="centerY" secondItem="ImA-cl-EGw" secondAttribute="centerY" id="UV6-KT-hx6"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="FIw-ao-pYx" secondAttribute="bottom" constant="8" id="p7V-3r-ZLt"/>
+                                        <constraint firstAttribute="trailing" secondItem="xxA-yu-sDN" secondAttribute="trailing" constant="8" id="qje-b9-wEE"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="distance" destination="nnO-T7-KI3" id="IsC-MW-lgL"/>
+                                    <outlet property="petBreed" destination="WtJ-Du-fBj" id="XYj-4y-dlS"/>
+                                    <outlet property="petImage" destination="nys-dR-KTH" id="pLj-gE-2Nu"/>
+                                    <outlet property="petName" destination="jp0-tk-Rki" id="AdI-Ml-7RS"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="yfg-zY-fQv" id="wKb-iI-RYS"/>
+                            <outlet property="delegate" destination="yfg-zY-fQv" id="diL-pY-cdS"/>
+                        </connections>
+                    </tableView>
                     <tabBarItem key="tabBarItem" title="Favorites" image="heart" catalog="system" id="2HM-Ev-oyJ"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="nb2-3S-dw1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zH2-EM-iEf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2146" y="441"/>
+            <point key="canvasLocation" x="2143.125" y="472.5"/>
         </scene>
         <!--Pet Search View Controller-->
         <scene sceneID="SgL-FX-k16">
@@ -154,16 +246,16 @@
                                                     <action selector="distanceSliderDidChangeValue:" destination="wm9-LY-dhv" eventType="valueChanged" id="1el-Zr-eph"/>
                                                 </connections>
                                             </slider>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="yDQ-f9-ofM">
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="yDQ-f9-ofM">
                                                 <rect key="frame" x="225" y="0.0" width="55" height="34"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="500" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TdQ-cC-TOv" userLabel="Distance Label">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="10" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TdQ-cC-TOv" userLabel="Distance Label">
                                                         <rect key="frame" x="0.0" y="0.0" width="31.5" height="34"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="mi" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O0K-4I-wZs" userLabel="Miles Label">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="mi" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O0K-4I-wZs" userLabel="Miles Label">
                                                         <rect key="frame" x="36.5" y="0.0" width="18.5" height="34"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
@@ -242,7 +334,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="wm9-LY-dhv" kind="relationship" relationship="viewControllers" id="CMK-sW-bqU"/>
-                        <segue destination="lTj-d7-ZlF" kind="relationship" relationship="viewControllers" id="kY2-rp-sT6"/>
+                        <segue destination="yfg-zY-fQv" kind="relationship" relationship="viewControllers" id="OZE-UQ-v8F"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Ln-gr-tP4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -252,6 +344,7 @@
     </scenes>
     <resources>
         <image name="cat-and-dog" width="1280" height="1920"/>
+        <image name="doge" width="959" height="540"/>
         <image name="heart" catalog="system" width="64" height="58"/>
     </resources>
 </document>
