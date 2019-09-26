@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// Implementation of Http Protocol.
 struct HttpClient: HttpClientProtocol {
 	// MARK: - Class Properties
 	var urlSession: URLSession
@@ -16,21 +17,6 @@ struct HttpClient: HttpClientProtocol {
 
 	private init(urlSession: URLSession) {
 		self.urlSession = URLSession.shared
-	}
-
-	private enum HTTPMethods {
-		static let GET = "GET"
-		static let POST = "POST"
-	}
-
-	private enum HeaderKeys {
-		static let ContentType = "Content-Type"
-		static let Accept = "Accept"
-	}
-
-	private enum HeaderValues {
-		static let ContentType = "application/json"
-		static let Accept = "application/json"
 	}
 
 	// MARK: - Create GET Request
@@ -57,7 +43,6 @@ struct HttpClient: HttpClientProtocol {
 		// Set HTTP Method.
 		urlRequest.httpMethod = HTTPMethods.GET
 
-		// Apply headers to request.
 		applyHeaders(headers: headers, toRequest: &urlRequest)
 
 		return urlSession.dataTask(with: urlRequest) { (data, response, error) in
@@ -96,7 +81,6 @@ struct HttpClient: HttpClientProtocol {
 		// Set HTTP Method.
 		urlRequest.httpMethod = HTTPMethods.POST
 
-		// Apply headers to request.
 		applyHeaders(headers: headers, toRequest: &urlRequest)
 
 		do {
