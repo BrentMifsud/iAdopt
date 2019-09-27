@@ -145,6 +145,23 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		84816510233ECC3A00EE0435 /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				84D8DC5E233E9C5D007A4451 /* GetYourPetRequest.swift */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		84816511233ECC4800EE0435 /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				84D8DC58233E8E2B007A4451 /* GetYourPetSearchResponse.swift */,
+				84D8DC5A233E8E40007A4451 /* GetYourPetErrorResponse.swift */,
+			);
+			path = Response;
+			sourceTree = "<group>";
+		};
 		84844486233C215A00F0C3C1 /* Pet Search View Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -175,12 +192,11 @@
 		84D8DC4D233D5582007A4451 /* Get Your Pet Client */ = {
 			isa = PBXGroup;
 			children = (
-				84D8DC5E233E9C5D007A4451 /* GetYourPetRequest.swift */,
+				84816511233ECC4800EE0435 /* Response */,
+				84816510233ECC3A00EE0435 /* Request */,
 				84D8DC50233D7A84007A4451 /* GetYourPetClientProtocol.swift */,
 				84D8DC52233E7871007A4451 /* GetYourPetClient.swift */,
 				84D8DC54233E83CB007A4451 /* GetYourPetClient+Constants.swift */,
-				84D8DC58233E8E2B007A4451 /* GetYourPetSearchResponse.swift */,
-				84D8DC5A233E8E40007A4451 /* GetYourPetErrorResponse.swift */,
 			);
 			path = "Get Your Pet Client";
 			sourceTree = "<group>";
