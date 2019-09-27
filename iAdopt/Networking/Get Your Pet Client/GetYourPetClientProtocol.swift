@@ -17,7 +17,7 @@ protocol GetYourPetClientProtocol {
 	/// - Parameter completion: Block of code to be executed after after this method completes.
 	func postPetsBySearch(
 		requestBody: GetYourPetRequest,
-		completion: @escaping (GetYourPetSearchResponse?, Int?, Error?) -> Void
+		completion: @escaping (GetYourPetSearchResponse?, Error?) -> Void
 	)
 
 	/// Return a specific pet by its Id
@@ -27,6 +27,6 @@ protocol GetYourPetClientProtocol {
 	func getPetsByPetId(
 		petId: Int,
 		distanceFrom zipCode: String?,
-		completion: @escaping (Pet?, Int? , Error?) -> Void
+		completion: @escaping (Pet?, Error?) -> Void
 	)
 }

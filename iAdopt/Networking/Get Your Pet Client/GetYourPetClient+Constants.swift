@@ -9,6 +9,18 @@
 import Foundation
 
 extension GetYourPetClient {
+	enum UrlConstants {
+		static let baseUrl = URL(string: "https://getyourpet.com/")
+		static let apiPath = "api"
+		static let partnerSearchPath = "partnerpetsearch"
+	}
+
+	enum Header {
+		static let ApiKey = "api-key"
+		#warning("Add API Key Here")
+		static let ApiValue = ""
+	}
+
 	enum ParametersKey {
 		static let ZipCode = "ZipCode" // Required
 		static let SearchRadiusInMiles = "SearchRadiusInMiles" // Required - [10, 500]
