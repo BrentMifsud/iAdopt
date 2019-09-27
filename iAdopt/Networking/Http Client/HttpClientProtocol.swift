@@ -34,15 +34,15 @@ protocol HttpClientProtocol {
 	/// 	- pathComponents: any additional path resources.
 	/// 	- queryParms: url query parameters to be included.
 	/// 	- headers: HTTP header values.
-	/// 	- requestBody: Request object that conforms to the codable protocol.
+	/// 	- requestBody: request Data.
 	/// 	- completion: code that will be executed after this function is called.
 	/// - Returns: A  URLSessionDataTask that is ready to be run.
-	func createPostRequest<T: Codable>(
+	func createPostRequest(
 		withURL baseUrl: URL,
 		andPath pathComponents: [String]?,
 		queryParms: [String : String]?,
 		headers: [String : String]?,
-		requestBody: T,
+		requestBody: Data,
 		completion: @escaping (Data?, Error?) -> Void
 	) -> URLSessionDataTask
 }

@@ -10,8 +10,8 @@ import Foundation
 
 struct GetYourPetRequest: Codable {
 	let zipCode: String
-	let searchRadiusInMiles: UInt = 10
-	let pageNumber: UInt = 1
+	let searchRadiusInMiles: UInt
+	let pageNumber: UInt
 	let orderBy: String?
 	let petType: String?
 	let gender: String?
@@ -34,6 +34,69 @@ struct GetYourPetRequest: Codable {
 	let coatCurly: String?
 	let claws: String?
 	let newlyAvailable: String?
+
+	init(
+		zipCode: String,
+		searchRadiusInMiles: UInt,
+		pageNumber: UInt,
+		orderBy: String? = nil,
+		petType: String? = nil,
+		gender: String? = nil,
+		ageYearsMin: UInt? = nil,
+		ageYearsMax: UInt? = nil,
+		activityLevelMin: String? = nil,
+		activityLevelMax: String? = nil,
+		goodWithChildrenUnder5: String? = nil,
+		goodWithChildren5to10: String? = nil,
+		goodWithChildrenOver10: String? = nil,
+		goodWithCats: String? = nil,
+		goodWithDogs: String? = nil,
+		sizeMin: String? = nil,
+		sizeMax: String? = nil,
+		coatShort: String? = nil,
+		coatMedium: String? = nil,
+		coatLong: String? = nil,
+		coatHairless: String? = nil,
+		coatWire: String? = nil,
+		coatCurly: String? = nil,
+		claws: String? = nil,
+		newlyAvailable: String? = nil
+	) {
+		self.zipCode = zipCode
+		self.searchRadiusInMiles = searchRadiusInMiles
+		self.pageNumber = pageNumber
+		self.orderBy = orderBy
+		self.petType = petType
+		self.gender = gender
+		self.ageYearsMin = ageYearsMin
+		self.ageYearsMax = ageYearsMax
+		self.activityLevelMin = activityLevelMin
+		self.activityLevelMax = activityLevelMax
+		self.goodWithChildrenUnder5 = goodWithChildrenUnder5
+		self.goodWithChildren5to10 = goodWithChildren5to10
+		self.goodWithChildrenOver10 = goodWithChildrenOver10
+		self.goodWithCats = goodWithCats
+		self.goodWithDogs = goodWithDogs
+		self.sizeMin = sizeMin
+		self.sizeMax = sizeMax
+		self.coatShort = coatShort
+		self.coatMedium = coatMedium
+		self.coatLong = coatLong
+		self.coatHairless = coatHairless
+		self.coatWire = coatWire
+		self.coatCurly = coatCurly
+		self.claws = claws
+		self.newlyAvailable = newlyAvailable
+	}
+
+
+
+
+
+
+
+
+
 
 	enum CodingKeys: String, CodingKey {
 		case zipCode = "ZipCode"

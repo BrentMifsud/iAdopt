@@ -18,7 +18,7 @@ class PetSearchViewController: UIViewController {
 	@IBOutlet weak var searchButton: UIButton!
 
 	// MARK: - Class Properties
-	private var selectionString = SelectorValue.cat
+	private var selectionString: String? = GetYourPetClient.PetType.Cat
 	private var activityView: UIView!
 
 	// MARK: - View Lifecycle Methods
@@ -34,19 +34,38 @@ class PetSearchViewController: UIViewController {
 	}
 
 	@IBAction func speciesSelectorDidChange(_ sender: UISegmentedControl) {
-		if sender.selectedSegmentIndex == 0 {
-			selectionString = SelectorValue.cat
-		} else {
-			selectionString = SelectorValue.dog
+		switch sender.selectedSegmentIndex {
+		case 0:
+			selectionString = GetYourPetClient.PetType.Cat
+		case 1:
+			selectionString = GetYourPetClient.PetType.Dog
+		default:
+			selectionString = nil
 		}
 	}
 
 
 	@IBAction func beginSearchPressed(_ sender: UIButton) {
-		enableUI(false)
-		// Perform network requests
+		guard let zipCode = zipCodeTextField.text else {
+			#warning("Present Error alert saying zipcode must be populated")
+			self.enableUI(true)
+			return
+		}
 
-		DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+		let searchDistance = UInt(distanceSlider.value)
+
+		enableUI(false)
+
+		let request = GetYourPetRequest(zipCode: zipCode, searchRadiusInMiles: searchDistance, pageNumber: 1, orderBy: GetYourPetClient.OrderBy.Distance, petType: selectionString)
+
+		GetYourPetClient.shared.postPetsBySearch(requestBody: request) { (data, error) in
+			guard let data = data, error == nil else {
+				#warning("Present Error Alert")
+				self.enableUI(true)
+				return
+			}
+
+
 			self.enableUI(true)
 		}
 	}

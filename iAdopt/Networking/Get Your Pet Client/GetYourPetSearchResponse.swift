@@ -1,5 +1,5 @@
 //
-//  GetYourPetResponse.swift
+//  GetYourPetSearchResponse.swift
 //  iAdopt
 //
 //  Created by Brent Mifsud on 2019-09-27.

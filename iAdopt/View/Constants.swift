@@ -14,11 +14,6 @@ enum Segues {
 	static let petDetails = "showPetDetailsView"
 }
 
-enum SelectorValue {
-	static let cat = "cat"
-	static let dog = "dog"
-}
-
 enum UserDefaultKeys {
 	static let skipHome = "skipHome"
 }

@@ -27,12 +27,6 @@ struct HttpClient: HttpClientProtocol {
 		headers: [String : String]?,
 		completion: @escaping (Data?, Error?) -> Void
 	) -> URLSessionDataTask {
-		#warning("Remove These Later")
-		print("enter HttpClient -> createGetRequest")
-		print("Path Components: \(String(describing: pathComponents))")
-		print("Query Parameters: \(String(describing: queryParms))")
-		print("Headers: \(String(describing: headers))")
-
 		var urlComponents = buildURLComponents(pathComponents, baseUrl)
 
 		appendQueryParms(queryParms, toUrlComponents: &urlComponents)
@@ -56,21 +50,14 @@ struct HttpClient: HttpClientProtocol {
 	}
 
 	// MARK: - Create POST Request
-	func createPostRequest<T: Codable>(
+	func createPostRequest(
 		withURL baseUrl: URL,
 		andPath pathComponents: [String]?,
 		queryParms: [String : String]?,
 		headers: [String : String]?,
-		requestBody: T,
+		requestBody: Data,
 		completion: @escaping (Data?, Error?) -> Void
 	) -> URLSessionDataTask {
-		#warning("Remove These Later")
-		print("enter HttpClient -> createPostRequest")
-		print("Path Components: \(String(describing: pathComponents))")
-		print("Query Parameters: \(String(describing: queryParms))")
-		print("Headers: \(String(describing: headers))")
-		print("Request Body: \(requestBody.self)")
-
 		var urlComponents = buildURLComponents(pathComponents, baseUrl)
 
 		appendQueryParms(queryParms, toUrlComponents: &urlComponents)
@@ -83,13 +70,11 @@ struct HttpClient: HttpClientProtocol {
 
 		applyHeaders(headers: headers, toRequest: &urlRequest)
 
-		do {
-			urlRequest.httpBody = try JSONEncoder().encode(requestBody)
-		} catch {
-			fatalError("Unable to encode request body: \(requestBody)")
-		}
+		urlRequest.httpBody = requestBody
 
 		return urlSession.dataTask(with: urlRequest) { (data, response, error) in
+			let _ = response as! HTTPURLResponse
+
 			guard let data = data, error == nil else {
 				completion(nil, error)
 				return
@@ -114,9 +99,6 @@ struct HttpClient: HttpClientProtocol {
 				fullUrl = fullUrl.appendingPathComponent(path)
 			}
 		}
-
-		#warning("Remove This Later")
-		print("Full URL: \(fullUrl.absoluteString)")
 
 		// Convert URL to URLComponents
 		guard let urlComponents = URLComponents(url: fullUrl, resolvingAgainstBaseURL: false) else {
