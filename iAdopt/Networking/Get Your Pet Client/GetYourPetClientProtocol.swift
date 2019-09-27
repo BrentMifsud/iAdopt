@@ -15,10 +15,18 @@ protocol GetYourPetClientProtocol {
 	/// Return a list of pets based on get your pet search criteria.
 	/// - Parameter searchParameters: Get your pet request body search criteria.
 	/// - Parameter completion: Block of code to be executed after after this method completes.
-	func postPetsBySearchParameters<T: Codable>(searchParameters: [String : String], completion: @escaping (T?, Int?, Error?) -> Void)
+	func postPetsBySearch(
+		requestBody: GetYourPetRequest,
+		completion: @escaping (GetYourPetSearchResponse?, Int?, Error?) -> Void
+	)
 
 	/// Return a specific pet by its Id
 	/// - Parameter petId: Get your pet Id.
+	/// - Parameter zipCode: (Optional) Used to calculate distance of pet from zipcode.
 	/// - Parameter completion: Block of code to be executed after after this method completes.
-	func getPetsByPetId<T: Codable>(petId: Int, completion: @escaping (T?, Int? , Error?) -> Void)
+	func getPetsByPetId(
+		petId: Int,
+		distanceFrom zipCode: String?,
+		completion: @escaping (Pet?, Int? , Error?) -> Void
+	)
 }
