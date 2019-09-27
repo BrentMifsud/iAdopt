@@ -58,13 +58,14 @@ class PetSearchViewController: UIViewController {
 
 		let request = GetYourPetRequest(zipCode: zipCode, searchRadiusInMiles: searchDistance, pageNumber: 1, orderBy: GetYourPetClient.OrderBy.Distance, petType: selectionString)
 
-		GetYourPetClient.shared.postPetsBySearch(requestBody: request) { (data, error) in
-			guard let data = data, error == nil else {
+		GetYourPetClient.shared.postPetsBySearch(requestBody: request) { (responseBody, error) in
+			guard let responseBody = responseBody, error == nil else {
 				#warning("Present Error Alert")
 				self.enableUI(true)
 				return
 			}
 
+			print(responseBody)
 
 			self.enableUI(true)
 		}

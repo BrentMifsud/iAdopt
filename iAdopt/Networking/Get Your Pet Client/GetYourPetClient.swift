@@ -19,7 +19,7 @@ struct GetYourPetClient: GetYourPetClientProtocol {
 		self.httpClient = httpClient
 	}
 
-	func postPetsBySearch(requestBody: GetYourPetRequest, completion: @escaping (GetYourPetSearchResponse?, Error?) -> Void) {
+	func postPetsBySearch(requestBody: GetYourPetRequest, completion: @escaping ([GetYourPetSearchResponse]?, Error?) -> Void) {
 		let encoder = JSONEncoder()
 
 		var request: Data!
@@ -49,7 +49,7 @@ struct GetYourPetClient: GetYourPetClientProtocol {
 			let decoder = JSONDecoder()
 
 			do {
-				let response = try decoder.decode(GetYourPetSearchResponse.self, from: data)
+				let response = try decoder.decode([GetYourPetSearchResponse].self, from: data)
 				DispatchQueue.main.async {
 					completion(response, nil)
 				}
@@ -62,7 +62,7 @@ struct GetYourPetClient: GetYourPetClientProtocol {
 		postSession.resume()
 	}
 
-	func getPetsByPetId(petId: Int, distanceFrom zipCode: String?, completion: @escaping (Pet?, Error?) -> Void) {
+	func getPetsByPetId(petId: Int, distanceFrom zipCode: String?, completion: @escaping (GetYourPetSearchResponse?, Error?) -> Void) {
 		#warning("Not Implemented")
 	}
 }

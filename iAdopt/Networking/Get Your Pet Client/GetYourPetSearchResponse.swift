@@ -9,10 +9,6 @@
 import Foundation
 
 struct GetYourPetSearchResponse: Codable {
-	let pets: [Pet]
-}
-
-struct Pet: Codable {
 	let petId: UInt
 	let name: String
 	let petType: String
@@ -41,7 +37,7 @@ struct Pet: Codable {
 	let size: String?
 	let coat: String
 	let claws: String?
-	let story: String
+	let story: String?
 	let profileUrl: String
 
 	enum CodingKeys: String, CodingKey {
