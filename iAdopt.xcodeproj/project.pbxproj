@@ -24,6 +24,13 @@
 		84844488233C329900F0C3C1 /* PetDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84844487233C329900F0C3C1 /* PetDetailTableViewCell.swift */; };
 		84D8DC49233D3916007A4451 /* HttpClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D8DC48233D3916007A4451 /* HttpClientProtocol.swift */; };
 		84D8DC4B233D3E55007A4451 /* HttpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D8DC4A233D3E55007A4451 /* HttpClient.swift */; };
+		84D8DC4F233D7A37007A4451 /* HttpClient+Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D8DC4E233D7A37007A4451 /* HttpClient+Constants.swift */; };
+		84D8DC51233D7A84007A4451 /* GetYourPetClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D8DC50233D7A84007A4451 /* GetYourPetClientProtocol.swift */; };
+		84D8DC53233E7871007A4451 /* GetYourPetClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D8DC52233E7871007A4451 /* GetYourPetClient.swift */; };
+		84D8DC55233E83CB007A4451 /* GetYourPetClient+Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D8DC54233E83CB007A4451 /* GetYourPetClient+Constants.swift */; };
+		84D8DC59233E8E2B007A4451 /* GetYourPetSearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D8DC58233E8E2B007A4451 /* GetYourPetSearchResponse.swift */; };
+		84D8DC5B233E8E40007A4451 /* GetYourPetErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D8DC5A233E8E40007A4451 /* GetYourPetErrorResponse.swift */; };
+		84D8DC5F233E9C5D007A4451 /* GetYourPetRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D8DC5E233E9C5D007A4451 /* GetYourPetRequest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +53,13 @@
 		84844487233C329900F0C3C1 /* PetDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetDetailTableViewCell.swift; sourceTree = "<group>"; };
 		84D8DC48233D3916007A4451 /* HttpClientProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpClientProtocol.swift; sourceTree = "<group>"; };
 		84D8DC4A233D3E55007A4451 /* HttpClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpClient.swift; sourceTree = "<group>"; };
+		84D8DC4E233D7A37007A4451 /* HttpClient+Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HttpClient+Constants.swift"; sourceTree = "<group>"; };
+		84D8DC50233D7A84007A4451 /* GetYourPetClientProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetYourPetClientProtocol.swift; sourceTree = "<group>"; };
+		84D8DC52233E7871007A4451 /* GetYourPetClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetYourPetClient.swift; sourceTree = "<group>"; };
+		84D8DC54233E83CB007A4451 /* GetYourPetClient+Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GetYourPetClient+Constants.swift"; sourceTree = "<group>"; };
+		84D8DC58233E8E2B007A4451 /* GetYourPetSearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetYourPetSearchResponse.swift; sourceTree = "<group>"; };
+		84D8DC5A233E8E40007A4451 /* GetYourPetErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetYourPetErrorResponse.swift; sourceTree = "<group>"; };
+		84D8DC5E233E9C5D007A4451 /* GetYourPetRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GetYourPetRequest.swift; path = "/Users/brent/repos/iOS/udacity-projects/iAdopt/iAdopt/Networking/Get Your Pet Client/GetYourPetRequest.swift"; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +167,7 @@
 			children = (
 				84D8DC48233D3916007A4451 /* HttpClientProtocol.swift */,
 				84D8DC4A233D3E55007A4451 /* HttpClient.swift */,
+				84D8DC4E233D7A37007A4451 /* HttpClient+Constants.swift */,
 			);
 			path = "Http Client";
 			sourceTree = "<group>";
@@ -160,6 +175,12 @@
 		84D8DC4D233D5582007A4451 /* Get Your Pet Client */ = {
 			isa = PBXGroup;
 			children = (
+				84D8DC5E233E9C5D007A4451 /* GetYourPetRequest.swift */,
+				84D8DC50233D7A84007A4451 /* GetYourPetClientProtocol.swift */,
+				84D8DC52233E7871007A4451 /* GetYourPetClient.swift */,
+				84D8DC54233E83CB007A4451 /* GetYourPetClient+Constants.swift */,
+				84D8DC58233E8E2B007A4451 /* GetYourPetSearchResponse.swift */,
+				84D8DC5A233E8E40007A4451 /* GetYourPetErrorResponse.swift */,
 			);
 			path = "Get Your Pet Client";
 			sourceTree = "<group>";
@@ -237,17 +258,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84D8DC5B233E8E40007A4451 /* GetYourPetErrorResponse.swift in Sources */,
 				84844488233C329900F0C3C1 /* PetDetailTableViewCell.swift in Sources */,
+				84D8DC5F233E9C5D007A4451 /* GetYourPetRequest.swift in Sources */,
 				84397453233A9D1400D8A1B4 /* iAdopt.xcdatamodeld in Sources */,
+				84D8DC51233D7A84007A4451 /* GetYourPetClientProtocol.swift in Sources */,
 				84844481233BED8400F0C3C1 /* PetDetailsViewController.swift in Sources */,
+				84D8DC55233E83CB007A4451 /* GetYourPetClient+Constants.swift in Sources */,
 				8484447D233BED4300F0C3C1 /* PetSearchViewController.swift in Sources */,
 				8439744D233A9D1400D8A1B4 /* HomePageViewController.swift in Sources */,
 				84844483233BED9C00F0C3C1 /* PetFavoritesViewController.swift in Sources */,
+				84D8DC4F233D7A37007A4451 /* HttpClient+Constants.swift in Sources */,
 				84397449233A9D1400D8A1B4 /* AppDelegate.swift in Sources */,
 				84D8DC49233D3916007A4451 /* HttpClientProtocol.swift in Sources */,
+				84D8DC53233E7871007A4451 /* GetYourPetClient.swift in Sources */,
 				8439744B233A9D1400D8A1B4 /* SceneDelegate.swift in Sources */,
 				8484447F233BED6000F0C3C1 /* PetSearchResultsViewController.swift in Sources */,
 				84D8DC4B233D3E55007A4451 /* HttpClient.swift in Sources */,
+				84D8DC59233E8E2B007A4451 /* GetYourPetSearchResponse.swift in Sources */,
 				84844485233BFB5400F0C3C1 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
