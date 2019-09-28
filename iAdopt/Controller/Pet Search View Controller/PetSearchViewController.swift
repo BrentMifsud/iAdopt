@@ -76,14 +76,14 @@ class PetSearchViewController: UIViewController {
 		GetYourPetClient.shared.postPetsBySearch(requestBody: request) { [unowned self] (responseBody, error) in
 
 			guard let responseBody = responseBody, error == nil else {
-				self.presentErrorAlert(title: "Unable to retrieve adoption listings.", message: "\(error.debugDescription)")
+				self.presentErrorAlert(title: "Unable to retrieve adoption listings.", message: "\(error!.localizedDescription)")
 
 				self.enableUI(true)
 
 				return
 			}
 
-			print(responseBody)
+			self.presentErrorAlert(title: "Here is the first pet we found:", message: responseBody.first.debugDescription)
 
 			self.enableUI(true)
 		}
