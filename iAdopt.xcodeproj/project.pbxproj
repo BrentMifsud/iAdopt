@@ -16,6 +16,7 @@
 		84397458233A9D1500D8A1B4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84397456233A9D1500D8A1B4 /* LaunchScreen.storyboard */; };
 		84397460233AAF7D00D8A1B4 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 8439745F233AAF7D00D8A1B4 /* README.md */; };
 		84397462233AB18900D8A1B4 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 84397461233AB18900D8A1B4 /* .gitignore */; };
+		84816513233ED16100EE0435 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84816512233ED16100EE0435 /* UIViewController+Extension.swift */; };
 		8484447D233BED4300F0C3C1 /* PetSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8484447C233BED4300F0C3C1 /* PetSearchViewController.swift */; };
 		8484447F233BED6000F0C3C1 /* PetSearchResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8484447E233BED6000F0C3C1 /* PetSearchResultsViewController.swift */; };
 		84844481233BED8400F0C3C1 /* PetDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84844480233BED8400F0C3C1 /* PetDetailsViewController.swift */; };
@@ -28,7 +29,7 @@
 		84D8DC51233D7A84007A4451 /* GetYourPetClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D8DC50233D7A84007A4451 /* GetYourPetClientProtocol.swift */; };
 		84D8DC53233E7871007A4451 /* GetYourPetClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D8DC52233E7871007A4451 /* GetYourPetClient.swift */; };
 		84D8DC55233E83CB007A4451 /* GetYourPetClient+Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D8DC54233E83CB007A4451 /* GetYourPetClient+Constants.swift */; };
-		84D8DC59233E8E2B007A4451 /* GetYourPetSearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D8DC58233E8E2B007A4451 /* GetYourPetSearchResponse.swift */; };
+		84D8DC59233E8E2B007A4451 /* Pet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D8DC58233E8E2B007A4451 /* Pet.swift */; };
 		84D8DC5B233E8E40007A4451 /* GetYourPetErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D8DC5A233E8E40007A4451 /* GetYourPetErrorResponse.swift */; };
 		84D8DC5F233E9C5D007A4451 /* GetYourPetRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D8DC5E233E9C5D007A4451 /* GetYourPetRequest.swift */; };
 /* End PBXBuildFile section */
@@ -45,6 +46,7 @@
 		84397459233A9D1500D8A1B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8439745F233AAF7D00D8A1B4 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		84397461233AB18900D8A1B4 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		84816512233ED16100EE0435 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		8484447C233BED4300F0C3C1 /* PetSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetSearchViewController.swift; sourceTree = "<group>"; };
 		8484447E233BED6000F0C3C1 /* PetSearchResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetSearchResultsViewController.swift; sourceTree = "<group>"; };
 		84844480233BED8400F0C3C1 /* PetDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetDetailsViewController.swift; sourceTree = "<group>"; };
@@ -57,7 +59,7 @@
 		84D8DC50233D7A84007A4451 /* GetYourPetClientProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetYourPetClientProtocol.swift; sourceTree = "<group>"; };
 		84D8DC52233E7871007A4451 /* GetYourPetClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetYourPetClient.swift; sourceTree = "<group>"; };
 		84D8DC54233E83CB007A4451 /* GetYourPetClient+Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GetYourPetClient+Constants.swift"; sourceTree = "<group>"; };
-		84D8DC58233E8E2B007A4451 /* GetYourPetSearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetYourPetSearchResponse.swift; sourceTree = "<group>"; };
+		84D8DC58233E8E2B007A4451 /* Pet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pet.swift; sourceTree = "<group>"; };
 		84D8DC5A233E8E40007A4451 /* GetYourPetErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetYourPetErrorResponse.swift; sourceTree = "<group>"; };
 		84D8DC5E233E9C5D007A4451 /* GetYourPetRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GetYourPetRequest.swift; path = "/Users/brent/repos/iOS/udacity-projects/iAdopt/iAdopt/Networking/Get Your Pet Client/GetYourPetRequest.swift"; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
@@ -129,6 +131,7 @@
 			children = (
 				84844484233BFB5400F0C3C1 /* Constants.swift */,
 				84844487233C329900F0C3C1 /* PetDetailTableViewCell.swift */,
+				84816512233ED16100EE0435 /* UIViewController+Extension.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -143,6 +146,23 @@
 				84844480233BED8400F0C3C1 /* PetDetailsViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		84816510233ECC3A00EE0435 /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				84D8DC5E233E9C5D007A4451 /* GetYourPetRequest.swift */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		84816511233ECC4800EE0435 /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				84D8DC58233E8E2B007A4451 /* Pet.swift */,
+				84D8DC5A233E8E40007A4451 /* GetYourPetErrorResponse.swift */,
+			);
+			path = Response;
 			sourceTree = "<group>";
 		};
 		84844486233C215A00F0C3C1 /* Pet Search View Controller */ = {
@@ -175,12 +195,11 @@
 		84D8DC4D233D5582007A4451 /* Get Your Pet Client */ = {
 			isa = PBXGroup;
 			children = (
-				84D8DC5E233E9C5D007A4451 /* GetYourPetRequest.swift */,
+				84816511233ECC4800EE0435 /* Response */,
+				84816510233ECC3A00EE0435 /* Request */,
 				84D8DC50233D7A84007A4451 /* GetYourPetClientProtocol.swift */,
 				84D8DC52233E7871007A4451 /* GetYourPetClient.swift */,
 				84D8DC54233E83CB007A4451 /* GetYourPetClient+Constants.swift */,
-				84D8DC58233E8E2B007A4451 /* GetYourPetSearchResponse.swift */,
-				84D8DC5A233E8E40007A4451 /* GetYourPetErrorResponse.swift */,
 			);
 			path = "Get Your Pet Client";
 			sourceTree = "<group>";
@@ -266,6 +285,7 @@
 				84844481233BED8400F0C3C1 /* PetDetailsViewController.swift in Sources */,
 				84D8DC55233E83CB007A4451 /* GetYourPetClient+Constants.swift in Sources */,
 				8484447D233BED4300F0C3C1 /* PetSearchViewController.swift in Sources */,
+				84816513233ED16100EE0435 /* UIViewController+Extension.swift in Sources */,
 				8439744D233A9D1400D8A1B4 /* HomePageViewController.swift in Sources */,
 				84844483233BED9C00F0C3C1 /* PetFavoritesViewController.swift in Sources */,
 				84D8DC4F233D7A37007A4451 /* HttpClient+Constants.swift in Sources */,
@@ -275,7 +295,7 @@
 				8439744B233A9D1400D8A1B4 /* SceneDelegate.swift in Sources */,
 				8484447F233BED6000F0C3C1 /* PetSearchResultsViewController.swift in Sources */,
 				84D8DC4B233D3E55007A4451 /* HttpClient.swift in Sources */,
-				84D8DC59233E8E2B007A4451 /* GetYourPetSearchResponse.swift in Sources */,
+				84D8DC59233E8E2B007A4451 /* Pet.swift in Sources */,
 				84844485233BFB5400F0C3C1 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

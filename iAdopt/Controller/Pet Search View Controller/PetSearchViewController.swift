@@ -26,6 +26,16 @@ class PetSearchViewController: UIViewController {
         super.viewDidLoad()
     }
 
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		self.subscribeToKeyboardNotifications()
+	}
+
+	override func viewWillDisappear(_ animated: Bool) {
+		super.viewWillDisappear(animated)
+		self.unsubscribeFromKeyboardNotifications()
+	}
+
 	// MARK: - IBActions
 	@IBAction func distanceSliderDidChangeValue(_ sender: UISlider) {
 		let intValue = Int(sender.value)
@@ -46,22 +56,30 @@ class PetSearchViewController: UIViewController {
 
 
 	@IBAction func beginSearchPressed(_ sender: UIButton) {
+		enableUI(false)
+
 		guard let zipCode = zipCodeTextField.text else {
-			#warning("Present Error alert saying zipcode must be populated")
+			self.enableUI(true)
+			return
+		}
+
+		guard !zipCode.isEmpty else {
+			presentErrorAlert(title: "Search Failed", message: "Valid zip code required to search for pets.")
 			self.enableUI(true)
 			return
 		}
 
 		let searchDistance = UInt(distanceSlider.value)
 
-		enableUI(false)
-
 		let request = GetYourPetRequest(zipCode: zipCode, searchRadiusInMiles: searchDistance, pageNumber: 1, orderBy: GetYourPetClient.OrderBy.Distance, petType: selectionString)
 
-		GetYourPetClient.shared.postPetsBySearch(requestBody: request) { (responseBody, error) in
+		GetYourPetClient.shared.postPetsBySearch(requestBody: request) { [unowned self] (responseBody, error) in
+
 			guard let responseBody = responseBody, error == nil else {
-				#warning("Present Error Alert")
+				self.presentErrorAlert(title: "Unable to retrieve adoption listings.", message: "\(error.debugDescription)")
+
 				self.enableUI(true)
+
 				return
 			}
 
