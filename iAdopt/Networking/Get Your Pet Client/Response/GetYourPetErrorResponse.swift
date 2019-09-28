@@ -16,3 +16,9 @@ struct GetYourPetErrorResponse: Codable {
 		case errorMessages = "ErrorMessages"
 	}
 }
+
+extension GetYourPetErrorResponse: LocalizedError {
+	var errorDescription: String? {
+		return self.errorMessages.first
+	}
+}
