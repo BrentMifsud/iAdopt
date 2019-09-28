@@ -11,6 +11,7 @@ import UIKit
 class PetSearchViewController: UIViewController {
 
 	// MARK: - IBOutlets
+	@IBOutlet weak var petIdTextField: UITextField!
 	@IBOutlet weak var speciesSelector: UISegmentedControl!
 	@IBOutlet weak var zipCodeTextField: UITextField!
 	@IBOutlet weak var distanceSlider: UISlider!
@@ -46,15 +47,20 @@ class PetSearchViewController: UIViewController {
 
 
 	@IBAction func beginSearchPressed(_ sender: UIButton) {
+		enableUI(false)
+
 		guard let zipCode = zipCodeTextField.text else {
-			#warning("Present Error alert saying zipcode must be populated")
+			self.enableUI(true)
+			return
+		}
+
+		guard !zipCode.isEmpty else {
+			presentErrorAlert(title: "Search Failed", message: "Valid zip code required to search for pets.")
 			self.enableUI(true)
 			return
 		}
 
 		let searchDistance = UInt(distanceSlider.value)
-
-		enableUI(false)
 
 		let request = GetYourPetRequest(zipCode: zipCode, searchRadiusInMiles: searchDistance, pageNumber: 1, orderBy: GetYourPetClient.OrderBy.Distance, petType: selectionString)
 

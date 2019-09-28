@@ -1,5 +1,5 @@
 //
-//  GetYourPetResponse.swift
+//  Pet.swift
 //  iAdopt
 //
 //  Created by Brent Mifsud on 2019-09-27.
@@ -8,7 +8,8 @@
 
 import Foundation
 
-struct GetYourPetResponse: Codable {
+/// A single pet response item from GetYourPet.com API
+struct Pet: Codable {
 	let petId: UInt
 	let name: String
 	let petType: String

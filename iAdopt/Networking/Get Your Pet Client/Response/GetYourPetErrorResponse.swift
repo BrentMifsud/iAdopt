@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// Error response structure from GetYourPet API.
 struct GetYourPetErrorResponse: Codable {
 	let errorMessages: [String]
 
