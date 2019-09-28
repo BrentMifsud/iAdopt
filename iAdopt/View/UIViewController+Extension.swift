@@ -19,4 +19,16 @@ extension UIViewController {
 		alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
 		present(alertVC, animated: true, completion: nil)
 	}
+
+	func subscribeToKeyboardNotifications() {
+		self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissKeyboardOnTap)))
+	}
+
+	func unsubscribeFromKeyboardNotifications() {
+		self.view.removeGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissKeyboardOnTap)))
+	}
+
+	@objc func dismissKeyboardOnTap(){
+		self.view.endEditing(true)
+	}
 }

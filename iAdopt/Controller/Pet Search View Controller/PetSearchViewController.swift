@@ -26,6 +26,16 @@ class PetSearchViewController: UIViewController {
         super.viewDidLoad()
     }
 
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		self.subscribeToKeyboardNotifications()
+	}
+
+	override func viewWillDisappear(_ animated: Bool) {
+		super.viewWillDisappear(animated)
+		self.unsubscribeFromKeyboardNotifications()
+	}
+
 	// MARK: - IBActions
 	@IBAction func distanceSliderDidChangeValue(_ sender: UISlider) {
 		let intValue = Int(sender.value)
