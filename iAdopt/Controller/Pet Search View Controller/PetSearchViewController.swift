@@ -11,7 +11,6 @@ import UIKit
 class PetSearchViewController: UIViewController {
 
 	// MARK: - IBOutlets
-	@IBOutlet weak var petIdTextField: UITextField!
 	@IBOutlet weak var speciesSelector: UISegmentedControl!
 	@IBOutlet weak var zipCodeTextField: UITextField!
 	@IBOutlet weak var distanceSlider: UISlider!
@@ -64,10 +63,13 @@ class PetSearchViewController: UIViewController {
 
 		let request = GetYourPetRequest(zipCode: zipCode, searchRadiusInMiles: searchDistance, pageNumber: 1, orderBy: GetYourPetClient.OrderBy.Distance, petType: selectionString)
 
-		GetYourPetClient.shared.postPetsBySearch(requestBody: request) { (responseBody, error) in
+		GetYourPetClient.shared.postPetsBySearch(requestBody: request) { [unowned self] (responseBody, error) in
+
 			guard let responseBody = responseBody, error == nil else {
-				#warning("Present Error Alert")
+				self.presentErrorAlert(title: "Unable to retrieve adoption listings.", message: "\(error.debugDescription)")
+
 				self.enableUI(true)
+
 				return
 			}
 
