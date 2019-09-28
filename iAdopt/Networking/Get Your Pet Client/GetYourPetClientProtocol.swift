@@ -17,16 +17,16 @@ protocol GetYourPetClientProtocol {
 	/// - Parameter completion: Block of code to be executed after after this method completes.
 	func postPetsBySearch(
 		requestBody: GetYourPetRequest,
-		completion: @escaping ([GetYourPetSearchResponse]?, Error?) -> Void
+		completion: @escaping ([Pet]?, Error?) -> Void
 	)
 
 	/// Return a specific pet by its Id
 	/// - Parameter petId: Get your pet Id.
 	/// - Parameter zipCode: (Optional) Used to calculate distance of pet from zipcode.
 	/// - Parameter completion: Block of code to be executed after after this method completes.
-	func getPetsByPetId(
+	func getPetByPetId(
 		petId: Int,
 		distanceFrom zipCode: String?,
-		completion: @escaping (GetYourPetSearchResponse?, Error?) -> Void
+		completion: @escaping (Pet?, Error?) -> Void
 	)
 }

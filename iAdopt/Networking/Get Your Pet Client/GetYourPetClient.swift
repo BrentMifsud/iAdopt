@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// Implementation of GetYourPetClientProtocol
 struct GetYourPetClient: GetYourPetClientProtocol {
 	// MARK: - Class Properties
 	var httpClient: HttpClientProtocol
@@ -19,7 +20,8 @@ struct GetYourPetClient: GetYourPetClientProtocol {
 		self.httpClient = httpClient
 	}
 
-	func postPetsBySearch(requestBody: GetYourPetRequest, completion: @escaping ([GetYourPetSearchResponse]?, Error?) -> Void) {
+	// MARK: - Post Pets By Search
+	func postPetsBySearch(requestBody: GetYourPetRequest, completion: @escaping ([Pet]?, Error?) -> Void) {
 		let encoder = JSONEncoder()
 
 		var request: Data!
@@ -49,7 +51,7 @@ struct GetYourPetClient: GetYourPetClientProtocol {
 			let decoder = JSONDecoder()
 
 			do {
-				let response = try decoder.decode([GetYourPetSearchResponse].self, from: data)
+				let response = try decoder.decode([Pet].self, from: data)
 				DispatchQueue.main.async {
 					completion(response, nil)
 				}
@@ -62,7 +64,8 @@ struct GetYourPetClient: GetYourPetClientProtocol {
 		postSession.resume()
 	}
 
-	func getPetsByPetId(petId: Int, distanceFrom zipCode: String?, completion: @escaping (GetYourPetSearchResponse?, Error?) -> Void) {
+	// MARK: - Get Pet By PetId
+	func getPetByPetId(petId: Int, distanceFrom zipCode: String? = nil, completion: @escaping (Pet?, Error?) -> Void) {
 		#warning("Not Implemented")
 	}
 }
