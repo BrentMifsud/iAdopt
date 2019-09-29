@@ -76,22 +76,25 @@ class PetSearchViewController: UIViewController {
 		GetYourPetClient.shared.postPetsBySearch(requestBody: request) { [unowned self] (responseBody, error) in
 
 			guard let responseBody = responseBody, error == nil else {
-				self.presentErrorAlert(title: "Unable to retrieve adoption listings.", message: "\(error!.localizedDescription)")
-
-				self.enableUI(true)
-
+				DispatchQueue.main.async {
+					self.presentErrorAlert(title: "Unable to retrieve adoption listings.", message: "\(error!.localizedDescription)")
+					self.enableUI(true)
+				}
 				return
 			}
 
 			guard responseBody.count > 0 else {
-				self.presentErrorAlert(title: "No listings found", message: "Please try expanding your search distance.")
+				DispatchQueue.main.async {
+					self.presentErrorAlert(title: "Unable to retrieve adoption listings.", message: "\(error!.localizedDescription)")
+					self.enableUI(true)
+				}
 				return
 			}
 
-			self.performSegue(withIdentifier: Segues.searchResults, sender: responseBody)
-
-			self.enableUI(true)
-
+			DispatchQueue.main.async {
+				self.performSegue(withIdentifier: Segues.searchResults, sender: responseBody)
+				self.enableUI(true)
+			}
 		}
 	}
 

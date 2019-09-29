@@ -30,12 +30,18 @@ class PetTableViewCell: UITableViewCell {
 			guard let weakSelf = self else { return }
 
 			guard let image = image, error == nil else {
-				weakSelf.petImageView.image = UIImage()
+				DispatchQueue.main.async {
+					weakSelf.petImageView.image = UIImage(systemName: "photo")
+					weakSelf.petImageView.contentMode = .scaleAspectFit
+					weakSelf.activityIndicator.stopAnimating()
+				}
 				return
 			}
 
-			weakSelf.petImageView.image = image
-			weakSelf.activityIndicator.stopAnimating()
+			DispatchQueue.main.async {
+				weakSelf.petImageView.image = image
+				weakSelf.activityIndicator.stopAnimating()
+			}
 		}
 
 		petImageView.image = UIImage()

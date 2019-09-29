@@ -80,22 +80,26 @@ struct GetYourPetClient: GetYourPetClientProtocol {
 	func downloadImage(fromUrl url: URL, completion: @escaping (UIImage?, String?, Error?) -> Void) {
 		let dataTask = httpClient.createGetRequest(withURL: url, andPath: nil, queryParms: nil, headers: nil) { (data, error) in
 			guard let imageData = data, error == nil else {
-				DispatchQueue.main.async {
-					completion(nil, nil, error)
-				}
+				completion(nil, nil, error)
+				return
+			}
+
+			/*
+			* Occasionally, the image url returned from the API does not contain an image.
+			* This is not an error, so we dont want to fail here.
+			* This handles those occurances.
+			*/
+			guard imageData.count > 10000 else {
+				completion(nil,nil,nil)
 				return
 			}
 
 			guard let image = UIImage(data: imageData) else {
-				DispatchQueue.main.async {
-					completion(nil, nil, error)
-				}
+				completion(nil, nil, error)
 				return
 			}
 
-			DispatchQueue.main.async {
-				completion(image, url.absoluteString, nil)
-			}
+			completion(image, url.absoluteString, nil)
 		}
 		dataTask.resume()
 	}
