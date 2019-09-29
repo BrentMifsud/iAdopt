@@ -11,6 +11,7 @@ import Foundation
 extension GetYourPetClient {
 	enum UrlConstants {
 		static let baseUrl = URL(string: "https://getyourpet.com/")
+		static let homePageUrl = URL(string: "https://getyourpet.com")
 		static let apiPath = "api"
 		static let partnerSearchPath = "partnerpetsearch"
 	}
