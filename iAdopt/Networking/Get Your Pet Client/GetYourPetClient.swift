@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 /// Implementation of GetYourPetClientProtocol
 struct GetYourPetClient: GetYourPetClientProtocol {
@@ -74,5 +75,28 @@ struct GetYourPetClient: GetYourPetClientProtocol {
 	// MARK: - Get Pet By PetId
 	func getPetByPetId(petId: Int, distanceFrom zipCode: String? = nil, completion: @escaping (Pet?, Error?) -> Void) {
 		#warning("Not Implemented")
+	}
+
+	func downloadImage(fromUrl url: URL, completion: @escaping (UIImage?, String?, Error?) -> Void) {
+		let dataTask = httpClient.createGetRequest(withURL: url, andPath: nil, queryParms: nil, headers: nil) { (data, error) in
+			guard let imageData = data, error == nil else {
+				DispatchQueue.main.async {
+					completion(nil, nil, error)
+				}
+				return
+			}
+
+			guard let image = UIImage(data: imageData) else {
+				DispatchQueue.main.async {
+					completion(nil, nil, error)
+				}
+				return
+			}
+
+			DispatchQueue.main.async {
+				completion(image, url.absoluteString, nil)
+			}
+		}
+		dataTask.resume()
 	}
 }

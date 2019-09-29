@@ -20,10 +20,10 @@
 		845E453C233FFD08005FEBA1 /* PetTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 845E453A233FFD08005FEBA1 /* PetTableViewCell.xib */; };
 		84816513233ED16100EE0435 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84816512233ED16100EE0435 /* UIViewController+Extension.swift */; };
 		8484447D233BED4300F0C3C1 /* PetSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8484447C233BED4300F0C3C1 /* PetSearchViewController.swift */; };
-		8484447F233BED6000F0C3C1 /* PetSearchResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8484447E233BED6000F0C3C1 /* PetSearchResultsViewController.swift */; };
-		84844481233BED8400F0C3C1 /* PetDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84844480233BED8400F0C3C1 /* PetDetailsViewController.swift */; };
 		84844483233BED9C00F0C3C1 /* PetFavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84844482233BED9C00F0C3C1 /* PetFavoritesViewController.swift */; };
 		84844485233BFB5400F0C3C1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84844484233BFB5400F0C3C1 /* Constants.swift */; };
+		8497B79C2341208F0007AE2D /* PetSearchResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8497B79B2341208F0007AE2D /* PetSearchResultsViewController.swift */; };
+		8497B79F23414FBC0007AE2D /* PetSearchResultsViewController+UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8497B79E23414FBC0007AE2D /* PetSearchResultsViewController+UITableView.swift */; };
 		84D8DC49233D3916007A4451 /* HttpClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D8DC48233D3916007A4451 /* HttpClientProtocol.swift */; };
 		84D8DC4B233D3E55007A4451 /* HttpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D8DC4A233D3E55007A4451 /* HttpClient.swift */; };
 		84D8DC4F233D7A37007A4451 /* HttpClient+Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D8DC4E233D7A37007A4451 /* HttpClient+Constants.swift */; };
@@ -51,10 +51,10 @@
 		845E453A233FFD08005FEBA1 /* PetTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PetTableViewCell.xib; sourceTree = "<group>"; };
 		84816512233ED16100EE0435 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		8484447C233BED4300F0C3C1 /* PetSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetSearchViewController.swift; sourceTree = "<group>"; };
-		8484447E233BED6000F0C3C1 /* PetSearchResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetSearchResultsViewController.swift; sourceTree = "<group>"; };
-		84844480233BED8400F0C3C1 /* PetDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetDetailsViewController.swift; sourceTree = "<group>"; };
 		84844482233BED9C00F0C3C1 /* PetFavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetFavoritesViewController.swift; sourceTree = "<group>"; };
 		84844484233BFB5400F0C3C1 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		8497B79B2341208F0007AE2D /* PetSearchResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetSearchResultsViewController.swift; sourceTree = "<group>"; };
+		8497B79E23414FBC0007AE2D /* PetSearchResultsViewController+UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PetSearchResultsViewController+UITableView.swift"; sourceTree = "<group>"; };
 		84D8DC48233D3916007A4451 /* HttpClientProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpClientProtocol.swift; sourceTree = "<group>"; };
 		84D8DC4A233D3E55007A4451 /* HttpClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpClient.swift; sourceTree = "<group>"; };
 		84D8DC4E233D7A37007A4451 /* HttpClient+Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HttpClient+Constants.swift"; sourceTree = "<group>"; };
@@ -144,8 +144,7 @@
 				8439744C233A9D1400D8A1B4 /* HomePageViewController.swift */,
 				84844486233C215A00F0C3C1 /* Pet Search View Controller */,
 				84844482233BED9C00F0C3C1 /* PetFavoritesViewController.swift */,
-				8484447E233BED6000F0C3C1 /* PetSearchResultsViewController.swift */,
-				84844480233BED8400F0C3C1 /* PetDetailsViewController.swift */,
+				8497B79D234121210007AE2D /* Pet Search Results Table View Controller */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -182,6 +181,15 @@
 				8484447C233BED4300F0C3C1 /* PetSearchViewController.swift */,
 			);
 			path = "Pet Search View Controller";
+			sourceTree = "<group>";
+		};
+		8497B79D234121210007AE2D /* Pet Search Results Table View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				8497B79B2341208F0007AE2D /* PetSearchResultsViewController.swift */,
+				8497B79E23414FBC0007AE2D /* PetSearchResultsViewController+UITableView.swift */,
+			);
+			path = "Pet Search Results Table View Controller";
 			sourceTree = "<group>";
 		};
 		84D8DC47233D2FC4007A4451 /* Networking */ = {
@@ -293,7 +301,7 @@
 				84D8DC5F233E9C5D007A4451 /* GetYourPetRequest.swift in Sources */,
 				84397453233A9D1400D8A1B4 /* iAdopt.xcdatamodeld in Sources */,
 				84D8DC51233D7A84007A4451 /* GetYourPetClientProtocol.swift in Sources */,
-				84844481233BED8400F0C3C1 /* PetDetailsViewController.swift in Sources */,
+				8497B79C2341208F0007AE2D /* PetSearchResultsViewController.swift in Sources */,
 				84D8DC55233E83CB007A4451 /* GetYourPetClient+Constants.swift in Sources */,
 				8484447D233BED4300F0C3C1 /* PetSearchViewController.swift in Sources */,
 				84816513233ED16100EE0435 /* UIViewController+Extension.swift in Sources */,
@@ -304,11 +312,11 @@
 				84D8DC49233D3916007A4451 /* HttpClientProtocol.swift in Sources */,
 				84D8DC53233E7871007A4451 /* GetYourPetClient.swift in Sources */,
 				8439744B233A9D1400D8A1B4 /* SceneDelegate.swift in Sources */,
-				8484447F233BED6000F0C3C1 /* PetSearchResultsViewController.swift in Sources */,
 				84D8DC4B233D3E55007A4451 /* HttpClient.swift in Sources */,
 				84D8DC59233E8E2B007A4451 /* Pet.swift in Sources */,
 				845E453B233FFD08005FEBA1 /* PetTableViewCell.swift in Sources */,
 				84844485233BFB5400F0C3C1 /* Constants.swift in Sources */,
+				8497B79F23414FBC0007AE2D /* PetSearchResultsViewController+UITableView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

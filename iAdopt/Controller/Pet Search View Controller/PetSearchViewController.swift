@@ -83,16 +83,25 @@ class PetSearchViewController: UIViewController {
 				return
 			}
 
-			self.presentErrorAlert(title: "Here is the first pet we found:", message: responseBody.first.debugDescription)
+			guard responseBody.count > 0 else {
+				self.presentErrorAlert(title: "No listings found", message: "Please try expanding your search distance.")
+				return
+			}
+
+			self.performSegue(withIdentifier: Segues.searchResults, sender: responseBody)
 
 			self.enableUI(true)
+
 		}
 	}
 
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+		let resultsViewController = segue.destination as! PetSearchResultsViewController
+
+		let searchResults = sender as! [Pet]
+
+		resultsViewController.searchResults = searchResults
     }
 
 	// MARK: - Class Methods
