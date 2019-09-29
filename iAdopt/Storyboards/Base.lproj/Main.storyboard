@@ -130,7 +130,7 @@
                                                 <segments>
                                                     <segment title="🐱"/>
                                                     <segment title="🐶"/>
-                                                    <segment title="Any"/>
+                                                    <segment title="Both"/>
                                                 </segments>
                                                 <connections>
                                                     <action selector="speciesSelectorDidChange:" destination="wm9-LY-dhv" eventType="valueChanged" id="RD2-35-Ozj"/>
