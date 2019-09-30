@@ -16,6 +16,7 @@ class PetDetailsViewController: UIViewController {
 	@IBOutlet weak var mainImageView: UIImageView!
 	@IBOutlet weak var petImageCollectionView: UICollectionView!
 	@IBOutlet weak var nameLabel: UILabel!
+	@IBOutlet weak var favoritesButton: UIButton!
 	@IBOutlet weak var breedLabel: UILabel!
 	@IBOutlet weak var adoptionDeadlineLabel: UILabel!
 	@IBOutlet weak var genderLabel: UILabel!
@@ -53,6 +54,7 @@ class PetDetailsViewController: UIViewController {
 	fileprivate func setUpView() {
 		mainImageView.image = petImages.first
 		nameLabel.text = selectedPet.name
+		setUpFavoritesButton()
 		breedLabel.text = selectedPet.breedDisplay
 		adoptionDeadlineLabel.text = selectedPet.adoptionDeadline
 		genderLabel.text = selectedPet.gender
@@ -72,5 +74,19 @@ class PetDetailsViewController: UIViewController {
 		coatLabel.text = selectedPet.coat
 		clawsLabel.text = selectedPet.claws ?? "No"
 	}
+
+	fileprivate func setUpFavoritesButton(){
+		let config = UIImage.SymbolConfiguration(pointSize: 25, weight: .regular, scale: .medium)
+		let heart = UIImage(systemName: "heart", withConfiguration: config)
+		favoritesButton.imageView?.image = heart
+		favoritesButton.tintColor = .systemPink
+	}
+
+	// MARK: - IBActions
+
+	@IBAction func favoritesButtonPressed(_ sender: Any) {
+		#warning("Not yet implemented.")
+	}
+
 
 }

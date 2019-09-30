@@ -499,13 +499,13 @@
                                                     </collectionViewCell>
                                                 </cells>
                                             </collectionView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Doge" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="21" translatesAutoresizingMaskIntoConstraints="NO" id="Thr-I0-yM0" userLabel="nameLabel">
-                                                <rect key="frame" x="8" y="270" width="304" height="50.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Doge" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="21" translatesAutoresizingMaskIntoConstraints="NO" id="Thr-I0-yM0" userLabel="nameLabel">
+                                                <rect key="frame" x="8" y="270" width="103.5" height="50.5"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="42"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shiba Inu" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="x9i-zI-HRg" userLabel="breedLabel">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shiba Inu" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="x9i-zI-HRg" userLabel="breedLabel">
                                                 <rect key="frame" x="8" y="328.5" width="304" height="33.5"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="28"/>
                                                 <nil key="textColor"/>
@@ -873,6 +873,21 @@
                                                     <constraint firstAttribute="height" constant="260" id="xtX-g3-lv5"/>
                                                 </constraints>
                                             </view>
+                                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k7o-37-cOl" userLabel="Favorite Button">
+                                                <rect key="frame" x="261" y="270" width="51" height="51"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="51" id="nWL-lJ-QaL"/>
+                                                    <constraint firstAttribute="height" constant="51" id="rjO-EL-ren"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                <color key="tintColor" systemColor="systemPinkColor" red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <state key="normal" image="heart" catalog="system">
+                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="favoritesButtonPressed:" destination="2nV-he-5yu" eventType="touchUpInside" id="hGh-HZ-qp9"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
@@ -884,6 +899,7 @@
                                             <constraint firstItem="AJy-c7-zg4" firstAttribute="top" secondItem="azL-GU-gso" secondAttribute="bottom" constant="16" id="EvP-Mh-kPS"/>
                                             <constraint firstAttribute="trailing" secondItem="x9i-zI-HRg" secondAttribute="trailing" constant="8" id="GfM-kR-10I"/>
                                             <constraint firstItem="NA4-cn-TvP" firstAttribute="top" secondItem="x9i-zI-HRg" secondAttribute="bottom" constant="8" id="HRP-ic-Dpg"/>
+                                            <constraint firstAttribute="trailing" secondItem="k7o-37-cOl" secondAttribute="trailing" constant="8" id="I9S-Vq-1Zz"/>
                                             <constraint firstItem="YQe-hC-tIm" firstAttribute="leading" secondItem="HoP-m9-Zl4" secondAttribute="leading" constant="8" id="Ii1-wn-ek4"/>
                                             <constraint firstItem="YQe-hC-tIm" firstAttribute="top" secondItem="xxK-gp-Uoi" secondAttribute="bottom" constant="8" id="Jsq-Uq-Mbt"/>
                                             <constraint firstItem="xxK-gp-Uoi" firstAttribute="top" secondItem="NA4-cn-TvP" secondAttribute="bottom" constant="8" id="LIi-VW-ikc"/>
@@ -898,16 +914,17 @@
                                             <constraint firstAttribute="trailing" secondItem="YQe-hC-tIm" secondAttribute="trailing" constant="8" id="ecU-Fg-p3L"/>
                                             <constraint firstItem="bHP-v3-BKc" firstAttribute="leading" secondItem="HoP-m9-Zl4" secondAttribute="leading" constant="8" id="ffg-gf-kG2"/>
                                             <constraint firstItem="Thr-I0-yM0" firstAttribute="leading" secondItem="HoP-m9-Zl4" secondAttribute="leading" constant="8" id="g6G-uf-jvq"/>
+                                            <constraint firstItem="k7o-37-cOl" firstAttribute="leading" secondItem="Thr-I0-yM0" secondAttribute="trailing" constant="149.5" id="hPI-61-HIq"/>
                                             <constraint firstAttribute="trailing" secondItem="bHP-v3-BKc" secondAttribute="trailing" constant="8" id="k9d-Yr-r1H"/>
                                             <constraint firstItem="bHP-v3-BKc" firstAttribute="top" secondItem="AJy-c7-zg4" secondAttribute="bottom" constant="8" id="kXf-Cq-JY8"/>
                                             <constraint firstItem="r1j-GP-eIU" firstAttribute="top" secondItem="bHP-v3-BKc" secondAttribute="bottom" constant="10" id="mJl-q1-mB0"/>
                                             <constraint firstItem="Thr-I0-yM0" firstAttribute="top" secondItem="SKj-Ae-rip" secondAttribute="bottom" constant="8" id="mRH-N4-h6w"/>
                                             <constraint firstItem="AJy-c7-zg4" firstAttribute="leading" secondItem="HoP-m9-Zl4" secondAttribute="leading" constant="8" id="oTb-pL-Cfe"/>
                                             <constraint firstItem="x9i-zI-HRg" firstAttribute="top" secondItem="Thr-I0-yM0" secondAttribute="bottom" constant="8" id="pMc-gP-euY"/>
-                                            <constraint firstAttribute="trailing" secondItem="Thr-I0-yM0" secondAttribute="trailing" constant="8" id="qKO-u2-EPP"/>
                                             <constraint firstAttribute="trailing" secondItem="xxK-gp-Uoi" secondAttribute="trailing" constant="8" id="rA5-uA-gy2"/>
                                             <constraint firstAttribute="trailing" secondItem="r1j-GP-eIU" secondAttribute="trailing" constant="8" id="rsl-zT-IK9"/>
                                             <constraint firstItem="NA4-cn-TvP" firstAttribute="leading" secondItem="HoP-m9-Zl4" secondAttribute="leading" constant="8" id="trZ-la-tKl"/>
+                                            <constraint firstItem="k7o-37-cOl" firstAttribute="centerY" secondItem="Thr-I0-yM0" secondAttribute="centerY" id="ww0-8P-Znx"/>
                                             <constraint firstItem="r1j-GP-eIU" firstAttribute="leading" secondItem="HoP-m9-Zl4" secondAttribute="leading" constant="8" id="y8D-eb-nmh"/>
                                             <constraint firstItem="x9i-zI-HRg" firstAttribute="leading" secondItem="HoP-m9-Zl4" secondAttribute="leading" constant="8" id="yZk-fG-hyP"/>
                                             <constraint firstItem="azL-GU-gso" firstAttribute="top" secondItem="YQe-hC-tIm" secondAttribute="bottom" constant="8" id="yb6-nK-zi8"/>
@@ -945,6 +962,7 @@
                         <outlet property="clawsLabel" destination="Mb0-Nm-TZW" id="qkq-mC-dMz"/>
                         <outlet property="coatLabel" destination="6tS-m1-Zs4" id="ybH-nw-OvJ"/>
                         <outlet property="distanceLabel" destination="9Vx-mR-crY" id="ub9-zQ-2hb"/>
+                        <outlet property="favoritesButton" destination="k7o-37-cOl" id="i3s-0b-7LT"/>
                         <outlet property="genderLabel" destination="1gl-kh-n7M" id="YDz-fc-IFb"/>
                         <outlet property="goodWithCatsLabel" destination="Bea-Xx-xDl" id="Sgv-ZJ-wuH"/>
                         <outlet property="goodWithChildren5to10Label" destination="y9u-qC-sA6" id="QvD-Ai-Ver"/>
