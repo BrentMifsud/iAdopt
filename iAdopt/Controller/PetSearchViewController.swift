@@ -19,7 +19,7 @@ class PetSearchViewController: UIViewController {
 
 	// MARK: - Class Properties
 	private var selectionString: String? = GetYourPetClient.PetType.Cat
-	private var activityView: UIView!
+	private var activityView = UIView()
 
 	// MARK: - View Lifecycle Methods
     override func viewDidLoad() {
@@ -47,10 +47,13 @@ class PetSearchViewController: UIViewController {
 		switch sender.selectedSegmentIndex {
 		case 0:
 			selectionString = GetYourPetClient.PetType.Cat
+			SearchResults.shared.petTypeShown = .cat
 		case 1:
 			selectionString = GetYourPetClient.PetType.Dog
+			SearchResults.shared.petTypeShown = .dog
 		default:
 			selectionString = nil
+			SearchResults.shared.petTypeShown = .both
 		}
 	}
 
@@ -58,13 +61,15 @@ class PetSearchViewController: UIViewController {
 	@IBAction func beginSearchPressed(_ sender: UIButton) {
 		enableUI(false)
 
+		SearchResults.shared.clearResults()
+
 		guard let zipCode = zipCodeTextField.text else {
 			self.enableUI(true)
 			return
 		}
 
-		guard !zipCode.isEmpty else {
-			presentErrorAlert(title: "Search Failed", message: "Valid zip code required to search for pets.")
+		guard !zipCode.isEmpty, zipCode.count == 5 else {
+			presentErrorAlert(title: "Search Failed", message: "Please Ensure you have entered a valid zip code.")
 			self.enableUI(true)
 			return
 		}
@@ -73,26 +78,32 @@ class PetSearchViewController: UIViewController {
 
 		let request = GetYourPetRequest(zipCode: zipCode, searchRadiusInMiles: searchDistance, pageNumber: 1, orderBy: GetYourPetClient.OrderBy.Distance, petType: selectionString)
 
-		GetYourPetClient.shared.postPetsBySearch(requestBody: request) { [unowned self] (responseBody, error) in
-
-			guard let responseBody = responseBody, error == nil else {
-				self.presentErrorAlert(title: "Unable to retrieve adoption listings.", message: "\(error!.localizedDescription)")
-
-				self.enableUI(true)
-
-				return
-			}
-
-			self.presentErrorAlert(title: "Here is the first pet we found:", message: responseBody.first.debugDescription)
-
-			self.enableUI(true)
-		}
+		GetYourPetClient.shared.postPetsBySearch(requestBody: request, completion: handleSearchResults(responseBody:error:))
 	}
 
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+		let searchResultsTabBarController = segue.destination as! UITabBarController
+
+		SearchResults.shared.zipCode = zipCodeTextField.text!
+		SearchResults.shared.distance = UInt(distanceSlider.value)
+		SearchResults.shared.currentPage = 1
+		SearchResults.shared.endOfResults = false
+
+		let catViewController = searchResultsTabBarController.viewControllers![0] as! PetSearchResultsViewController
+		let dogViewController = searchResultsTabBarController.viewControllers![1] as! PetSearchResultsViewController
+
+		catViewController.petType = .cat
+		dogViewController.petType = .dog
+
+		switch SearchResults.shared.petTypeShown {
+		case .both:
+			break
+		case .cat:
+			searchResultsTabBarController.tabBar.items![1].isEnabled = false
+		case .dog:
+			searchResultsTabBarController.tabBar.items![0].isEnabled = false
+		}
     }
 
 	// MARK: - Class Methods
@@ -101,37 +112,30 @@ class PetSearchViewController: UIViewController {
 		zipCodeTextField.isEnabled = enabled
 		distanceSlider.isEnabled = enabled
 		searchButton.isEnabled = enabled
-		showActivityIndicator(!enabled)
+		showActivityIndicator(activityView: &activityView, !enabled)
 	}
 
-	fileprivate func showActivityIndicator(_ enabled: Bool){
-		if enabled {
-			// Set up Activity View
-			activityView = UIView(frame: view.frame)
-			activityView.translatesAutoresizingMaskIntoConstraints = false
-			view.addSubview(activityView)
-			activityView.backgroundColor = UIColor(white: 0, alpha: 0.5)
+	fileprivate func handleSearchResults(responseBody: [Pet]?, error: Error?) {
+		guard let responseBody = responseBody, error == nil else {
+			DispatchQueue.main.async {
+				self.presentErrorAlert(title: "Unable to retrieve adoption listings.", message: "\(error!.localizedDescription)")
+				self.enableUI(true)
+			}
+			return
+		}
 
-			// Set up Activity Indicator
-			let activityIndicator = UIActivityIndicatorView(style: .large)
-			activityIndicator.translatesAutoresizingMaskIntoConstraints = false
-			activityView.addSubview(activityIndicator)
-			activityIndicator.center = activityView.center
-			activityIndicator.startAnimating()
+		guard responseBody.count > 0 else {
+			DispatchQueue.main.async {
+				self.presentErrorAlert(title: "Unable to retrieve adoption listings.", message: "\(error!.localizedDescription)")
+				self.enableUI(true)
+			}
+			return
+		}
 
-			// Set up constraints
-			NSLayoutConstraint.activate([
-				activityView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0),
-				activityView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0),
-				activityView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 0),
-				activityView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: 0),
-				activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0),
-				activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 0)
-			])
-		} else {
-			activityView.removeFromSuperview()
-			activityView = nil
+		DispatchQueue.main.async {
+			SearchResults.shared.searchResults = responseBody
+			self.performSegue(withIdentifier: Segues.searchResults, sender: self)
+			self.enableUI(true)
 		}
 	}
-
 }
