@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		84210FB92342BE1C00A77BFC /* PetDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84210FB82342BE1C00A77BFC /* PetDetailsViewController.swift */; };
 		84397449233A9D1400D8A1B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84397448233A9D1400D8A1B4 /* AppDelegate.swift */; };
 		8439744B233A9D1400D8A1B4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8439744A233A9D1400D8A1B4 /* SceneDelegate.swift */; };
 		8439744D233A9D1400D8A1B4 /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8439744C233A9D1400D8A1B4 /* HomePageViewController.swift */; };
@@ -36,6 +37,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		84210FB82342BE1C00A77BFC /* PetDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetDetailsViewController.swift; sourceTree = "<group>"; };
 		84397445233A9D1400D8A1B4 /* iAdopt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iAdopt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84397448233A9D1400D8A1B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8439744A233A9D1400D8A1B4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -77,6 +79,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		84210FB72342BDF300A77BFC /* Pet Details View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				84210FB82342BE1C00A77BFC /* PetDetailsViewController.swift */,
+			);
+			path = "Pet Details View Controller";
+			sourceTree = "<group>";
+		};
 		8439743C233A9D1300D8A1B4 = {
 			isa = PBXGroup;
 			children = (
@@ -142,6 +152,7 @@
 		84397466233AB42100D8A1B4 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				84210FB72342BDF300A77BFC /* Pet Details View Controller */,
 				8439744C233A9D1400D8A1B4 /* HomePageViewController.swift */,
 				8484447C233BED4300F0C3C1 /* PetSearchViewController.swift */,
 				8497B79D234121210007AE2D /* Pet Search Results Table View Controller */,
@@ -290,6 +301,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				84D8DC5B233E8E40007A4451 /* GetYourPetErrorResponse.swift in Sources */,
+				84210FB92342BE1C00A77BFC /* PetDetailsViewController.swift in Sources */,
 				84D8DC5F233E9C5D007A4451 /* GetYourPetRequest.swift in Sources */,
 				8465C57C2341A31800138458 /* SearchResults.swift in Sources */,
 				84397453233A9D1400D8A1B4 /* iAdopt.xcdatamodeld in Sources */,
