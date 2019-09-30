@@ -68,8 +68,8 @@ class PetSearchViewController: UIViewController {
 			return
 		}
 
-		guard !zipCode.isEmpty else {
-			presentErrorAlert(title: "Search Failed", message: "Valid zip code required to search for pets.")
+		guard !zipCode.isEmpty, zipCode.count == 5 else {
+			presentErrorAlert(title: "Search Failed", message: "Please Ensure you have entered a valid zip code.")
 			self.enableUI(true)
 			return
 		}
