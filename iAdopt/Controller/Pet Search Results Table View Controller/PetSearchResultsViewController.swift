@@ -14,39 +14,15 @@ class PetSearchResultsViewController: UIViewController {
 
 	@IBOutlet weak var getYourPetButton: UIButton!
 	@IBOutlet weak var tableView: UITableView!
-
-	// MARK: - Table view properties
-
-	let reuseId = "petCell"
-
-	var sectionCount: Int {
-		guard searchResults.count > 0 else {
-			return 0
-		}
-
-		if catResults.count > 0 && dogResults.count > 0 {
-			return 2
-		} else {
-			return 1
-		}
-	}
+	@IBOutlet weak var getYourPetView: UIView!
 
 	// MARK: - Class properties
 
-	var searchResults: [Pet]!
+	let reuseId = "petCell"
 
-	var catResults: [Pet] {
-		return searchResults.filter { (pet) in
-			pet.petType == GetYourPetClient.PetType.Cat
-		}
-	}
+	var petType: SearchResults.PetTypeShown!
 
-	var dogResults: [Pet] {
-		return searchResults.filter { (pet) -> Bool in
-			pet.petType == GetYourPetClient.PetType.Dog
-		}
-	}
-
+	var activityView: UIView!
 
 	// MARK: - View lifecycle methods
 
@@ -63,7 +39,6 @@ class PetSearchResultsViewController: UIViewController {
 			app.open(toOpen, options: [:], completionHandler: nil)
 		}
 	}
-
 
     /*
     // MARK: - Navigation

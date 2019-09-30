@@ -12,77 +12,51 @@ import UIKit
 extension PetSearchResultsViewController: UITableViewDelegate, UITableViewDataSource {
 	func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
 
-		let catLabel = "Cats"
-		let dogLabel = "Dogs"
+		enum LabelText: String {
+			case CAT = "Cat"
+			case DOG = "Dog"
+		}
 
 		let label = UILabel()
 		label.backgroundColor = .secondarySystemFill
 
-		switch sectionCount {
-		case 1:
-			if catResults.count > 0 {
-				label.text = catLabel
-			} else {
-				label.text = dogLabel
-			}
-		case 2:
-			if section == 0 {
-				label.text = catLabel
-			} else {
-				label.text = dogLabel
-			}
-		default:
-			return UIView()
+		switch petType {
+			case .cat: label.text = LabelText.CAT.rawValue
+			case .dog: label.text = LabelText.DOG.rawValue
+			default: break
 		}
 
 		return label
 	}
 
 	func numberOfSections(in tableView: UITableView) -> Int {
-		return sectionCount
+		guard SearchResults.shared.searchResults.count > 0 else {
+			return 0
+		}
+
+		return 1
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		switch sectionCount {
-		case 1:
-			if catResults.count > 0 {
-				return catResults.count
-			} else {
-				return dogResults.count
-			}
-		case 2:
-			if section == 0 {
-				return catResults.count
-			} else {
-				return dogResults.count
-			}
-		default:
-			return 0
+
+		var rowCount: Int
+
+		switch petType {
+			case .cat: rowCount = SearchResults.shared.catResults.count
+			case .dog: rowCount = SearchResults.shared.dogResults.count
+			default: rowCount = 0
 		}
+
+		return rowCount
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		guard sectionCount > 0 else {
-			return UITableViewCell()
-		}
-
 		let petTableViewCell = tableView.dequeueReusableCell(withIdentifier: reuseId, for: indexPath) as! PetTableViewCell
 
-		switch sectionCount {
-		case 1:
-			if catResults.count > 0 {
-				petTableViewCell.petDetails = catResults[indexPath.row]
-			} else {
-				petTableViewCell.petDetails = dogResults[indexPath.row]
-			}
-		case 2:
-			if indexPath.section == 0 {
-				petTableViewCell.petDetails = catResults[indexPath.row]
-			} else {
-				petTableViewCell.petDetails = dogResults[indexPath.row]
-			}
-		default:
-			break
+		switch petType {
+			case .cat: petTableViewCell.petDetails = SearchResults.shared.catResults[indexPath.row]
+			case .dog: petTableViewCell.petDetails = SearchResults.shared.dogResults[indexPath.row]
+			default: break
 		}
 
 		petTableViewCell.setUpCell()
@@ -90,23 +64,85 @@ extension PetSearchResultsViewController: UITableViewDelegate, UITableViewDataSo
         return petTableViewCell
     }
 
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
+	// The image height of the cell is constrained to 75. This function will always return 75.
+	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+		return 75
+	}
 
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }
-    }
-    */
+	func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+		guard !SearchResults.shared.endOfResults else { return }
+
+		switch petType {
+			case .cat:
+				guard indexPath.row == SearchResults.shared.catResults.count - 3 else { return }
+				if SearchResults.shared.petTypeShown == .both{
+					fetchMoreListings()
+				} else {
+					fetchMoreCatListings()
+				}
+				fetchMoreCatListings()
+			case .dog:
+				guard indexPath.row == SearchResults.shared.dogResults.count - 3 else { return }
+				if SearchResults.shared.petTypeShown == .both{
+					fetchMoreListings()
+				} else {
+					fetchMoreCatListings()
+				}
+			default: break
+		}
+	}
+
+
+
+	// MARK: - Helper functions
+
+	fileprivate func fetchMoreCatListings() {
+		SearchResults.shared.currentPage += 1
+		downloadListings(petType: GetYourPetClient.PetType.Cat)
+	}
+
+	fileprivate func fetchMoreDogListings() {
+		SearchResults.shared.currentPage += 1
+		downloadListings(petType: GetYourPetClient.PetType.Dog)
+	}
+
+	fileprivate func fetchMoreListings() {
+		SearchResults.shared.currentPage += 1
+		downloadListings(petType: nil)
+	}
+
+	fileprivate func downloadListings(petType: String?){
+		let zipCode = SearchResults.shared.zipCode
+		let distance = SearchResults.shared.distance
+		let currentPage = SearchResults.shared.currentPage
+
+		let request = GetYourPetRequest(
+			zipCode: zipCode,
+			searchRadiusInMiles: distance,
+			pageNumber: currentPage,
+			orderBy: GetYourPetClient.OrderBy.Distance,
+			petType: petType
+		)
+
+		GetYourPetClient.shared.postPetsBySearch(requestBody: request) { [weak self] (responseBody, error) in
+			guard let weakSelf = self else { return }
+
+			guard let responseBody = responseBody, error == nil else {
+				DispatchQueue.main.async {
+					weakSelf.presentErrorAlert(title: "Unable to retrieve adoption listings.", message: "\(error!.localizedDescription)")
+				}
+				return
+			}
+
+			guard responseBody.count != 0 else {
+				SearchResults.shared.endOfResults = true
+				return
+			}
+
+			DispatchQueue.main.async {
+				SearchResults.shared.searchResults.append(contentsOf: responseBody)
+				weakSelf.tableView.reloadData()
+			}
+		}
+	}
 }
