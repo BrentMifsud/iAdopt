@@ -499,13 +499,13 @@
                                                     </collectionViewCell>
                                                 </cells>
                                             </collectionView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Doge" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="21" translatesAutoresizingMaskIntoConstraints="NO" id="Thr-I0-yM0" userLabel="nameLabel">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Doge" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="Thr-I0-yM0" userLabel="nameLabel">
                                                 <rect key="frame" x="8" y="270" width="103.5" height="50.5"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="42"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shiba Inu" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="x9i-zI-HRg" userLabel="breedLabel">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shiba Inu" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="x9i-zI-HRg" userLabel="breedLabel">
                                                 <rect key="frame" x="8" y="328.5" width="304" height="33.5"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="28"/>
                                                 <nil key="textColor"/>
@@ -892,6 +892,7 @@
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="SKj-Ae-rip" secondAttribute="trailing" constant="8" id="1qJ-D7-1xb"/>
+                                            <constraint firstAttribute="bottom" secondItem="r1j-GP-eIU" secondAttribute="bottom" constant="15.5" id="4hq-E0-nrE"/>
                                             <constraint firstItem="bHP-v3-BKc" firstAttribute="leading" secondItem="HoP-m9-Zl4" secondAttribute="leading" constant="8" id="661-w4-HXZ"/>
                                             <constraint firstItem="C49-Ee-bNF" firstAttribute="leading" secondItem="HoP-m9-Zl4" secondAttribute="leading" constant="8" id="7ez-ze-oXM"/>
                                             <constraint firstItem="xxK-gp-Uoi" firstAttribute="leading" secondItem="HoP-m9-Zl4" secondAttribute="leading" constant="8" id="98E-wV-ll3"/>
