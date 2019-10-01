@@ -108,6 +108,24 @@
 			path = "Pet Collection View Cell";
 			sourceTree = "<group>";
 		};
+		84210FC52342F31700A77BFC /* Nibs */ = {
+			isa = PBXGroup;
+			children = (
+				84210FBE2342D0E500A77BFC /* Pet Collection View Cell */,
+				845E453D233FFD12005FEBA1 /* Pet Table View Cell */,
+			);
+			path = Nibs;
+			sourceTree = "<group>";
+		};
+		84210FC62342F33100A77BFC /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				84816512233ED16100EE0435 /* UIViewController+Extension.swift */,
+				84210FC32342D38E00A77BFC /* MKMapView+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		8439743C233A9D1300D8A1B4 = {
 			isa = PBXGroup;
 			children = (
@@ -129,11 +147,11 @@
 		84397447233A9D1400D8A1B4 /* iAdopt */ = {
 			isa = PBXGroup;
 			children = (
-				84D8DC47233D2FC4007A4451 /* Networking */,
+				84397463233AB3F700D8A1B4 /* Storyboards */,
 				84397464233AB41300D8A1B4 /* Model */,
 				84397465233AB41B00D8A1B4 /* View */,
 				84397466233AB42100D8A1B4 /* Controller */,
-				84397463233AB3F700D8A1B4 /* Storyboards */,
+				84D8DC47233D2FC4007A4451 /* Networking */,
 				84397448233A9D1400D8A1B4 /* AppDelegate.swift */,
 				8439744A233A9D1400D8A1B4 /* SceneDelegate.swift */,
 				84397459233A9D1500D8A1B4 /* Info.plist */,
@@ -163,11 +181,9 @@
 		84397465233AB41B00D8A1B4 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				84210FBE2342D0E500A77BFC /* Pet Collection View Cell */,
+				84210FC52342F31700A77BFC /* Nibs */,
 				84844484233BFB5400F0C3C1 /* Constants.swift */,
-				84816512233ED16100EE0435 /* UIViewController+Extension.swift */,
-				845E453D233FFD12005FEBA1 /* Pet Table View Cell */,
-				84210FC32342D38E00A77BFC /* MKMapView+Extensions.swift */,
+				84210FC62342F33100A77BFC /* Extensions */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -175,10 +191,10 @@
 		84397466233AB42100D8A1B4 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				84210FB72342BDF300A77BFC /* Pet Details View Controller */,
 				8439744C233A9D1400D8A1B4 /* HomePageViewController.swift */,
 				8484447C233BED4300F0C3C1 /* PetSearchViewController.swift */,
 				8497B79D234121210007AE2D /* Pet Search Results Table View Controller */,
+				84210FB72342BDF300A77BFC /* Pet Details View Controller */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
