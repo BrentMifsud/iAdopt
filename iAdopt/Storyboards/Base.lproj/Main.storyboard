@@ -538,7 +538,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="5hN-aJ-bhJ" userLabel="Details Stack">
-                                                        <rect key="frame" x="8" y="36.5" width="157.5" height="117"/>
+                                                        <rect key="frame" x="8" y="36.5" width="161.5" height="117"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="tW0-na-Nua" userLabel="Gender Stack">
                                                                 <rect key="frame" x="0.0" y="0.0" width="94.5" height="17"/>
@@ -557,8 +557,8 @@
                                                                     </label>
                                                                 </subviews>
                                                             </stackView>
-                                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="2Mz-7i-bpY" userLabel="Age Stack">
-                                                                <rect key="frame" x="0.0" y="25" width="55" height="17"/>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="2Mz-7i-bpY" userLabel="Age Stack">
+                                                                <rect key="frame" x="0.0" y="25" width="161.5" height="17"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Age:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7y6-D9-yxq">
                                                                         <rect key="frame" x="0.0" y="0.0" width="32" height="17"/>
@@ -566,8 +566,26 @@
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nfj-ij-fko" userLabel="ageLabel">
-                                                                        <rect key="frame" x="40" y="0.0" width="15" height="17"/>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nfj-ij-fko" userLabel="yearLabel">
+                                                                        <rect key="frame" x="35" y="0.0" width="15" height="17"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                        <nil key="textColor"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="years," lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3QR-cj-61P">
+                                                                        <rect key="frame" x="53" y="0.0" width="39" height="17"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                        <nil key="textColor"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VPB-0e-FVJ" userLabel="monthLabel">
+                                                                        <rect key="frame" x="95" y="0.0" width="15" height="17"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                        <nil key="textColor"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="months" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IXf-N2-2RZ" userLabel="monthLabel">
+                                                                        <rect key="frame" x="113" y="0.0" width="48.5" height="17"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
@@ -960,7 +978,6 @@
                     <connections>
                         <outlet property="activityLabel" destination="lfl-fa-rEJ" id="HCb-ne-gg4"/>
                         <outlet property="adoptionDeadlineLabel" destination="a4T-fj-Gex" id="6S2-Ih-Z3o"/>
-                        <outlet property="ageLabel" destination="nfj-ij-fko" id="K33-B2-jYd"/>
                         <outlet property="breedLabel" destination="x9i-zI-HRg" id="346-U3-Rm4"/>
                         <outlet property="cityLabel" destination="qBy-KT-8Yd" id="dIh-ZI-ceg"/>
                         <outlet property="clawsLabel" destination="Mb0-Nm-TZW" id="qkq-mC-dMz"/>
@@ -976,12 +993,14 @@
                         <outlet property="goodWithDogsLabel" destination="Df3-UP-i1F" id="3nC-Qh-qGN"/>
                         <outlet property="imageView" destination="C49-Ee-bNF" id="e0W-m3-OvT"/>
                         <outlet property="mapView" destination="cZv-lf-g1K" id="MlT-rZ-Pll"/>
+                        <outlet property="monthLabel" destination="VPB-0e-FVJ" id="u1w-Dh-FzB"/>
                         <outlet property="nameLabel" destination="Thr-I0-yM0" id="UXO-Jv-KkV"/>
                         <outlet property="nameToCollectionConstraint" destination="mRH-N4-h6w" id="hBU-Xa-Pg4"/>
                         <outlet property="sizeLabel" destination="zbK-dz-V8d" id="gDK-42-wub"/>
                         <outlet property="spayedNeuteredLabel" destination="Qg1-gj-19V" id="hFQ-mt-aSs"/>
                         <outlet property="stateLabel" destination="dHe-mA-PRI" id="L2R-gu-feQ"/>
                         <outlet property="storyTextView" destination="bHP-v3-BKc" id="qyH-Ej-kIk"/>
+                        <outlet property="yearLabel" destination="nfj-ij-fko" id="K33-B2-jYd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OyZ-R3-fyI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

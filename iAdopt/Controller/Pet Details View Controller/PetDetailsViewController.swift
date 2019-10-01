@@ -20,7 +20,8 @@ class PetDetailsViewController: UIViewController {
 	@IBOutlet weak var breedLabel: UILabel!
 	@IBOutlet weak var adoptionDeadlineLabel: UILabel!
 	@IBOutlet weak var genderLabel: UILabel!
-	@IBOutlet weak var ageLabel: UILabel!
+	@IBOutlet weak var yearLabel: UILabel!
+	@IBOutlet weak var monthLabel: UILabel!
 	@IBOutlet weak var sizeLabel: UILabel!
 	@IBOutlet weak var activityLabel: UILabel!
 	@IBOutlet weak var spayedNeuteredLabel: UILabel!
@@ -95,9 +96,10 @@ class PetDetailsViewController: UIViewController {
 		nameLabel.text = selectedPet.name
 		setUpFavoritesButton()
 		breedLabel.text = selectedPet.breedDisplay
-		adoptionDeadlineLabel.text = selectedPet.adoptionDeadline
+		adoptionDeadlineLabel.text = trimTimestamp(string: selectedPet.adoptionDeadline) ?? "Unknown Date"
 		genderLabel.text = selectedPet.gender
-		ageLabel.text = String(selectedPet.ageYears)
+		yearLabel.text = String(selectedPet.ageYears)
+		monthLabel.text = String(selectedPet.ageMonths)
 		sizeLabel.text = selectedPet.size
 		activityLabel.text = selectedPet.activityLevel
 		spayedNeuteredLabel.text = selectedPet.spayedNeutered ? "Yes" : "No"
@@ -128,6 +130,14 @@ class PetDetailsViewController: UIViewController {
 			self.collectionView.reloadData()
 		}
 
+	}
+
+	fileprivate func trimTimestamp(string: String) -> String? {
+		guard string.count >= 20 else { return nil }
+
+		let trimmedDate: String.SubSequence = string.prefix(10)
+
+		return String(trimmedDate)
 	}
 
 	fileprivate func setUpFavoritesButton(){

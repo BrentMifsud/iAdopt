@@ -22,7 +22,9 @@ extension PetDetailsViewController: UICollectionViewDataSource, UICollectionView
 	}
 
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-		#warning("Not Yet Implemented")
+		#warning("Implement once Get your pet team fixes API.")
+		// The api does not seem to ever return more than the main profile photo. Even if the adoption listing on the website has additional photos.
+		// For now, the collection view will be hidden and this function will remain un-implemented until Get your pet team provides a fix.
 	}
 
 	func setUpCollectionView(){
