@@ -36,11 +36,15 @@ class PetDetailsViewController: UIViewController {
 	@IBOutlet weak var goodWithChildrenOver10Label: UILabel!
 	@IBOutlet weak var coatLabel: UILabel!
 	@IBOutlet weak var clawsLabel: UILabel!
-
+	@IBOutlet weak var nameToCollectionConstraint: NSLayoutConstraint!
 
 	// MARK: - Class Properties
+
 	var selectedPet: Pet!
 	var petImages: [UIImage]!
+
+
+	// MARK: - View lifecycle
 
 	override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,16 +53,43 @@ class PetDetailsViewController: UIViewController {
 
 		setUpMapView()
 
-		setUpView()
+		setUpDetailsView()
     }
 
-	fileprivate func setUpView() {
+	override func viewWillAppear(_ animated: Bool) {
+		collectionView.reloadData()
+	}
+
+
+	// MARK: - IBActions
+
+	@IBAction func favoritesButtonPressed(_ sender: Any) {
+		#warning("Not yet implemented.")
+	}
+
+	/// Takes the user to the adoption page on get your pet website.
+	@IBAction func adoptMeButtonPressed(_ sender: UIButton) {
+		let app = UIApplication.shared
+		if let toOpen = URL(string: selectedPet.profileUrl) {
+			app.open(toOpen, options: [:], completionHandler: nil)
+		}
+	}
+
+
+	// MARK: - Class methods
+
+	fileprivate func setUpDetailsView() {
 		imageView.image = petImages.first
+
+		print("\(String(describing: selectedPet.additionalPhotos))")
 
 		if let photos = selectedPet.additionalPhotos {
 			photos.forEach { (photoUrl) in
 				GetYourPetClient.shared.downloadImage(fromUrl: URL(string: photoUrl)!, completion: handleImageDownloads(image:imageUrl:error:))
 			}
+		} else {
+			collectionView.isHidden = true
+			nameToCollectionConstraint.constant = -75
 		}
 
 		nameLabel.text = selectedPet.name
@@ -104,20 +135,6 @@ class PetDetailsViewController: UIViewController {
 		let heart = UIImage(systemName: "heart", withConfiguration: config)
 		favoritesButton.imageView?.image = heart
 		favoritesButton.tintColor = .systemPink
-	}
-
-	// MARK: - IBActions
-
-	@IBAction func favoritesButtonPressed(_ sender: Any) {
-		#warning("Not yet implemented.")
-	}
-
-	/// Takes the user to the adoption page on get your pet website.
-	@IBAction func adoptMeButtonPressed(_ sender: UIButton) {
-		let app = UIApplication.shared
-		if let toOpen = URL(string: selectedPet.profileUrl) {
-			app.open(toOpen, options: [:], completionHandler: nil)
-		}
 	}
 
 }
