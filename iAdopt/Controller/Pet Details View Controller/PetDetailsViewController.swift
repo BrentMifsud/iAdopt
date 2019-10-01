@@ -100,7 +100,7 @@ class PetDetailsViewController: UIViewController {
 		genderLabel.text = selectedPet.gender
 		yearLabel.text = String(selectedPet.ageYears)
 		monthLabel.text = String(selectedPet.ageMonths)
-		sizeLabel.text = selectedPet.size
+		sizeLabel.text = selectedPet.size ?? "n/a"
 		activityLabel.text = selectedPet.activityLevel
 		spayedNeuteredLabel.text = selectedPet.spayedNeutered ? "Yes" : "No"
 		cityLabel.text = selectedPet.city
