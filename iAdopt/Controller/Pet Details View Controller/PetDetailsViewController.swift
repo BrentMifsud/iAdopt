@@ -41,7 +41,7 @@ class PetDetailsViewController: UIViewController {
 
 	// MARK: - Class Properties
 
-	var selectedPet: Pet!
+	var pet: Pet!
 	var petImages: [UIImage]!
 
 
@@ -65,13 +65,13 @@ class PetDetailsViewController: UIViewController {
 	// MARK: - IBActions
 
 	@IBAction func favoritesButtonPressed(_ sender: Any) {
-		#warning("Not yet implemented.")
+		saveFavorite(petDetails: pet)
 	}
 
 	/// Takes the user to the adoption page on get your pet website.
 	@IBAction func adoptMeButtonPressed(_ sender: UIButton) {
 		let app = UIApplication.shared
-		if let toOpen = URL(string: selectedPet.profileUrl) {
+		if let toOpen = URL(string: pet.profileUrl) {
 			app.open(toOpen, options: [:], completionHandler: nil)
 		}
 	}
@@ -82,9 +82,9 @@ class PetDetailsViewController: UIViewController {
 	fileprivate func setUpDetailsView() {
 		imageView.image = petImages.first
 
-		print("\(String(describing: selectedPet.additionalPhotos))")
+		print("\(String(describing: pet.additionalPhotos))")
 
-		if let photos = selectedPet.additionalPhotos {
+		if let photos = pet.additionalPhotos {
 			photos.forEach { (photoUrl) in
 				GetYourPetClient.shared.downloadImage(fromUrl: URL(string: photoUrl)!, completion: handleImageDownloads(image:imageUrl:error:))
 			}
@@ -93,27 +93,27 @@ class PetDetailsViewController: UIViewController {
 			nameToCollectionConstraint.constant = -75
 		}
 
-		nameLabel.text = selectedPet.name
+		nameLabel.text = pet.name
 		setUpFavoritesButton()
-		breedLabel.text = selectedPet.breedDisplay
-		adoptionDeadlineLabel.text = trimTimestamp(string: selectedPet.adoptionDeadline) ?? "Unknown Date"
-		genderLabel.text = selectedPet.gender
-		yearLabel.text = String(selectedPet.ageYears)
-		monthLabel.text = String(selectedPet.ageMonths)
-		sizeLabel.text = selectedPet.size ?? "n/a"
-		activityLabel.text = selectedPet.activityLevel
-		spayedNeuteredLabel.text = selectedPet.spayedNeutered ? "Yes" : "No"
-		cityLabel.text = selectedPet.city
-		stateLabel.text = selectedPet.state
-		distanceLabel.text = selectedPet.distanceDisplay
-		storyTextView.text = selectedPet.story ?? "See details below..."
-		goodWithCatsLabel.text = selectedPet.goodWith?.contains("cats") ?? false ? "Yes" : "No"
-		goodWithDogsLabel.text = selectedPet.goodWith?.contains("dogs") ?? false ? "Yes" : "No"
-		goodWithChildrenUnder5Label.text = selectedPet.goodWith?.contains("children under 5") ?? false ? "Yes" : "No"
-		goodWithChildren5to10Label.text = selectedPet.goodWith?.contains("children 5 to 10") ?? false ? "Yes" : "No"
-		goodWithChildrenOver10Label.text = selectedPet.goodWith?.contains("children over") ?? false ? "Yes" : "No"
-		coatLabel.text = selectedPet.coat
-		clawsLabel.text = selectedPet.claws ?? "No"
+		breedLabel.text = pet.breedDisplay
+		adoptionDeadlineLabel.text = trimTimestamp(string: pet.adoptionDeadline) ?? "Unknown Date"
+		genderLabel.text = pet.gender
+		yearLabel.text = String(pet.ageYears)
+		monthLabel.text = String(pet.ageMonths)
+		sizeLabel.text = pet.size ?? "n/a"
+		activityLabel.text = pet.activityLevel
+		spayedNeuteredLabel.text = pet.spayedNeutered ? "Yes" : "No"
+		cityLabel.text = pet.city
+		stateLabel.text = pet.state
+		distanceLabel.text = pet.distanceDisplay
+		storyTextView.text = pet.story ?? "See details below..."
+		goodWithCatsLabel.text = pet.goodWith?.contains("cats") ?? false ? "Yes" : "No"
+		goodWithDogsLabel.text = pet.goodWith?.contains("dogs") ?? false ? "Yes" : "No"
+		goodWithChildrenUnder5Label.text = pet.goodWith?.contains("children under 5") ?? false ? "Yes" : "No"
+		goodWithChildren5to10Label.text = pet.goodWith?.contains("children 5 to 10") ?? false ? "Yes" : "No"
+		goodWithChildrenOver10Label.text = pet.goodWith?.contains("children over") ?? false ? "Yes" : "No"
+		coatLabel.text = pet.coat
+		clawsLabel.text = pet.claws ?? "No"
 	}
 
 	fileprivate func handleImageDownloads(image: UIImage?, imageUrl: String?, error: Error?){

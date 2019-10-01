@@ -82,6 +82,7 @@ class PetSearchViewController: UIViewController {
 	}
 
     // MARK: - Navigation
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		let searchResultsTabBarController = segue.destination as! UITabBarController
 
@@ -109,6 +110,7 @@ class PetSearchViewController: UIViewController {
     }
 
 	// MARK: - Class Methods
+
 	fileprivate func enableUI(_ enabled: Bool){
 		speciesSelector.isEnabled = enabled
 		zipCodeTextField.isEnabled = enabled

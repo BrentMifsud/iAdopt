@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class PetSearchResultsViewController: UIViewController {
 
@@ -22,7 +23,14 @@ class PetSearchResultsViewController: UIViewController {
 
 	var petType: SearchResults.PetTypeShown!
 
-	var activityView: UIView!
+	var viewControllerType: ViewControllerType = .searchResults
+
+	var favoriteFetchedResultsController: NSFetchedResultsController<PetFavorite>!
+
+	enum ViewControllerType {
+		case favorites
+		case searchResults
+	}
 
 	// MARK: - View lifecycle methods
 
@@ -33,6 +41,17 @@ class PetSearchResultsViewController: UIViewController {
 		tableView.register(UINib(nibName: "PetTableViewCell", bundle: nil), forCellReuseIdentifier: reuseId)
     }
 
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+
+		setUpFetchedResultsControllers()
+
+		refreshTable()
+	}
+
+
+	// MARK: - IBActions
+
 	@IBAction func getYourPetButtonPressed(_ sender: UIButton) {
 		let app = UIApplication.shared
 		if let toOpen = GetYourPetClient.UrlConstants.homePageUrl {
@@ -40,7 +59,7 @@ class PetSearchResultsViewController: UIViewController {
 		}
 	}
 
-  // MARK: - Navigation
+	// MARK: - Navigation
 
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
@@ -48,7 +67,20 @@ class PetSearchResultsViewController: UIViewController {
 
 		let petDetailsView = segue.destination as! PetDetailsViewController
 
-		petDetailsView.selectedPet = petCell.petDetails
+		petDetailsView.pet = petCell.petDetails
 		petDetailsView.petImages = [petCell.petImageView.image!]
+	}
+
+	// MARK: - Class Functions
+
+	/// Fetch persisted favorites from Core Data.
+	fileprivate func refreshTable(){
+		do {
+			try favoriteFetchedResultsController.performFetch()
+		} catch {
+			fatalError("Unable to fetch favorites: \(error.localizedDescription)")
+		}
+
+		tableView.reloadData()
 	}
 }

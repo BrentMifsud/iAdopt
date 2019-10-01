@@ -11,10 +11,6 @@ import UIKit
 
 extension PetSearchResultsViewController: UITableViewDelegate, UITableViewDataSource {
 	func numberOfSections(in tableView: UITableView) -> Int {
-		guard SearchResults.shared.searchResults.count > 0 else {
-			return 0
-		}
-
 		return 1
     }
 
@@ -22,10 +18,14 @@ extension PetSearchResultsViewController: UITableViewDelegate, UITableViewDataSo
 
 		var rowCount: Int
 
-		switch petType {
-			case .cat: rowCount = SearchResults.shared.catResults.count
-			case .dog: rowCount = SearchResults.shared.dogResults.count
-			default: rowCount = 0
+		if viewControllerType == .searchResults {
+			switch petType {
+				case .cat: rowCount = SearchResults.shared.catResults.count
+				case .dog: rowCount = SearchResults.shared.dogResults.count
+				default: rowCount = 0
+			}
+		} else {
+			rowCount = favoriteFetchedResultsController.sections?[section].numberOfObjects ?? 0
 		}
 
 		return rowCount
@@ -77,7 +77,11 @@ extension PetSearchResultsViewController: UITableViewDelegate, UITableViewDataSo
 
 		let petCell = tableView.cellForRow(at: indexPath) as! PetTableViewCell
 
-		performSegue(withIdentifier: "showPetDetailsView", sender: petCell)
+		if viewControllerType == .favorites {
+			performSegue(withIdentifier: "showFavoriteDetails", sender: petCell)
+		} else {
+			performSegue(withIdentifier: "showPetDetailsView", sender: petCell)
+		}
 	}
 
 

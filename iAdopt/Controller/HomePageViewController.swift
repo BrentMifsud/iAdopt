@@ -35,5 +35,13 @@ class HomePageViewController: UIViewController {
 		performSegue(withIdentifier: "showSearchView", sender: self)
 	}
 
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+		let tabBarController = segue.destination as! UITabBarController
+
+		let favoritesViewController = tabBarController.viewControllers![1] as! PetSearchResultsViewController
+
+		favoritesViewController.viewControllerType = .favorites
+	}
+
 }
 
