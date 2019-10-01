@@ -72,11 +72,6 @@ struct GetYourPetClient: GetYourPetClientProtocol {
 		postSession.resume()
 	}
 
-	// MARK: - Get Pet By PetId
-	func getPetByPetId(petId: Int, distanceFrom zipCode: String? = nil, completion: @escaping (Pet?, Error?) -> Void) {
-		#warning("Not Implemented")
-	}
-
 	func downloadImage(fromUrl url: URL, completion: @escaping (UIImage?, String?, Error?) -> Void) {
 		let dataTask = httpClient.createGetRequest(withURL: url, andPath: nil, queryParms: nil, headers: nil) { (data, error) in
 			guard let imageData = data, error == nil else {
