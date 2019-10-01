@@ -1011,7 +1011,6 @@
     <resources>
         <image name="GetYourPetLogo" width="321" height="71"/>
         <image name="cat-and-dog" width="1280" height="1920"/>
-        <image name="doge" width="959" height="540"/>
         <image name="heart" catalog="system" width="64" height="58"/>
     </resources>
     <inferredMetricsTieBreakers>

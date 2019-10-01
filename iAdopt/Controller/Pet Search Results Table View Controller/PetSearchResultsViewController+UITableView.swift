@@ -10,7 +10,6 @@ import Foundation
 import UIKit
 
 extension PetSearchResultsViewController: UITableViewDelegate, UITableViewDataSource {
-
 	func numberOfSections(in tableView: UITableView) -> Int {
 		guard SearchResults.shared.searchResults.count > 0 else {
 			return 0

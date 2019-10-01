@@ -40,7 +40,7 @@ class PetSearchResultsViewController: UIViewController {
 		}
 	}
 
-    // MARK: - Navigation
+  // MARK: - Navigation
 
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
@@ -51,5 +51,4 @@ class PetSearchResultsViewController: UIViewController {
 		petDetailsView.selectedPet = petCell.petDetails
 		petDetailsView.petImages = [petCell.petImageView.image!]
 	}
-
 }
