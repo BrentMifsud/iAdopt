@@ -101,8 +101,10 @@ class PetSearchViewController: UIViewController {
 			break
 		case .cat:
 			searchResultsTabBarController.tabBar.items![1].isEnabled = false
+			searchResultsTabBarController.selectedIndex = 0
 		case .dog:
 			searchResultsTabBarController.tabBar.items![0].isEnabled = false
+			searchResultsTabBarController.selectedIndex = 1
 		}
     }
 
