@@ -13,8 +13,8 @@ class PetDetailsViewController: UIViewController {
 
 	// MARK: - IBOutlets
 
-	@IBOutlet weak var mainImageView: UIImageView!
-	@IBOutlet weak var petImageCollectionView: UICollectionView!
+	@IBOutlet weak var imageView: UIImageView!
+	@IBOutlet weak var collectionView: UICollectionView!
 	@IBOutlet weak var nameLabel: UILabel!
 	@IBOutlet weak var favoritesButton: UIButton!
 	@IBOutlet weak var breedLabel: UILabel!
@@ -27,7 +27,7 @@ class PetDetailsViewController: UIViewController {
 	@IBOutlet weak var cityLabel: UILabel!
 	@IBOutlet weak var stateLabel: UILabel!
 	@IBOutlet weak var distanceLabel: UILabel!
-	@IBOutlet weak var locationMapView: MKMapView!
+	@IBOutlet weak var mapView: MKMapView!
 	@IBOutlet weak var storyTextView: UITextView!
 	@IBOutlet weak var goodWithCatsLabel: UILabel!
 	@IBOutlet weak var goodWithDogsLabel: UILabel!
@@ -44,15 +44,23 @@ class PetDetailsViewController: UIViewController {
 
 	override func viewDidLoad() {
         super.viewDidLoad()
-		petImageCollectionView.delegate = self
-		petImageCollectionView.dataSource = self
-		locationMapView.delegate = self
+
+		setUpCollectionView()
+
+		setUpMapView()
 
 		setUpView()
     }
 
 	fileprivate func setUpView() {
-		mainImageView.image = petImages.first
+		imageView.image = petImages.first
+
+		if let photos = selectedPet.additionalPhotos {
+			photos.forEach { (photoUrl) in
+				GetYourPetClient.shared.downloadImage(fromUrl: URL(string: photoUrl)!, completion: handleImageDownloads(image:imageUrl:error:))
+			}
+		}
+
 		nameLabel.text = selectedPet.name
 		setUpFavoritesButton()
 		breedLabel.text = selectedPet.breedDisplay
@@ -75,6 +83,22 @@ class PetDetailsViewController: UIViewController {
 		clawsLabel.text = selectedPet.claws ?? "No"
 	}
 
+	fileprivate func handleImageDownloads(image: UIImage?, imageUrl: String?, error: Error?){
+		guard let image = image, error == nil else {
+			DispatchQueue.main.async {
+				let image = UIImage(systemName: "photo")
+				self.petImages.append(image!)
+			}
+			return
+		}
+
+		DispatchQueue.main.async {
+			self.petImages.append(image)
+			self.collectionView.reloadData()
+		}
+
+	}
+
 	fileprivate func setUpFavoritesButton(){
 		let config = UIImage.SymbolConfiguration(pointSize: 25, weight: .regular, scale: .medium)
 		let heart = UIImage(systemName: "heart", withConfiguration: config)
@@ -88,5 +112,12 @@ class PetDetailsViewController: UIViewController {
 		#warning("Not yet implemented.")
 	}
 
+	/// Takes the user to the adoption page on get your pet website.
+	@IBAction func adoptMeButtonPressed(_ sender: UIButton) {
+		let app = UIApplication.shared
+		if let toOpen = URL(string: selectedPet.profileUrl) {
+			app.open(toOpen, options: [:], completionHandler: nil)
+		}
+	}
 
 }

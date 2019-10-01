@@ -42,11 +42,14 @@ class PetSearchResultsViewController: UIViewController {
 
     // MARK: - Navigation
 
-    func prepare(for segue: UIStoryboardSegue, sender: PetTableViewCell) {
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+
+		let petCell = sender as! PetTableViewCell
 
 		let petDetailsView = segue.destination as! PetDetailsViewController
 
-		petDetailsView.selectedPet = sender.petDetails
-    }
+		petDetailsView.selectedPet = petCell.petDetails
+		petDetailsView.petImages = [petCell.petImageView.image!]
+	}
 
 }

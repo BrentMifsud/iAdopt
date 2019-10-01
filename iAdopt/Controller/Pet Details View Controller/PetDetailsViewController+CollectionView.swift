@@ -11,16 +11,23 @@ import UIKit
 
 extension PetDetailsViewController: UICollectionViewDataSource, UICollectionViewDelegate {
 	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-		#warning("Not Yet Implemented")
-		return 0
+		return petImages.count
 	}
 
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-		#warning("Not Yet Implemented")
-		return UICollectionViewCell()
+		let petImageCell = collectionView.dequeueReusableCell(withReuseIdentifier: "petCollectionCell", for: indexPath) as! PetCollectionViewCell
+		petImageCell.petImage = petImages[indexPath.row]
+
+		return petImageCell
 	}
 
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 		#warning("Not Yet Implemented")
+	}
+
+	func setUpCollectionView(){
+		collectionView.delegate = self
+		collectionView.dataSource = self
+		collectionView.register(UINib(nibName: "PetCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "petCollectionCell")
 	}
 }
