@@ -10,25 +10,6 @@ import Foundation
 import UIKit
 
 extension PetSearchResultsViewController: UITableViewDelegate, UITableViewDataSource {
-	func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-
-		enum LabelText: String {
-			case CAT = "Cat"
-			case DOG = "Dog"
-		}
-
-		let label = UILabel()
-		label.backgroundColor = .secondarySystemFill
-
-		switch petType {
-			case .cat: label.text = LabelText.CAT.rawValue
-			case .dog: label.text = LabelText.DOG.rawValue
-			default: break
-		}
-
-		return label
-	}
-
 	func numberOfSections(in tableView: UITableView) -> Int {
 		guard SearchResults.shared.searchResults.count > 0 else {
 			return 0
@@ -92,6 +73,12 @@ extension PetSearchResultsViewController: UITableViewDelegate, UITableViewDataSo
 		}
 	}
 
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
+		let petCell = tableView.cellForRow(at: indexPath) as! PetTableViewCell
+
+		performSegue(withIdentifier: "showPetDetailsView", sender: petCell)
+	}
 
 
 	// MARK: - Helper functions

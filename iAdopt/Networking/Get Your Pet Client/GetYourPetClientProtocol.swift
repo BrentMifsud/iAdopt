@@ -21,16 +21,6 @@ protocol GetYourPetClientProtocol {
 		completion: @escaping ([Pet]?, Error?) -> Void
 	)
 
-	/// Return a specific pet by its Id
-	/// - Parameter petId: Get your pet Id.
-	/// - Parameter zipCode: (Optional) Used to calculate distance of pet from zipcode.
-	/// - Parameter completion: Block of code to be executed after this method completes.
-	func getPetByPetId(
-		petId: Int,
-		distanceFrom zipCode: String?,
-		completion: @escaping (Pet?, Error?) -> Void
-	)
-
 	/// Downloads an image by its URL.
 	/// - Parameter url: URL for the image.
 	/// - Parameter completion: Block of code to be executed after this method completes.
