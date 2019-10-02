@@ -33,9 +33,4 @@ extension PetSearchResultsViewController: NSFetchedResultsControllerDelegate {
 			break
 		}
 	}
-
-	func setUpFetchedResultsControllers(){
-		favoriteFetchedResultsController = PetFavoriteStore.shared.getFetchedResultsControllerForFavorites(fromContext: DataController.shared.viewContext)
-		favoriteFetchedResultsController.delegate = self
-	}
 }

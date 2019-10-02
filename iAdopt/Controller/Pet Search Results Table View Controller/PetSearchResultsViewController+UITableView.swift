@@ -18,14 +18,10 @@ extension PetSearchResultsViewController: UITableViewDelegate, UITableViewDataSo
 
 		var rowCount: Int
 
-		if viewControllerType == .searchResults {
-			switch petType {
-				case .cat: rowCount = SearchResults.shared.catResults.count
-				case .dog: rowCount = SearchResults.shared.dogResults.count
-				default: rowCount = 0
-			}
-		} else {
-			rowCount = favoriteFetchedResultsController.sections?[section].numberOfObjects ?? 0
+		switch petType {
+			case .cat: rowCount = SearchResults.shared.catResults.count
+			case .dog: rowCount = SearchResults.shared.dogResults.count
+			default: rowCount = 0
 		}
 
 		return rowCount
@@ -35,8 +31,8 @@ extension PetSearchResultsViewController: UITableViewDelegate, UITableViewDataSo
 		let petTableViewCell = tableView.dequeueReusableCell(withIdentifier: reuseId, for: indexPath) as! PetTableViewCell
 
 		switch petType {
-			case .cat: petTableViewCell.petDetails = SearchResults.shared.catResults[indexPath.row]
-			case .dog: petTableViewCell.petDetails = SearchResults.shared.dogResults[indexPath.row]
+			case .cat: petTableViewCell.pet = SearchResults.shared.catResults[indexPath.row]
+			case .dog: petTableViewCell.pet = SearchResults.shared.dogResults[indexPath.row]
 			default: break
 		}
 
@@ -76,12 +72,7 @@ extension PetSearchResultsViewController: UITableViewDelegate, UITableViewDataSo
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
 		let petCell = tableView.cellForRow(at: indexPath) as! PetTableViewCell
-
-		if viewControllerType == .favorites {
-			performSegue(withIdentifier: "showFavoriteDetails", sender: petCell)
-		} else {
-			performSegue(withIdentifier: "showPetDetailsView", sender: petCell)
-		}
+		performSegue(withIdentifier: "showPetDetailsView", sender: petCell)
 	}
 
 

@@ -8,8 +8,9 @@
 
 import Foundation
 import UIKit
+import CoreData
 
-extension PetDetailsViewController {
+extension PetDetailsViewController: NSFetchedResultsControllerDelegate {
 	func saveFavorite(petDetails: Pet) {
 		let petFavorite = PetFavoriteStore.shared.createFavorite(usingContext: DataController.shared.viewContext, pet: petDetails)
 
@@ -17,5 +18,7 @@ extension PetDetailsViewController {
 		images.append(contentsOf: petImages)
 
 		PetFavoriteStore.shared.addImages(images: images, usingContext: DataController.shared.viewContext, toFavorite: petFavorite)
+
+		self.petFavorite = petFavorite
 	}
 }

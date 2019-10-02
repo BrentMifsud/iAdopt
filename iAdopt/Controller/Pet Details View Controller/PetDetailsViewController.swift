@@ -8,6 +8,7 @@
 
 import UIKit
 import MapKit
+import CoreData
 
 class PetDetailsViewController: UIViewController {
 
@@ -44,6 +45,15 @@ class PetDetailsViewController: UIViewController {
 	var pet: Pet!
 	var petImages: [UIImage]!
 
+	var petFavorite: PetFavorite?
+
+	var isFavorite: Bool {
+		if let _ = petFavorite {
+			return true
+		} else {
+			return false
+		}
+	}
 
 	// MARK: - View lifecycle
 
@@ -64,8 +74,15 @@ class PetDetailsViewController: UIViewController {
 
 	// MARK: - IBActions
 
-	@IBAction func favoritesButtonPressed(_ sender: Any) {
-		saveFavorite(petDetails: pet)
+	@IBAction func favoritesButtonPressed(_ sender: UIButton) {
+		if isFavorite {
+			// It is safe to force unwrap as the isFavorite variable is a computed property that checks if petFavorite is populated.
+			PetFavoriteStore.shared.deleteFavorite(usingContext: DataController.shared.viewContext, petFavorite: petFavorite!)
+			petFavorite = nil
+		} else {
+			saveFavorite(petDetails: pet)
+		}
+		setButtonState()
 	}
 
 	/// Takes the user to the adoption page on get your pet website.
@@ -94,7 +111,7 @@ class PetDetailsViewController: UIViewController {
 		}
 
 		nameLabel.text = pet.name
-		setUpFavoritesButton()
+		setButtonState()
 		breedLabel.text = pet.breedDisplay
 		adoptionDeadlineLabel.text = trimTimestamp(string: pet.adoptionDeadline) ?? "Unknown Date"
 		genderLabel.text = pet.gender
@@ -140,11 +157,11 @@ class PetDetailsViewController: UIViewController {
 		return String(trimmedDate)
 	}
 
-	fileprivate func setUpFavoritesButton(){
-		let config = UIImage.SymbolConfiguration(pointSize: 25, weight: .regular, scale: .medium)
-		let heart = UIImage(systemName: "heart", withConfiguration: config)
-		favoritesButton.imageView?.image = heart
-		favoritesButton.tintColor = .systemPink
+	fileprivate func setButtonState(){
+		if isFavorite {
+			favoritesButton.imageView?.image = UIImage(systemName: "heart.fill")!
+		} else {
+			favoritesButton.imageView?.image = UIImage(systemName: "heart")!
+		}
 	}
-
 }

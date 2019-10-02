@@ -34,14 +34,5 @@ class HomePageViewController: UIViewController {
 		UserDefaults.standard.set(true, forKey: UserDefaultKeys.skipHome)
 		performSegue(withIdentifier: "showSearchView", sender: self)
 	}
-
-	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-		let tabBarController = segue.destination as! UITabBarController
-
-		let favoritesViewController = tabBarController.viewControllers![1] as! PetSearchResultsViewController
-
-		favoritesViewController.viewControllerType = .favorites
-	}
-
 }
 
