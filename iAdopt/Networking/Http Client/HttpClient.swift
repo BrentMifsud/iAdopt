@@ -19,7 +19,9 @@ struct HttpClient: HttpClientProtocol {
 		self.urlSession = URLSession.shared
 	}
 
-	// MARK: - Create GET Request
+	// MARK: - Implemented Methods
+
+	// MARK: Create GET Request
 	func createGetRequest(
 		withURL baseUrl: URL,
 		andPath pathComponents: [String]?,
@@ -49,7 +51,7 @@ struct HttpClient: HttpClientProtocol {
 		}
 	}
 
-	// MARK: - Create POST Request
+	// MARK: Create POST Request
 	func createPostRequest(
 		withURL baseUrl: URL,
 		andPath pathComponents: [String]?,
@@ -73,7 +75,12 @@ struct HttpClient: HttpClientProtocol {
 		urlRequest.httpBody = requestBody
 
 		return urlSession.dataTask(with: urlRequest) { (data, response, error) in
-			let _ = response as! HTTPURLResponse
+			if let response = response as! HTTPURLResponse? {
+				let statusCode = String(response.statusCode)
+				if statusCode.first != "2" {
+					completion(nil, HTTPError(errorCode: response.statusCode))
+				}
+			}
 
 			guard let data = data, error == nil else {
 				completion(nil, error)

@@ -8,6 +8,7 @@
 
 import Foundation
 
+//All request fields are included for additional search filtering functionality in the future.
 struct GetYourPetRequest: Codable {
 	let zipCode: String
 	let searchRadiusInMiles: UInt

@@ -9,6 +9,7 @@
 import Foundation
 
 extension GetYourPetClient {
+	/// Constants for populating Get Your Pet API Url and Path.
 	enum UrlConstants {
 		static let baseUrl = URL(string: "https://getyourpet.com/")
 		static let homePageUrl = URL(string: "https://getyourpet.com")
@@ -16,12 +17,14 @@ extension GetYourPetClient {
 		static let partnerSearchPath = "partnerpetsearch"
 	}
 
+	/// Constants for populating Get Your Pet API Header.
 	enum Header {
 		static let ApiKey = "api-key"
 		#warning("Add API Key Here")
 		static let ApiValue = ""
 	}
 
+	/// Constants for populating Get Your Pet API request body.
 	enum ParametersKey {
 		static let ZipCode = "ZipCode" // Required
 		static let SearchRadiusInMiles = "SearchRadiusInMiles" // Required - [10, 500]
@@ -51,6 +54,8 @@ extension GetYourPetClient {
 	}
 
 	// If not provided, default is adoption deadline descending.
+
+	/// Constants for populating OrderBy field.
 	enum OrderBy {
 		static let AdoptionDeadline = "adoptiondeadline"
 		static let Distance = "distance"
@@ -63,6 +68,7 @@ extension GetYourPetClient {
 	}
 
 	// If not provided, Results will not be filtered by Gender.
+	/// Constants for populating Gender field.
 	enum Gender {
 		static let Male = "male"
 		static let Female = "Female"
@@ -74,6 +80,7 @@ extension GetYourPetClient {
 	// AgeYearsMax - [ 1, 20 ] - Optional. When provided, the response will contain pets no more than the specified number of years old.
 
 	// Both Min and Max or neither must be provided.
+	/// Constants for populating ActivityLevel field.
 	enum ActivityLevel {
 		static let Low = "low"
 		static let Average = "average"
@@ -81,12 +88,14 @@ extension GetYourPetClient {
 	}
 
 	// "GoodWith" parameters can be submitted together for additional filtering.
+	/// Constants for populating GoodWith fields.
 	enum GoodWith {
 		static let True = "true"
 		static let False = "false"
 	}
 
 	// SizeMin and Max must be submitted together, or neither.
+	/// Constants for populating Size field.
 	enum Size {
 		static let ExtraSmall = "xs"
 		static let Small = "s"
@@ -96,12 +105,15 @@ extension GetYourPetClient {
 	}
 
 	// "Coat" parameters can be submitted together for additional filtering.
+
+	/// Constants for populating Coat field.
 	enum Coat {
 		static let True = "true"
 		static let False = "false"
 	}
 
 	// Cats only
+	/// Constants for populating Claws field.
 	enum Claws {
 		static let All = "all"
 		static let None = "none"
@@ -110,6 +122,8 @@ extension GetYourPetClient {
 	}
 
 	// Whether the pet is newly listed or not.
+
+	/// Constants for populating NewlyAvailable field.
 	enum NewlyAvailable {
 		static let True = "true"
 		static let False = "false"

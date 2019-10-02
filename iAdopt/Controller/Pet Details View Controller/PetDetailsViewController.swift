@@ -86,7 +86,7 @@ class PetDetailsViewController: UIViewController {
 		} else {
 			saveFavorite(petDetails: pet)
 		}
-		setButtonState()
+		setFavoriteButtonState()
 	}
 
 	/// Takes the user to the adoption page on get your pet website.
@@ -101,8 +101,10 @@ class PetDetailsViewController: UIViewController {
 	// MARK: - Class methods
 
 	fileprivate func setUpDetailsView() {
+		// Set up image view.
 		imageView.image = petImages.first
 
+		// Set up corner radius.
 		adoptMeButton.layer.cornerRadius = 15
 		aboutMeView.layer.cornerRadius = 15
 		locationView.layer.cornerRadius = 15
@@ -110,6 +112,8 @@ class PetDetailsViewController: UIViewController {
 		storyTextView.layer.cornerRadius = 15
 		additionalDetailsView.layer.cornerRadius = 15
 
+		#warning("Re-enable collection view when Get Your Pet team fixes API")
+		// Workaround for Get your pet api bug. No additional photos are returned so collection view is hidden.
 		if let photos = pet.additionalPhotos {
 			photos.forEach { (photoUrl) in
 				GetYourPetClient.shared.downloadImage(fromUrl: URL(string: photoUrl)!, completion: handleImageDownloads(image:imageUrl:error:))
@@ -119,8 +123,11 @@ class PetDetailsViewController: UIViewController {
 			nameToCollectionConstraint.constant = -75
 		}
 
+		// Set favorite button state.
+		setFavoriteButtonState()
+
+		// Set up Labels.
 		nameLabel.text = pet.name
-		setButtonState()
 		breedLabel.text = pet.breedDisplay
 		adoptionDeadlineLabel.text = trimTimestamp(string: pet.adoptionDeadline) ?? "Unknown Date"
 		genderLabel.text = pet.gender
@@ -166,7 +173,7 @@ class PetDetailsViewController: UIViewController {
 		return String(trimmedDate)
 	}
 
-	fileprivate func setButtonState(){
+	fileprivate func setFavoriteButtonState(){
 		let config = UIImage.SymbolConfiguration(pointSize: 25, weight: .regular, scale: .medium)
 
 		if isFavorite {

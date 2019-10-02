@@ -11,6 +11,7 @@ import UIKit
 import CoreData
 
 extension PetDetailsViewController: NSFetchedResultsControllerDelegate {
+	/// Saves current pet to favorites.
 	func saveFavorite(petDetails: Pet) {
 		let petFavorite = PetFavoriteStore.shared.createFavorite(usingContext: DataController.shared.viewContext, pet: petDetails)
 

@@ -20,18 +20,24 @@ extension UIViewController {
 		present(alertVC, animated: true, completion: nil)
 	}
 
+	/// Subscribe to keyboard dismiss on tap notification.
 	func subscribeToKeyboardNotifications() {
 		self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissKeyboardOnTap)))
 	}
 
+	/// Unsubscribe to keyboard dismiss on tap notification.
 	func unsubscribeFromKeyboardNotifications() {
 		self.view.removeGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissKeyboardOnTap)))
 	}
 
+	/// Dismiss keyboard.
 	@objc func dismissKeyboardOnTap(){
 		self.view.endEditing(true)
 	}
 
+	/// Display or remove an activity indicator view.
+	/// - Parameter activityView: Activity view passed by reference.
+	/// - Parameter enabled: Whether or not to enable the activity view.
 	func showActivityIndicator(activityView: inout UIView, _ enabled: Bool){
 		if enabled {
 			// Set up Activity View

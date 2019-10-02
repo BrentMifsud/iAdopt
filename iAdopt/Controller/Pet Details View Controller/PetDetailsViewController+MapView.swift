@@ -11,6 +11,7 @@ import MapKit
 
 extension PetDetailsViewController: MKMapViewDelegate {
 
+	// MARK: View for annotation
 	func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
 
 		let reuseId = "pin"

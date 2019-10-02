@@ -36,10 +36,12 @@ protocol PetFavoriteStoreProtocol {
 
 	/// Retrieve fetched results controller for all favorites.
 	/// - Parameter context: Managed object context.
+	/// - Returns: NSFetchedResultsController for PetFavorites
 	func getFetchedResultsControllerForFavorites(fromContext context: NSManagedObjectContext) -> NSFetchedResultsController<PetFavorite>
 
 	/// Retrieve fetched results controller for images saved to an individual PetFavorite.
 	/// - Parameter favorite: Pet Favorite NS Managed Object.
 	/// - Parameter context: Managed object context.
+	/// - Returns: NSFetchedResultsController for PetImages.
 	func getFetchedResultsControllerForImages(forFavorite favorite: PetFavorite, fromContext context: NSManagedObjectContext) -> NSFetchedResultsController<PetImages>
 }
