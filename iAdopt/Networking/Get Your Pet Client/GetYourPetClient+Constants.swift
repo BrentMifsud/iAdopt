@@ -18,8 +18,7 @@ extension GetYourPetClient {
 
 	enum Header {
 		static let ApiKey = "api-key"
-		#warning("Add API Key Here")
-		static let ApiValue = ""
+		static let ApiValue = "050A9CE0-7714-48BF-BFF4-B59B9F17A07C"
 	}
 
 	enum ParametersKey {
