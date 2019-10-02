@@ -11,12 +11,13 @@ import Foundation
 /// HTTP Error struct.
 struct HTTPError: LocalizedError {
 	let errorCode: Int!
+	var details: String?
 	private var message: String! {
 		switch String(errorCode).first {
 		case "2":
 			break
 		case "4":
-			return "Invalid request sent to server. Please contact iAdopt support."
+			return "Invalid request sent to server."
 		case "5":
 			return "Get Your Pet Internal Server Error. Please try again later."
 		default:
@@ -25,14 +26,12 @@ struct HTTPError: LocalizedError {
 		return ""
 	}
 
+
 	var errorDescription: String? {
 		return """
 		Status Code: \(String(describing: errorCode!))
 		Message: \(String(describing: message!))
+		Details: \(String(describing: details!))
 		"""
-	}
-
-	init(errorCode: Int) {
-		self.errorCode = errorCode
 	}
 }

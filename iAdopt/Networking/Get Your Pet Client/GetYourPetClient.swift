@@ -43,7 +43,8 @@ struct GetYourPetClient: GetYourPetClientProtocol {
 			headers: [Header.ApiKey : Header.ApiValue],
 			requestBody: request
 		) { (data, error) in
-			guard let data = data, error == nil else {
+
+			guard let data = data else {
 				DispatchQueue.main.async {
 					completion(nil, error)
 				}
@@ -51,6 +52,24 @@ struct GetYourPetClient: GetYourPetClientProtocol {
 			}
 
 			let decoder = JSONDecoder()
+
+			// If data and error are populated
+			if let httpError = error as? HTTPError {
+				do {
+					let errorResponse = try decoder.decode(GetYourPetErrorResponse.self, from: data) as GetYourPetErrorResponse
+					DispatchQueue.main.async {
+						completion(nil, HTTPError(errorCode: httpError.errorCode, details: errorResponse.localizedDescription))
+					}
+				} catch {
+					let dataPayload = String(data: data, encoding: .utf8)
+
+					completion(nil, HTTPError(errorCode: httpError.errorCode, details: dataPayload))
+
+					DispatchQueue.main.async {
+						completion(nil, error)
+					}
+				}
+			}
 
 			do {
 				let response = try decoder.decode([Pet].self, from: data)
