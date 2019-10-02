@@ -807,16 +807,16 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="v0x-le-8iK" userLabel="Good With Stack">
-                                                        <rect key="frame" x="8" y="36.5" width="158.5" height="142"/>
+                                                        <rect key="frame" x="8" y="36.5" width="158.5" height="144.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I am good with:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CBi-la-SU4">
-                                                                <rect key="frame" x="0.0" y="0.0" width="105.5" height="17"/>
-                                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="118.5" height="19.5"/>
+                                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="9eV-5a-tth" userLabel="Good With Cats Stack">
-                                                                <rect key="frame" x="0.0" y="25" width="67.5" height="17"/>
+                                                                <rect key="frame" x="0.0" y="27.5" width="67.5" height="17"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cats:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bb7-8l-YaW">
                                                                         <rect key="frame" x="0.0" y="0.0" width="36.5" height="17"/>
@@ -833,7 +833,7 @@
                                                                 </subviews>
                                                             </stackView>
                                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="dKa-NK-bNV" userLabel="Good With Dogs Stack">
-                                                                <rect key="frame" x="0.0" y="50" width="71.5" height="17"/>
+                                                                <rect key="frame" x="0.0" y="52.5" width="71.5" height="17"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dogs:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Lm-94-lNR">
                                                                         <rect key="frame" x="0.0" y="0.0" width="40.5" height="17"/>
@@ -850,7 +850,7 @@
                                                                 </subviews>
                                                             </stackView>
                                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="fqr-eL-Jwg" userLabel="Good With Children Under 5 Stack">
-                                                                <rect key="frame" x="0.0" y="75" width="151" height="17"/>
+                                                                <rect key="frame" x="0.0" y="77.5" width="151" height="17"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Children under 5:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V05-yn-ERt">
                                                                         <rect key="frame" x="0.0" y="0.0" width="120" height="17"/>
@@ -867,7 +867,7 @@
                                                                 </subviews>
                                                             </stackView>
                                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Xis-kw-AKH" userLabel="Good With Children Under 10 Stack">
-                                                                <rect key="frame" x="0.0" y="100" width="158.5" height="17"/>
+                                                                <rect key="frame" x="0.0" y="102.5" width="158.5" height="17"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Children under 10:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jel-Hr-mWf">
                                                                         <rect key="frame" x="0.0" y="0.0" width="127.5" height="17"/>
@@ -884,7 +884,7 @@
                                                                 </subviews>
                                                             </stackView>
                                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="mH9-X8-e1K" userLabel="Good With Children Over 10 Stack">
-                                                                <rect key="frame" x="0.0" y="125" width="148" height="17"/>
+                                                                <rect key="frame" x="0.0" y="127.5" width="148" height="17"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Children over 10:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xWk-Kz-a8u">
                                                                         <rect key="frame" x="0.0" y="0.0" width="117" height="17"/>
@@ -903,7 +903,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="4FE-cq-KFC" userLabel="Coat Stack">
-                                                        <rect key="frame" x="8" y="194.5" width="77.5" height="17"/>
+                                                        <rect key="frame" x="8" y="197" width="77.5" height="17"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Coat:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vll-K2-uj9">
                                                                 <rect key="frame" x="0.0" y="0.0" width="37.5" height="17"/>
@@ -920,7 +920,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="IpH-OX-616" userLabel="Claws Stack">
-                                                        <rect key="frame" x="8" y="219.5" width="117.5" height="17"/>
+                                                        <rect key="frame" x="8" y="222" width="117.5" height="17"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Claws:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BcX-8o-Sg4">
                                                                 <rect key="frame" x="0.0" y="0.0" width="46.5" height="17"/>

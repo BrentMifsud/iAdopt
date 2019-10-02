@@ -99,8 +99,6 @@ class PetDetailsViewController: UIViewController {
 	fileprivate func setUpDetailsView() {
 		imageView.image = petImages.first
 
-		print("\(String(describing: pet.additionalPhotos))")
-
 		if let photos = pet.additionalPhotos {
 			photos.forEach { (photoUrl) in
 				GetYourPetClient.shared.downloadImage(fromUrl: URL(string: photoUrl)!, completion: handleImageDownloads(image:imageUrl:error:))
@@ -123,7 +121,7 @@ class PetDetailsViewController: UIViewController {
 		cityLabel.text = pet.city
 		stateLabel.text = pet.state
 		distanceLabel.text = pet.distanceDisplay
-		storyTextView.text = pet.story ?? "See details below..."
+		storyTextView.text = pet.story ?? "My owner has not provided a story. But you can see more about me below."
 		goodWithCatsLabel.text = pet.goodWith?.contains("cats") ?? false ? "Yes" : "No"
 		goodWithDogsLabel.text = pet.goodWith?.contains("dogs") ?? false ? "Yes" : "No"
 		goodWithChildrenUnder5Label.text = pet.goodWith?.contains("children under 5") ?? false ? "Yes" : "No"
@@ -158,10 +156,12 @@ class PetDetailsViewController: UIViewController {
 	}
 
 	fileprivate func setButtonState(){
+		let config = UIImage.SymbolConfiguration(pointSize: 25, weight: .regular, scale: .medium)
+
 		if isFavorite {
-			favoritesButton.imageView?.image = UIImage(systemName: "heart.fill")!
+			favoritesButton.setImage(UIImage(systemName: "heart.fill", withConfiguration: config)!, for: .normal)
 		} else {
-			favoritesButton.imageView?.image = UIImage(systemName: "heart")!
+			favoritesButton.setImage(UIImage(systemName: "heart", withConfiguration: config)!, for: .normal)
 		}
 	}
 }

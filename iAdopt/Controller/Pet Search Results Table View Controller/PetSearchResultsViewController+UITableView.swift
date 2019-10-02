@@ -70,9 +70,9 @@ extension PetSearchResultsViewController: UITableViewDelegate, UITableViewDataSo
 	}
 
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
 		let petCell = tableView.cellForRow(at: indexPath) as! PetTableViewCell
 		performSegue(withIdentifier: "showPetDetailsView", sender: petCell)
+		tableView.deselectRow(at: indexPath, animated: true)
 	}
 
 

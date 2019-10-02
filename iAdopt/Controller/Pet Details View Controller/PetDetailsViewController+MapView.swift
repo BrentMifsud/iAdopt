@@ -25,7 +25,7 @@ extension PetDetailsViewController: MKMapViewDelegate {
 			pinView!.annotation = annotation
 		}
 
-		pinView?.isSelected = true
+		pinView?.isSelected = false
 		pinView?.isUserInteractionEnabled = false
 
 		return pinView

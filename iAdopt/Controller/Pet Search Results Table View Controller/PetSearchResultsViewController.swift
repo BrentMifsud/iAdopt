@@ -53,7 +53,5 @@ class PetSearchResultsViewController: UIViewController {
 		petDetailsView.petFavorite = PetFavoriteStore.shared.fetchFavorite(byPet: pet)
 		petDetailsView.petImages = [petCell.petImageView.image!]
 	}
-
-	// MARK: - Class Functions
 	
 }
