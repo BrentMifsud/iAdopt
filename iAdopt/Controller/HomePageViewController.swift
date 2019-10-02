@@ -34,6 +34,5 @@ class HomePageViewController: UIViewController {
 		UserDefaults.standard.set(true, forKey: UserDefaultKeys.skipHome)
 		performSegue(withIdentifier: "showSearchView", sender: self)
 	}
-
 }
 

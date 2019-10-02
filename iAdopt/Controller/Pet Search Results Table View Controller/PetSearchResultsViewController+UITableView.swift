@@ -11,10 +11,6 @@ import UIKit
 
 extension PetSearchResultsViewController: UITableViewDelegate, UITableViewDataSource {
 	func numberOfSections(in tableView: UITableView) -> Int {
-		guard SearchResults.shared.searchResults.count > 0 else {
-			return 0
-		}
-
 		return 1
     }
 
@@ -35,8 +31,8 @@ extension PetSearchResultsViewController: UITableViewDelegate, UITableViewDataSo
 		let petTableViewCell = tableView.dequeueReusableCell(withIdentifier: reuseId, for: indexPath) as! PetTableViewCell
 
 		switch petType {
-			case .cat: petTableViewCell.petDetails = SearchResults.shared.catResults[indexPath.row]
-			case .dog: petTableViewCell.petDetails = SearchResults.shared.dogResults[indexPath.row]
+			case .cat: petTableViewCell.pet = SearchResults.shared.catResults[indexPath.row]
+			case .dog: petTableViewCell.pet = SearchResults.shared.dogResults[indexPath.row]
 			default: break
 		}
 
@@ -74,10 +70,9 @@ extension PetSearchResultsViewController: UITableViewDelegate, UITableViewDataSo
 	}
 
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
 		let petCell = tableView.cellForRow(at: indexPath) as! PetTableViewCell
-
 		performSegue(withIdentifier: "showPetDetailsView", sender: petCell)
+		tableView.deselectRow(at: indexPath, animated: true)
 	}
 
 

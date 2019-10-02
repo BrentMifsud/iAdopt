@@ -25,7 +25,7 @@ extension PetDetailsViewController: MKMapViewDelegate {
 			pinView!.annotation = annotation
 		}
 
-		pinView?.isSelected = true
+		pinView?.isSelected = false
 		pinView?.isUserInteractionEnabled = false
 
 		return pinView
@@ -39,11 +39,11 @@ extension PetDetailsViewController: MKMapViewDelegate {
 		mapView.delegate = self
 
 		let span = MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005)
-		let coordinate = CLLocationCoordinate2D(latitude: selectedPet.latitude, longitude: selectedPet.longitude)
+		let coordinate = CLLocationCoordinate2D(latitude: pet.latitude, longitude: pet.longitude)
 		let region = MKCoordinateRegion(center: coordinate, span: span)
 		mapView.setRegion(region, animated: true)
 
-		addPin(coordinate: CLLocationCoordinate2D(latitude: selectedPet.latitude, longitude: selectedPet.longitude))
+		addPin(coordinate: CLLocationCoordinate2D(latitude: pet.latitude, longitude: pet.longitude))
 
 		mapView.isInteractionEnabled(false)
 	}

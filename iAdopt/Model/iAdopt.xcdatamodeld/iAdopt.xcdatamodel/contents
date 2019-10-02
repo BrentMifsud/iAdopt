@@ -1,4 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14903" systemVersion="18G95" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <elements/>
+    <entity name="PetFavorite" representedClassName=".PetFavorite" syncable="YES" codeGenerationType="class">
+        <attribute name="dateAdded" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="petFavorite" optional="YES" attributeType="Binary"/>
+        <attribute name="petId" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="petType" optional="YES" attributeType="String"/>
+        <relationship name="petImage" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="PetImage" inverseName="petFavorite" inverseEntity="PetImage"/>
+    </entity>
+    <entity name="PetImage" representedClassName=".PetImages" syncable="YES" codeGenerationType="class">
+        <attribute name="dateAdded" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="imageData" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES"/>
+        <relationship name="petFavorite" maxCount="1" deletionRule="Nullify" destinationEntity="PetFavorite" inverseName="petImage" inverseEntity="PetFavorite"/>
+    </entity>
+    <elements>
+        <element name="PetFavorite" positionX="-63.6171875" positionY="-21.8125" width="128" height="118"/>
+        <element name="PetImage" positionX="222.36328125" positionY="-5.3515625" width="128" height="88"/>
+    </elements>
 </model>
