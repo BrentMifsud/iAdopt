@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		84039B2F23443D3500A095EC /* Breed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84039B2E23443D3500A095EC /* Breed.swift */; };
 		84210FB92342BE1C00A77BFC /* PetDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84210FB82342BE1C00A77BFC /* PetDetailsViewController.swift */; };
 		84210FBB2342C43800A77BFC /* PetDetailsViewController+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84210FBA2342C43800A77BFC /* PetDetailsViewController+CollectionView.swift */; };
 		84210FBD2342C49400A77BFC /* PetDetailsViewController+MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84210FBC2342C49400A77BFC /* PetDetailsViewController+MapView.swift */; };
@@ -50,6 +51,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		84039B2E23443D3500A095EC /* Breed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Breed.swift; sourceTree = "<group>"; };
 		84210FB82342BE1C00A77BFC /* PetDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetDetailsViewController.swift; sourceTree = "<group>"; };
 		84210FBA2342C43800A77BFC /* PetDetailsViewController+CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PetDetailsViewController+CollectionView.swift"; sourceTree = "<group>"; };
 		84210FBC2342C49400A77BFC /* PetDetailsViewController+MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PetDetailsViewController+MapView.swift"; sourceTree = "<group>"; };
@@ -251,6 +253,7 @@
 			isa = PBXGroup;
 			children = (
 				84D8DC58233E8E2B007A4451 /* Pet.swift */,
+				84039B2E23443D3500A095EC /* Breed.swift */,
 				84D8DC5A233E8E40007A4451 /* GetYourPetErrorResponse.swift */,
 			);
 			path = Response;
@@ -386,6 +389,7 @@
 				84D8DC55233E83CB007A4451 /* GetYourPetClient+Constants.swift in Sources */,
 				8484447D233BED4300F0C3C1 /* PetSearchViewController.swift in Sources */,
 				84210FCC2342FEAB00A77BFC /* PetFavoriteStoreProtocol.swift in Sources */,
+				84039B2F23443D3500A095EC /* Breed.swift in Sources */,
 				84816513233ED16100EE0435 /* UIViewController+Extension.swift in Sources */,
 				84210FC82342F7C500A77BFC /* DataController.swift in Sources */,
 				84210FC42342D38E00A77BFC /* MKMapView+Extensions.swift in Sources */,

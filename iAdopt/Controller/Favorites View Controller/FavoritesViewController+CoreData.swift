@@ -40,7 +40,7 @@ extension FavoritesViewController: NSFetchedResultsControllerDelegate {
 		case .insert:
 			tableView.insertRows(at: [newIndexPath!], with: .fade)
 		case .delete:
-			tableView.deleteRows(at: [indexPath!], with: .fade)
+			tableView.deleteRows(at: [indexPath!], with: .left)
 		case .update:
 			tableView.reloadRows(at: [indexPath!], with: .fade)
 		case .move:
