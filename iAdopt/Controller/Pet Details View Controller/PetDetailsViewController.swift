@@ -20,6 +20,9 @@ class PetDetailsViewController: UIViewController {
 	@IBOutlet weak var favoritesButton: UIButton!
 	@IBOutlet weak var breedLabel: UILabel!
 	@IBOutlet weak var adoptionDeadlineLabel: UILabel!
+	@IBOutlet weak var adoptMeButton: UIButton!
+	@IBOutlet weak var aboutMeView: UIView!
+	@IBOutlet weak var locationView: UIView!
 	@IBOutlet weak var genderLabel: UILabel!
 	@IBOutlet weak var yearLabel: UILabel!
 	@IBOutlet weak var monthLabel: UILabel!
@@ -31,6 +34,7 @@ class PetDetailsViewController: UIViewController {
 	@IBOutlet weak var distanceLabel: UILabel!
 	@IBOutlet weak var mapView: MKMapView!
 	@IBOutlet weak var storyTextView: UITextView!
+	@IBOutlet weak var additionalDetailsView: UIView!
 	@IBOutlet weak var goodWithCatsLabel: UILabel!
 	@IBOutlet weak var goodWithDogsLabel: UILabel!
 	@IBOutlet weak var goodWithChildrenUnder5Label: UILabel!
@@ -98,6 +102,13 @@ class PetDetailsViewController: UIViewController {
 
 	fileprivate func setUpDetailsView() {
 		imageView.image = petImages.first
+
+		adoptMeButton.layer.cornerRadius = 15
+		aboutMeView.layer.cornerRadius = 15
+		locationView.layer.cornerRadius = 15
+		mapView.layer.cornerRadius = 15
+		storyTextView.layer.cornerRadius = 15
+		additionalDetailsView.layer.cornerRadius = 15
 
 		if let photos = pet.additionalPhotos {
 			photos.forEach { (photoUrl) in

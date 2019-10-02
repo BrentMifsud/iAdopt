@@ -74,13 +74,3 @@ struct Pet: Codable {
 		case profileUrl = "ProfileUrl"
 	}
 }
-
-struct Breed: Codable {
-	let breedId: UInt
-	let breedName: String
-
-	enum CodingKeys: String, CodingKey {
-		case breedId = "BreedId"
-		case breedName = "BreedName"
-	}
-}

@@ -21,7 +21,8 @@ struct GetYourPetClient: GetYourPetClientProtocol {
 		self.httpClient = httpClient
 	}
 
-	// MARK: - Post Pets By Search
+	// MARK: - Implemented methods
+	// MARK: Post Pets By Search
 	func postPetsBySearch(requestBody: GetYourPetRequest, completion: @escaping ([Pet]?, Error?) -> Void) {
 		let encoder = JSONEncoder()
 
@@ -72,6 +73,8 @@ struct GetYourPetClient: GetYourPetClientProtocol {
 		postSession.resume()
 	}
 
+	// MARK: Download Image
+	
 	func downloadImage(fromUrl url: URL, completion: @escaping (UIImage?, String?, Error?) -> Void) {
 		let dataTask = httpClient.createGetRequest(withURL: url, andPath: nil, queryParms: nil, headers: nil) { (data, error) in
 			guard let imageData = data, error == nil else {
