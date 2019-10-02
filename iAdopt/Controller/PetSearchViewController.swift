@@ -119,10 +119,13 @@ class PetSearchViewController: UIViewController {
 		showActivityIndicator(activityView: &activityView, !enabled)
 	}
 
+	/// Handler for search results.
+	/// - Parameter responseBody: Collection of Pet response data.
+	/// - Parameter error: Any error that occured.
 	fileprivate func handleSearchResults(responseBody: [Pet]?, error: Error?) {
 		guard let responseBody = responseBody, error == nil else {
 			DispatchQueue.main.async {
-				self.presentErrorAlert(title: "Unable to retrieve adoption listings.", message: "\(error!.localizedDescription)")
+				self.presentErrorAlert(title: "Unable to retrieve adoption listings.", message: "\(String(describing: error!.localizedDescription))")
 				self.enableUI(true)
 			}
 			return
@@ -130,7 +133,7 @@ class PetSearchViewController: UIViewController {
 
 		guard responseBody.count > 0 else {
 			DispatchQueue.main.async {
-				self.presentErrorAlert(title: "Unable to retrieve adoption listings.", message: "\(error!.localizedDescription)")
+				self.presentErrorAlert(title: "Unable to retrieve adoption listings.", message: "\(String(describing: error!.localizedDescription))")
 				self.enableUI(true)
 			}
 			return

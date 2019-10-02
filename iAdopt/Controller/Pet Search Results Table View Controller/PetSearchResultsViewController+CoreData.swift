@@ -10,14 +10,18 @@ import Foundation
 import CoreData
 
 extension PetSearchResultsViewController: NSFetchedResultsControllerDelegate {
+
+	// MARK: Controller did change content
 	func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
 		tableView.endUpdates()
 	}
 
+	// MARK: Controller will change content
 	func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
 		tableView.beginUpdates()
 	}
 
+	// MARK: Did change an object at index path
 	func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
 
 		switch type {

@@ -17,9 +17,13 @@ class FavoritesViewController: UIViewController {
 	@IBOutlet weak var getYourPetButton: UIButton!
 	@IBOutlet weak var tableView: UITableView!
 
+	// MARK: - Class Properties
+
 	let reuseId = "petCell"
 
 	var favoriteFetchedResultsController: NSFetchedResultsController<PetFavorite>!
+
+	// MARK: - View lifecycle methods.
 
 	override func viewDidLoad() {
 		super.viewDidLoad()

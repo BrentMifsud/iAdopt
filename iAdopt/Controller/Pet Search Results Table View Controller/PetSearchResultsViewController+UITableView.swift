@@ -10,11 +10,15 @@ import Foundation
 import UIKit
 
 extension PetSearchResultsViewController: UITableViewDelegate, UITableViewDataSource {
+
+	// MARK: Number of sections
 	func numberOfSections(in tableView: UITableView) -> Int {
 		return 1
     }
 
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+
+	// MARK: Number of rows in secion
+	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
 		var rowCount: Int
 
@@ -27,7 +31,8 @@ extension PetSearchResultsViewController: UITableViewDelegate, UITableViewDataSo
 		return rowCount
     }
 
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+	// MARK: Cell for row at index path
+	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let petTableViewCell = tableView.dequeueReusableCell(withIdentifier: reuseId, for: indexPath) as! PetTableViewCell
 
 		switch petType {
@@ -41,11 +46,13 @@ extension PetSearchResultsViewController: UITableViewDelegate, UITableViewDataSo
         return petTableViewCell
     }
 
+	// MARK: Height for row at index path
 	// The image height of the cell is constrained to 75. This function will always return 75.
 	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 		return 75
 	}
 
+	// MARK: will display cell for row at index path
 	func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
 		guard !SearchResults.shared.endOfResults else { return }
 
@@ -69,6 +76,7 @@ extension PetSearchResultsViewController: UITableViewDelegate, UITableViewDataSo
 		}
 	}
 
+	// MARK: Did select row at index path
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		let petCell = tableView.cellForRow(at: indexPath) as! PetTableViewCell
 		performSegue(withIdentifier: "showPetDetailsView", sender: petCell)
