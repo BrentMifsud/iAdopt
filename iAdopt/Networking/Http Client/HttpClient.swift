@@ -75,17 +75,18 @@ struct HttpClient: HttpClientProtocol {
 		urlRequest.httpBody = requestBody
 
 		return urlSession.dataTask(with: urlRequest) { (data, response, error) in
-			if let response = response as! HTTPURLResponse? {
-				let statusCode = String(response.statusCode)
-				if statusCode.first != "2" {
-					completion(nil, HTTPError(errorCode: response.statusCode))
-				}
-			}
-
 			guard let data = data, error == nil else {
 				completion(nil, error)
 				return
 			}
+
+			if let response = response as! HTTPURLResponse? {
+				let statusCode = String(response.statusCode)
+				if statusCode.first != "2" {
+					completion(data, HTTPError(errorCode: response.statusCode))
+				}
+			}
+
 
 			completion(data, nil)
 		}
