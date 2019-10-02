@@ -13,6 +13,7 @@ class FavoritesViewController: UIViewController {
 
 	// MARK: - IBOutlets
 
+	@IBOutlet weak var navigationBar: UINavigationBar!
 	@IBOutlet weak var getYourPetButton: UIButton!
 	@IBOutlet weak var tableView: UITableView!
 
@@ -23,7 +24,7 @@ class FavoritesViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
-		// Do any additional setup after loading the view.
+		navigationBar.prefersLargeTitles = true
 		tableView.delegate = self
 		tableView.dataSource = self
 		tableView.register(UINib(nibName: "PetTableViewCell", bundle: nil), forCellReuseIdentifier: reuseId)

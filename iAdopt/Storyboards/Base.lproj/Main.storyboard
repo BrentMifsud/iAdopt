@@ -227,7 +227,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lli-DW-51s">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="411"/>
+                                <rect key="frame" x="0.0" y="56" width="320" height="355"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="petCell" id="AtH-pS-at3" customClass="PetTableViewCell" customModule="iAdopt" customModuleProvider="target">
@@ -281,15 +281,24 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6lH-uW-lzC">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="56"/>
+                                <items>
+                                    <navigationItem title="Favorites" id="pYV-x2-kTL"/>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="Irk-m1-0EH" firstAttribute="trailing" secondItem="lli-DW-51s" secondAttribute="trailing" id="5Sg-Su-HGC"/>
+                            <constraint firstItem="lli-DW-51s" firstAttribute="top" secondItem="6lH-uW-lzC" secondAttribute="bottom" id="A18-fC-vBP"/>
                             <constraint firstItem="lli-DW-51s" firstAttribute="leading" secondItem="Irk-m1-0EH" secondAttribute="leading" id="CFG-zj-TqX"/>
                             <constraint firstItem="Irk-m1-0EH" firstAttribute="bottom" secondItem="f7U-o9-NfZ" secondAttribute="bottom" constant="8" id="DTK-A3-6BW"/>
+                            <constraint firstItem="6lH-uW-lzC" firstAttribute="leading" secondItem="Irk-m1-0EH" secondAttribute="leading" id="Jhw-xE-hfp"/>
                             <constraint firstItem="f7U-o9-NfZ" firstAttribute="width" secondItem="f7U-o9-NfZ" secondAttribute="height" multiplier="50:13" id="OeZ-Sl-9Vr"/>
                             <constraint firstItem="Irk-m1-0EH" firstAttribute="bottom" secondItem="lli-DW-51s" secondAttribute="bottom" id="RnE-x9-lXq"/>
-                            <constraint firstItem="lli-DW-51s" firstAttribute="top" secondItem="Irk-m1-0EH" secondAttribute="top" id="cox-UH-FEP"/>
+                            <constraint firstItem="6lH-uW-lzC" firstAttribute="top" secondItem="NfS-qv-nKI" secondAttribute="top" id="fxe-iV-HLL"/>
+                            <constraint firstItem="6lH-uW-lzC" firstAttribute="trailing" secondItem="Irk-m1-0EH" secondAttribute="trailing" id="tzu-kS-eLq"/>
                             <constraint firstItem="Irk-m1-0EH" firstAttribute="trailing" secondItem="f7U-o9-NfZ" secondAttribute="trailing" constant="8" id="zSk-CP-0hW"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Irk-m1-0EH"/>
@@ -298,13 +307,14 @@
                     <navigationItem key="navigationItem" id="L6D-GR-5kP"/>
                     <connections>
                         <outlet property="getYourPetButton" destination="s8Y-ya-HIe" id="fYx-hD-ju7"/>
+                        <outlet property="navigationBar" destination="6lH-uW-lzC" id="IMB-4H-H3K"/>
                         <outlet property="tableView" destination="lli-DW-51s" id="Yxs-s8-sFe"/>
                         <segue destination="2nV-he-5yu" kind="presentation" identifier="showPetDetailsView" id="uhu-Di-k0Q"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OZr-5H-0fE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2145" y="508"/>
+            <point key="canvasLocation" x="2145" y="507.5"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="W9q-kI-8dE">
@@ -334,7 +344,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QrS-bD-6mN">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="411"/>
+                                <rect key="frame" x="0.0" y="56" width="320" height="355"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="petCell" id="NdG-mg-ar5" customClass="PetTableViewCell" customModule="iAdopt" customModuleProvider="target">
@@ -382,14 +392,29 @@
                                     <constraint firstItem="emX-yk-Nsq" firstAttribute="leading" secondItem="dFI-gj-W8G" secondAttribute="leading" id="xpn-kF-6Y1"/>
                                 </constraints>
                             </view>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zZ7-mx-uzW">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="56"/>
+                                <items>
+                                    <navigationItem title="Cat Results" id="qlr-X3-6Pu">
+                                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="pKi-Hr-EuR">
+                                            <connections>
+                                                <action selector="doneButtonPressed:" destination="Z9C-je-8Nn" id="1GS-cO-3kT"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="zZ7-mx-uzW" firstAttribute="leading" secondItem="u91-LZ-iuD" secondAttribute="leading" id="4lc-lc-q0l"/>
+                            <constraint firstItem="zZ7-mx-uzW" firstAttribute="trailing" secondItem="u91-LZ-iuD" secondAttribute="trailing" id="5bN-Fy-P9d"/>
                             <constraint firstItem="QrS-bD-6mN" firstAttribute="leading" secondItem="u91-LZ-iuD" secondAttribute="leading" id="EDB-pk-7ny"/>
                             <constraint firstItem="QrS-bD-6mN" firstAttribute="trailing" secondItem="u91-LZ-iuD" secondAttribute="trailing" id="Q15-ge-ct8"/>
                             <constraint firstItem="QrS-bD-6mN" firstAttribute="bottom" secondItem="u91-LZ-iuD" secondAttribute="bottom" id="Zms-e1-7Rs"/>
                             <constraint firstItem="u91-LZ-iuD" firstAttribute="trailing" secondItem="dFI-gj-W8G" secondAttribute="trailing" constant="10" id="cfz-hx-iOt"/>
-                            <constraint firstItem="QrS-bD-6mN" firstAttribute="top" secondItem="u91-LZ-iuD" secondAttribute="top" id="lRb-hW-7bj"/>
+                            <constraint firstItem="QrS-bD-6mN" firstAttribute="top" secondItem="zZ7-mx-uzW" secondAttribute="bottom" id="lRb-hW-7bj"/>
+                            <constraint firstItem="zZ7-mx-uzW" firstAttribute="top" secondItem="fIi-Pz-QOo" secondAttribute="top" id="mUc-Me-ZQc"/>
                             <constraint firstItem="u91-LZ-iuD" firstAttribute="bottom" secondItem="dFI-gj-W8G" secondAttribute="bottom" constant="10" id="o3c-kI-PBP"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="u91-LZ-iuD"/>
@@ -398,6 +423,7 @@
                     <navigationItem key="navigationItem" id="PU1-Kv-NFF"/>
                     <connections>
                         <outlet property="getYourPetButton" destination="emX-yk-Nsq" id="Ye6-6V-7v1"/>
+                        <outlet property="navigationBar" destination="zZ7-mx-uzW" id="WgU-da-vhd"/>
                         <outlet property="tableView" destination="QrS-bD-6mN" id="848-3R-haU"/>
                         <segue destination="2nV-he-5yu" kind="presentation" identifier="showPetDetailsView" id="alp-Cx-mvA"/>
                     </connections>
@@ -434,7 +460,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MzX-eF-QbR">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="411"/>
+                                <rect key="frame" x="0.0" y="56" width="320" height="355"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="petCell" id="kOs-Mt-LsT" customClass="PetTableViewCell" customModule="iAdopt" customModuleProvider="target">
@@ -487,14 +513,29 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pJb-i2-Np1">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="56"/>
+                                <items>
+                                    <navigationItem title="Dog Results" id="n5X-YL-ZEZ">
+                                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="jvg-iY-Htg">
+                                            <connections>
+                                                <action selector="doneButtonPressed:" destination="3J8-8W-ELk" id="ouH-5G-WGd"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="MzX-eF-QbR" firstAttribute="top" secondItem="Jz4-v3-QVQ" secondAttribute="top" id="6am-6D-TO8"/>
+                            <constraint firstItem="MzX-eF-QbR" firstAttribute="top" secondItem="pJb-i2-Np1" secondAttribute="bottom" id="1V6-rv-3R3"/>
+                            <constraint firstItem="pJb-i2-Np1" firstAttribute="leading" secondItem="Jz4-v3-QVQ" secondAttribute="leading" id="8Vg-sp-fLH"/>
                             <constraint firstItem="MzX-eF-QbR" firstAttribute="leading" secondItem="Jz4-v3-QVQ" secondAttribute="leading" id="BNY-1U-ejh"/>
                             <constraint firstItem="Jz4-v3-QVQ" firstAttribute="trailing" secondItem="9iQ-hH-VJo" secondAttribute="trailing" constant="10" id="C6P-L8-ohG"/>
                             <constraint firstItem="MzX-eF-QbR" firstAttribute="bottom" secondItem="Jz4-v3-QVQ" secondAttribute="bottom" id="EMk-32-1bb"/>
+                            <constraint firstItem="pJb-i2-Np1" firstAttribute="top" secondItem="IER-H2-P8I" secondAttribute="top" id="P4Z-Iv-l1c"/>
                             <constraint firstItem="Jz4-v3-QVQ" firstAttribute="bottom" secondItem="9iQ-hH-VJo" secondAttribute="bottom" constant="10" id="ZXT-zb-vTN"/>
+                            <constraint firstItem="pJb-i2-Np1" firstAttribute="trailing" secondItem="Jz4-v3-QVQ" secondAttribute="trailing" id="c2W-ea-7UP"/>
                             <constraint firstItem="MzX-eF-QbR" firstAttribute="trailing" secondItem="Jz4-v3-QVQ" secondAttribute="trailing" id="l6A-lc-Twk"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Jz4-v3-QVQ"/>
@@ -509,7 +550,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MgR-sj-QVm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4168" y="-416"/>
+            <point key="canvasLocation" x="4166.25" y="-416.25"/>
         </scene>
         <!--Pet Details View Controller-->
         <scene sceneID="6Td-RW-G7d">

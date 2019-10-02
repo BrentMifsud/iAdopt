@@ -13,6 +13,7 @@ class PetSearchResultsViewController: UIViewController {
 
 	// MARK: - IBOutlets
 
+	@IBOutlet weak var navigationBar: UINavigationBar!
 	@IBOutlet weak var getYourPetButton: UIButton!
 	@IBOutlet weak var tableView: UITableView!
 
@@ -32,6 +33,10 @@ class PetSearchResultsViewController: UIViewController {
     }
 
 	// MARK: - IBActions
+
+	@IBAction func doneButtonPressed(_ sender: UIBarButtonItem) {
+		dismiss(animated: true, completion: nil)
+	}
 
 	@IBAction func getYourPetButtonPressed(_ sender: UIButton) {
 		let app = UIApplication.shared
