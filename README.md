@@ -11,6 +11,10 @@ This app can work without an API key, however requests are limited to 1 every 15
 
 To get an API key, please visit the Get Your Pet api [documentation](https://getyourpet.com/api-documentation/).
 
+Once you have an API key, add it to the [constants file](/iAdopt/Networking/Get%20Your%20Pet%20Client/GetYourPetClient+Constants.swift) 
+
+![Api Instructions Image](/images/addApiKey.png)
+
 ## Credits
 
 Pet adoption listings are provided by: 

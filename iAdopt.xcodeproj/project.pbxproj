@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		84039B2F23443D3500A095EC /* Breed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84039B2E23443D3500A095EC /* Breed.swift */; };
 		84039B31234466F800A095EC /* HTTPError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84039B30234466F800A095EC /* HTTPError.swift */; };
+		84039B3423446D7B00A095EC /* addApiKey.png in Resources */ = {isa = PBXBuildFile; fileRef = 84039B3323446D7B00A095EC /* addApiKey.png */; };
 		84210FB92342BE1C00A77BFC /* PetDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84210FB82342BE1C00A77BFC /* PetDetailsViewController.swift */; };
 		84210FBB2342C43800A77BFC /* PetDetailsViewController+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84210FBA2342C43800A77BFC /* PetDetailsViewController+CollectionView.swift */; };
 		84210FBD2342C49400A77BFC /* PetDetailsViewController+MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84210FBC2342C49400A77BFC /* PetDetailsViewController+MapView.swift */; };
@@ -54,6 +55,7 @@
 /* Begin PBXFileReference section */
 		84039B2E23443D3500A095EC /* Breed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Breed.swift; sourceTree = "<group>"; };
 		84039B30234466F800A095EC /* HTTPError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPError.swift; sourceTree = "<group>"; };
+		84039B3323446D7B00A095EC /* addApiKey.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = addApiKey.png; sourceTree = "<group>"; };
 		84210FB82342BE1C00A77BFC /* PetDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetDetailsViewController.swift; sourceTree = "<group>"; };
 		84210FBA2342C43800A77BFC /* PetDetailsViewController+CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PetDetailsViewController+CollectionView.swift"; sourceTree = "<group>"; };
 		84210FBC2342C49400A77BFC /* PetDetailsViewController+MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PetDetailsViewController+MapView.swift"; sourceTree = "<group>"; };
@@ -109,6 +111,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		84039B3223446D5900A095EC /* images */ = {
+			isa = PBXGroup;
+			children = (
+				84039B3323446D7B00A095EC /* addApiKey.png */,
+			);
+			path = images;
+			sourceTree = "<group>";
+		};
 		84210FB72342BDF300A77BFC /* Pet Details View Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -160,6 +170,7 @@
 		8439743C233A9D1300D8A1B4 = {
 			isa = PBXGroup;
 			children = (
+				84039B3223446D5900A095EC /* images */,
 				84397461233AB18900D8A1B4 /* .gitignore */,
 				8439745F233AAF7D00D8A1B4 /* README.md */,
 				84397447233A9D1400D8A1B4 /* iAdopt */,
@@ -362,6 +373,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				84397462233AB18900D8A1B4 /* .gitignore in Resources */,
+				84039B3423446D7B00A095EC /* addApiKey.png in Resources */,
 				84397458233A9D1500D8A1B4 /* LaunchScreen.storyboard in Resources */,
 				84397455233A9D1500D8A1B4 /* Assets.xcassets in Resources */,
 				845E453C233FFD08005FEBA1 /* PetTableViewCell.xib in Resources */,
