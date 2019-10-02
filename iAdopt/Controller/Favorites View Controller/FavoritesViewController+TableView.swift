@@ -58,6 +58,13 @@ extension FavoritesViewController: UITableViewDelegate, UITableViewDataSource {
 		return 75
 	}
 
+	// MARK:
+	func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+		if editingStyle == .delete {
+			PetFavoriteStore.shared.deleteFavorite(usingContext: DataController.shared.viewContext, petFavorite: favoriteFetchedResultsController.object(at: indexPath))
+		}
+	}
+
 	// MARK: Did select row at
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		let petCell = tableView.cellForRow(at: indexPath) as! PetTableViewCell
