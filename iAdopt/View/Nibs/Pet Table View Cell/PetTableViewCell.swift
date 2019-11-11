@@ -78,9 +78,9 @@ class PetTableViewCell: UITableViewCell {
 		if let petImages = fetchedPhotos {
 			return petImages.map { (petImage) -> UIImage in
 				return UIImage(data: petImage.imageData!)!
-			}.first ?? UIImage(systemName: "photo")!
+			}.first ?? getPlaceholderImage()
 		} else {
-			return UIImage(systemName: "photo")!
+			return getPlaceholderImage()
 		}
 	}
 
@@ -92,7 +92,7 @@ class PetTableViewCell: UITableViewCell {
 
 			guard let image = image, error == nil else {
 				DispatchQueue.main.async {
-					weakSelf.petImageView.image = UIImage(systemName: "photo")
+					weakSelf.petImageView.image = getPlaceholderImage()
 					weakSelf.petImageView.contentMode = .scaleAspectFit
 					weakSelf.activityIndicator.stopAnimating()
 				}

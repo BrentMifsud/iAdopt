@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina3_5" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -11,7 +12,7 @@
         <!--Home Page View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="BYZ-38-t0r" userLabel="Home Page View Controller" customClass="HomePageViewController" customModule="iAdopt" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="homePageViewController" modalPresentationStyle="fullScreen" id="BYZ-38-t0r" userLabel="Home Page View Controller" customClass="HomePageViewController" customModule="iAdopt" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -303,7 +304,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Irk-m1-0EH"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Favorites" image="heart" catalog="system" id="GRs-aU-P1M"/>
+                    <tabBarItem key="tabBarItem" title="Favorites" image="heart" id="GRs-aU-P1M"/>
                     <navigationItem key="navigationItem" id="L6D-GR-5kP"/>
                     <connections>
                         <outlet property="getYourPetButton" destination="s8Y-ya-HIe" id="fYx-hD-ju7"/>
@@ -1002,8 +1003,8 @@
                                                     <constraint firstAttribute="height" constant="51" id="rjO-EL-ren"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                <color key="tintColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <state key="normal" image="heart" catalog="system">
+                                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" image="heart">
                                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
                                                 </state>
                                                 <connections>
@@ -1136,9 +1137,9 @@
         <image name="dog-blue" width="25" height="25"/>
         <image name="dog-grey" width="25" height="25"/>
         <image name="doge" width="959" height="540"/>
-        <image name="heart" catalog="system" width="32" height="32"/>
+        <image name="heart" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="alp-Cx-mvA"/>
+        <segue reference="uhu-Di-k0Q"/>
     </inferredMetricsTieBreakers>
 </document>

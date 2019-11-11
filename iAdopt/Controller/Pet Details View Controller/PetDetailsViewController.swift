@@ -152,8 +152,8 @@ class PetDetailsViewController: UIViewController {
 	fileprivate func handleImageDownloads(image: UIImage?, imageUrl: String?, error: Error?){
 		guard let image = image, error == nil else {
 			DispatchQueue.main.async {
-				let image = UIImage(systemName: "photo")
-				self.petImages.append(image!)
+				let image = getPlaceholderImage()
+				self.petImages.append(image)
 			}
 			return
 		}
@@ -174,12 +174,8 @@ class PetDetailsViewController: UIViewController {
 	}
 
 	fileprivate func setFavoriteButtonState(){
-		let config = UIImage.SymbolConfiguration(pointSize: 25, weight: .regular, scale: .medium)
-
-		if isFavorite {
-			favoritesButton.setImage(UIImage(systemName: "heart.fill", withConfiguration: config)!, for: .normal)
-		} else {
-			favoritesButton.setImage(UIImage(systemName: "heart", withConfiguration: config)!, for: .normal)
-		}
+		let favoriteImage = getHeartImage(isFavorite: isFavorite)
+		favoritesButton.setImage(favoriteImage, for: .normal)
+		favoritesButton.tintColor = .systemPink
 	}
 }

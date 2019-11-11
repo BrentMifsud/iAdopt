@@ -46,8 +46,14 @@ extension UIViewController {
 			view.addSubview(activityView)
 			activityView.backgroundColor = UIColor(white: 0, alpha: 0.5)
 
+			var activityIndicator: UIActivityIndicatorView
+
 			// Set up Activity Indicator
-			let activityIndicator = UIActivityIndicatorView(style: .large)
+			if #available(iOS 13.0, *) {
+				activityIndicator = UIActivityIndicatorView(style: .large)
+			} else {
+				activityIndicator = UIActivityIndicatorView(style: .whiteLarge)
+			}
 			activityIndicator.translatesAutoresizingMaskIntoConstraints = false
 			activityView.addSubview(activityIndicator)
 			activityIndicator.center = activityView.center

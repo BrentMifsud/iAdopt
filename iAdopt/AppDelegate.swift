@@ -12,7 +12,25 @@ import CoreData
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+	var window: UIWindow?
+
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+
+		DataController.shared.load()
+
+		if #available(iOS 13.0, *) {
+			return true
+		} else {
+			self.window = UIWindow(frame: UIScreen.main.bounds)
+
+			let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+
+			let viewController = storyboard.instantiateViewController(withIdentifier: "homePageViewController")
+
+			self.window?.rootViewController = viewController
+			self.window?.makeKeyAndVisible()
+		}
+
 		return true
 	}
 
