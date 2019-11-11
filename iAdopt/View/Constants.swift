@@ -23,7 +23,8 @@ func getPlaceholderImage() -> UIImage{
 	if #available(iOS 13.0, *) {
 		return UIImage(systemName: "photo")!
 	} else {
-		return #imageLiteral(resourceName: "imagePlaceholder")
+		let photoPlaceholder = #imageLiteral(resourceName: "imagePlaceholder")
+		return photoPlaceholder.withRenderingMode(.alwaysTemplate)
 	}
 }
 
@@ -38,9 +39,11 @@ func getHeartImage(isFavorite: Bool) -> UIImage {
 		}
 	} else {
 		if isFavorite {
-			return #imageLiteral(resourceName: "heartFilled")
+			let heartFilled = #imageLiteral(resourceName: "heartFilled")
+			return heartFilled.withRenderingMode(.alwaysTemplate)
 		} else {
-			return #imageLiteral(resourceName: "heart")
+			let heart = #imageLiteral(resourceName: "heart")
+			return heart.withRenderingMode(.alwaysTemplate)
 		}
 	}
 }
