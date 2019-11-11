@@ -415,7 +415,7 @@
                             <constraint firstItem="QrS-bD-6mN" firstAttribute="bottom" secondItem="u91-LZ-iuD" secondAttribute="bottom" id="Zms-e1-7Rs"/>
                             <constraint firstItem="u91-LZ-iuD" firstAttribute="trailing" secondItem="dFI-gj-W8G" secondAttribute="trailing" constant="10" id="cfz-hx-iOt"/>
                             <constraint firstItem="QrS-bD-6mN" firstAttribute="top" secondItem="zZ7-mx-uzW" secondAttribute="bottom" id="lRb-hW-7bj"/>
-                            <constraint firstItem="zZ7-mx-uzW" firstAttribute="top" secondItem="fIi-Pz-QOo" secondAttribute="top" id="mUc-Me-ZQc"/>
+                            <constraint firstItem="zZ7-mx-uzW" firstAttribute="top" secondItem="u91-LZ-iuD" secondAttribute="top" id="mUc-Me-ZQc"/>
                             <constraint firstItem="u91-LZ-iuD" firstAttribute="bottom" secondItem="dFI-gj-W8G" secondAttribute="bottom" constant="10" id="o3c-kI-PBP"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="u91-LZ-iuD"/>
@@ -1140,6 +1140,6 @@
         <image name="heart" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="uhu-Di-k0Q"/>
+        <segue reference="alp-Cx-mvA"/>
     </inferredMetricsTieBreakers>
 </document>
