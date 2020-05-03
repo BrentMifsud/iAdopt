@@ -56,15 +56,15 @@ class FavoritesViewController: UIViewController {
 
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
-		let petCell = sender as! PetTableViewCell
-
-		let petDetailsView = segue.destination as! PetDetailsViewController
+		guard let petCell = sender as? PetTableViewCell,
+			let petDetailsView = segue.destination as? PetDetailsViewController,
+			let petImage = petCell.imageView?.image else { return }
 
 		petDetailsView.pet = petCell.pet
 
 		petDetailsView.petFavorite = petCell.petFavorite
 
-		petDetailsView.petImages = [petCell.petImageView.image!]
+		petDetailsView.petImages = [petImage]
 	}
 
 	// MARK: - Class Functions

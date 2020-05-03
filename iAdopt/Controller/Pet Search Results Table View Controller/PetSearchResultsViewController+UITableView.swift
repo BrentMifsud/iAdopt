@@ -33,7 +33,10 @@ extension PetSearchResultsViewController: UITableViewDelegate, UITableViewDataSo
 
 	// MARK: Cell for row at index path
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		let petTableViewCell = tableView.dequeueReusableCell(withIdentifier: reuseId, for: indexPath) as! PetTableViewCell
+		guard let petTableViewCell = tableView.dequeueReusableCell(
+			withIdentifier: reuseId,
+			for: indexPath
+			) as? PetTableViewCell else { return UITableViewCell() }
 
 		switch petType {
 			case .cat: petTableViewCell.pet = SearchResults.shared.catResults[indexPath.row]
@@ -78,9 +81,10 @@ extension PetSearchResultsViewController: UITableViewDelegate, UITableViewDataSo
 
 	// MARK: Did select row at index path
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		let petCell = tableView.cellForRow(at: indexPath) as! PetTableViewCell
-		performSegue(withIdentifier: "showPetDetailsView", sender: petCell)
-		tableView.deselectRow(at: indexPath, animated: true)
+		if let petCell = tableView.cellForRow(at: indexPath) as? PetTableViewCell {
+			performSegue(withIdentifier: "showPetDetailsView", sender: petCell)
+			tableView.deselectRow(at: indexPath, animated: true)
+		}
 	}
 
 

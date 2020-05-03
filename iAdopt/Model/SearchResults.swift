@@ -28,9 +28,9 @@ class SearchResults {
 	}
 
 	enum PetTypeShown: String {
-		case cat = "cat"
-		case dog = "dog"
-		case both = "both"
+		case cat
+		case dog
+		case both
 	}
 
 	var petTypeShown: PetTypeShown = .cat
@@ -43,9 +43,7 @@ class SearchResults {
 
 	var currentPage: UInt = 1
 
-
 	private init() {}
-	
 
 	func clearResults() {
 		searchResults = []

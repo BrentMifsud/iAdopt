@@ -33,7 +33,10 @@ extension FavoritesViewController: UITableViewDelegate, UITableViewDataSource {
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let petFavorite = favoriteFetchedResultsController.object(at: indexPath)
 
-		let petTableViewCell = tableView.dequeueReusableCell(withIdentifier: reuseId, for: indexPath) as! PetTableViewCell
+		guard let petTableViewCell = tableView.dequeueReusableCell(
+			withIdentifier: reuseId,
+			for: indexPath
+			) as? PetTableViewCell else { return UITableViewCell() }
 
 		petTableViewCell.petFavorite = petFavorite
 
@@ -67,7 +70,7 @@ extension FavoritesViewController: UITableViewDelegate, UITableViewDataSource {
 
 	// MARK: Did select row at
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		let petCell = tableView.cellForRow(at: indexPath) as! PetTableViewCell
+		guard let petCell = tableView.cellForRow(at: indexPath) as? PetTableViewCell else { return }
 		performSegue(withIdentifier: "showPetDetailsView", sender: petCell)
 		tableView.deselectRow(at: indexPath, animated: true)
 	}

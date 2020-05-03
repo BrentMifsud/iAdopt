@@ -24,11 +24,10 @@ class DataController {
 		persistentContainer = NSPersistentContainer(name: modelName)
 	}
 
-
 	/// Set up DataController context.
 	/// - Parameter completionHandler: Code to execute after the completion of this method.
 	func load(completionHandler: (() -> Void)? = nil) {
-		persistentContainer.loadPersistentStores { storeDescription, error in
+		persistentContainer.loadPersistentStores { _, error in
 			guard error == nil else {
 				fatalError(error!.localizedDescription)
 			}
@@ -39,14 +38,12 @@ class DataController {
 		}
 	}
 
-
 	/// Save current context.
 	func save() throws {
 		if viewContext.hasChanges {
 			try viewContext.save()
 		}
 	}
-
 
 	/// Configure the context merge policies.
 	func configureContext() {
@@ -71,4 +68,3 @@ extension DataController {
 		}
 	}
 }
-

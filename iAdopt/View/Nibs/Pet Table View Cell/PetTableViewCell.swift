@@ -21,18 +21,16 @@ class PetTableViewCell: UITableViewCell {
 	var pet: Pet!
 	var petFavorite: PetFavorite!
 
-
 	override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
 
-
 	// MARK: Set Up Cell
 	func setUpCell() {
 		activityIndicator.startAnimating()
 
-		if let _ = petFavorite {
+		if petFavorite != nil {
 			setUpByPetFavorite()
 			activityIndicator.stopAnimating()
 		} else {
@@ -43,7 +41,6 @@ class PetTableViewCell: UITableViewCell {
 			downloadImage()
 		}
 	}
-
 
 	// MARK: Set up by Pet Favorite
 	fileprivate func setUpByPetFavorite() {
@@ -65,7 +62,10 @@ class PetTableViewCell: UITableViewCell {
 
 	// MARK: Fetch Persisted Pet Image
 	fileprivate func fetchPersistedPetImage() -> UIImage {
-		let photoFetchedResultsController = PetFavoriteStore.shared.getFetchedResultsControllerForImages(forFavorite: petFavorite, fromContext: DataController.shared.viewContext)
+		let photoFetchedResultsController = PetFavoriteStore.shared.getFetchedResultsControllerForImages(
+			forFavorite: petFavorite,
+			fromContext: DataController.shared.viewContext
+		)
 
 		do {
 			try photoFetchedResultsController.performFetch()
@@ -84,24 +84,23 @@ class PetTableViewCell: UITableViewCell {
 		}
 	}
 
-
 	// MARK: Download image
 	fileprivate func downloadImage() {
-		GetYourPetClient.shared.downloadImage(fromUrl: URL(string: pet.primaryPhoto)!) { [weak self] (image, url, error) in
-			guard let weakSelf = self else { return }
+		GetYourPetClient.shared.downloadImage(fromUrl: URL(string: pet.primaryPhoto)!) { [weak self] (image, _, error) in
+			guard let self = self else { return }
 
 			guard let image = image, error == nil else {
 				DispatchQueue.main.async {
-					weakSelf.petImageView.image = UIImage(systemName: "photo")
-					weakSelf.petImageView.contentMode = .scaleAspectFit
-					weakSelf.activityIndicator.stopAnimating()
+					self.petImageView.image = UIImage(systemName: "photo")
+					self.petImageView.contentMode = .scaleAspectFit
+					self.activityIndicator.stopAnimating()
 				}
 				return
 			}
 
 			DispatchQueue.main.async {
-				weakSelf.petImageView.image = image
-				weakSelf.activityIndicator.stopAnimating()
+				self.petImageView.image = image
+				self.activityIndicator.stopAnimating()
 			}
 		}
 	}

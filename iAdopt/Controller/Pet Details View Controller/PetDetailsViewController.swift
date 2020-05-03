@@ -112,7 +112,7 @@ class PetDetailsViewController: UIViewController {
 		storyTextView.layer.cornerRadius = 15
 		additionalDetailsView.layer.cornerRadius = 15
 
-		#warning("Re-enable collection view when Get Your Pet team fixes API")
+		// TODO: Re-enable collection view when Get Your Pet team fixes API
 		// Workaround for Get your pet api bug. No additional photos are returned so collection view is hidden.
 		if let photos = pet.additionalPhotos {
 			photos.forEach { (photoUrl) in
