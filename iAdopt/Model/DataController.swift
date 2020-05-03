@@ -24,7 +24,6 @@ class DataController {
 		persistentContainer = NSPersistentContainer(name: modelName)
 	}
 
-
 	/// Set up DataController context.
 	/// - Parameter completionHandler: Code to execute after the completion of this method.
 	func load(completionHandler: (() -> Void)? = nil) {
@@ -39,14 +38,12 @@ class DataController {
 		}
 	}
 
-
 	/// Save current context.
 	func save() throws {
 		if viewContext.hasChanges {
 			try viewContext.save()
 		}
 	}
-
 
 	/// Configure the context merge policies.
 	func configureContext() {
