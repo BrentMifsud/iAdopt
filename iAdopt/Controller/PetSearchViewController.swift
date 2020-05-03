@@ -84,18 +84,18 @@ class PetSearchViewController: UIViewController {
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-		let searchResultsTabBarController = segue.destination as! UITabBarController
+		guard let searchResultsTabBarController = segue.destination as? UITabBarController else { return }
 
 		SearchResults.shared.zipCode = zipCodeTextField.text!
 		SearchResults.shared.distance = UInt(distanceSlider.value)
 		SearchResults.shared.currentPage = 1
 		SearchResults.shared.endOfResults = false
 
-		let catViewController = searchResultsTabBarController.viewControllers![0] as! PetSearchResultsViewController
-		let dogViewController = searchResultsTabBarController.viewControllers![1] as! PetSearchResultsViewController
+		let catViewController = searchResultsTabBarController.viewControllers![0] as? PetSearchResultsViewController
+		let dogViewController = searchResultsTabBarController.viewControllers![1] as? PetSearchResultsViewController
 
-		catViewController.petType = .cat
-		dogViewController.petType = .dog
+		catViewController?.petType = .cat
+		dogViewController?.petType = .dog
 
 		switch SearchResults.shared.petTypeShown {
 		case .both:

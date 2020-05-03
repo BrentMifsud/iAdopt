@@ -17,7 +17,10 @@ extension PetDetailsViewController: UICollectionViewDataSource, UICollectionView
 
 	// MARK: Cell for item at index path
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-		let petImageCell = collectionView.dequeueReusableCell(withReuseIdentifier: "petCollectionCell", for: indexPath) as! PetCollectionViewCell
+		guard let petImageCell = collectionView.dequeueReusableCell(withReuseIdentifier: "petCollectionCell", for: indexPath) as? PetCollectionViewCell else {
+			return UICollectionViewCell()
+		}
+
 		petImageCell.petImage = petImages[indexPath.row]
 
 		return petImageCell

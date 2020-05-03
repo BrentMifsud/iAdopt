@@ -14,7 +14,7 @@ extension UIViewController {
 	/// Reusable method for presenting a standard Error Alert.
 	/// - Parameter title: Title Bar Message.
 	/// - Parameter message: More detailed body message.
-	func presentErrorAlert(title: String, message: String){
+	func presentErrorAlert(title: String, message: String) {
 		let alertVC = UIAlertController(title: title, message: message, preferredStyle: .alert)
 		alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
 		present(alertVC, animated: true, completion: nil)
@@ -31,14 +31,14 @@ extension UIViewController {
 	}
 
 	/// Dismiss keyboard.
-	@objc func dismissKeyboardOnTap(){
+	@objc func dismissKeyboardOnTap() {
 		self.view.endEditing(true)
 	}
 
 	/// Display or remove an activity indicator view.
 	/// - Parameter activityView: Activity view passed by reference.
 	/// - Parameter enabled: Whether or not to enable the activity view.
-	func showActivityIndicator(activityView: inout UIView, _ enabled: Bool){
+	func showActivityIndicator(activityView: inout UIView, _ enabled: Bool) {
 		if enabled {
 			// Set up Activity View
 			activityView = UIView(frame: view.frame)

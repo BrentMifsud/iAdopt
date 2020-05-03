@@ -80,7 +80,7 @@ struct HttpClient: HttpClientProtocol {
 				return
 			}
 
-			if let response = response as! HTTPURLResponse? {
+			if let response = response as? HTTPURLResponse {
 				let statusCode = String(response.statusCode)
 				if statusCode.first != "2" {
 					completion(data, HTTPError(errorCode: response.statusCode))

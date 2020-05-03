@@ -21,7 +21,12 @@ extension FavoritesViewController: NSFetchedResultsControllerDelegate {
 	}
 
 	// MARK: Controller did change section
-	func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
+	func controller(
+		_ controller: NSFetchedResultsController<NSFetchRequestResult>,
+		didChange sectionInfo: NSFetchedResultsSectionInfo,
+		atSectionIndex sectionIndex: Int,
+		for type: NSFetchedResultsChangeType
+	) {
 		let indexSet = IndexSet(integer: sectionIndex)
 		switch type {
 		case .insert: tableView.insertSections(indexSet, with: .fade)
@@ -34,7 +39,13 @@ extension FavoritesViewController: NSFetchedResultsControllerDelegate {
 	}
 
 	// MARK: Controller did change an object at index path
-	func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+	func controller(
+		_ controller: NSFetchedResultsController<NSFetchRequestResult>,
+		didChange anObject: Any,
+		at indexPath: IndexPath?,
+		for type: NSFetchedResultsChangeType,
+		newIndexPath: IndexPath?
+	) {
 
 		switch type {
 		case .insert:
@@ -53,7 +64,8 @@ extension FavoritesViewController: NSFetchedResultsControllerDelegate {
 	// MARK: - Helper functions
 	/// Set up the favorites fetched results controller.
 	func setUpFetchedResultsControllers(){
-		favoriteFetchedResultsController = PetFavoriteStore.shared.getFetchedResultsControllerForFavorites(fromContext: DataController.shared.viewContext)
+		favoriteFetchedResultsController = PetFavoriteStore.shared.getFetchedResultsControllerForFavorites(
+			fromContext: DataController.shared.viewContext)
 
 		favoriteFetchedResultsController.delegate = self
 	}

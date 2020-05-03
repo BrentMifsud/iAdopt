@@ -48,11 +48,10 @@ class PetSearchResultsViewController: UIViewController {
 	// MARK: - Navigation
 
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+		guard let petCell = sender as? PetTableViewCell,
+			let petDetailsView = segue.destination as? PetDetailsViewController else { return }
 
-		let petCell = sender as! PetTableViewCell
 		let pet: Pet = petCell.pet
-
-		let petDetailsView = segue.destination as! PetDetailsViewController
 
 		petDetailsView.pet = pet
 		petDetailsView.petFavorite = PetFavoriteStore.shared.fetchFavorite(byPet: pet)
