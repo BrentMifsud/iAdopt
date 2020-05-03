@@ -26,9 +26,9 @@ extension PetDetailsViewController: UICollectionViewDataSource, UICollectionView
 		return petImageCell
 	}
 
-	// MARK: Did select item at idex path.
+	// MARK: Did select item at index path.
+	// TODO: Implement once Get your pet team fixes API.
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-		#warning("Implement once Get your pet team fixes API.")
 		// The api does not seem to ever return more than the main profile photo. Even if the adoption listing on the website has additional photos.
 		// For now, the collection view will be hidden and this function will remain un-implemented until Get your pet team provides a fix.
 	}

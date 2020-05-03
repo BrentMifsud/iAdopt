@@ -20,7 +20,7 @@ extension GetYourPetClient {
 	/// Constants for populating Get Your Pet API Header.
 	enum Header {
 		static let ApiKey = "api-key"
-		#warning("Add API Key Here")
+		//TODO: ADD API KEY
 		static let ApiValue = ""
 	}
 
