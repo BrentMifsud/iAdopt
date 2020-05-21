@@ -1,4 +1,6 @@
 #  iAdopt
+[![Build Status](https://travis-ci.com/BrentMifsud/iAdopt.svg?branch=master)](https://travis-ci.com/BrentMifsud/iAdopt)
+
 ![App Icon](/iAdopt/Assets.xcassets/AppIcon.appiconset/Icon-App-76x76@1x.png)
 
 ## Overview
