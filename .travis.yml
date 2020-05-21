@@ -1,0 +1,6 @@
+language: swift
+os: osx
+osx_image: xcode11.5
+xcode_project: iAdopt.xcodeproj
+xcode_scheme: iAdopt
+xcode_destination: platform=iOS Simulator,OS=13.5,name=iPhone 11
