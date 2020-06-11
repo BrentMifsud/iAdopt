@@ -1,0 +1,23 @@
+default_platform(:ios)
+
+desc "Create app on developer portal"
+lane :create_app do
+  create_app_online
+end
+
+platform :ios do
+  desc "Sync signing"
+  lane :signing do
+    sync_code_signing
+  end
+
+  desc "Build binary"
+  lane :build do
+    signing
+  end
+
+  desc "Release To App Store Connect"
+  lane :release do
+    build
+  end
+end
